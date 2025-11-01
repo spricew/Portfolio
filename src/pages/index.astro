@@ -1,36 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-import Welcome from "../components/homeComps/welcome.astro";
-
-// icons
-import InstagramIcon from "../components/icons/instagramIcon.astro";
-import FacebookIcon from "../components/icons/facebookIcon.astro";
-import TiktokIcon from "../components/icons/tiktokIcon.astro";
-import LinkedInIcon from "../components/icons/linkedinIcon.astro";
+import Navbar from "../components/ui/Navbar.astro";
+import Welcome from "../components/home/Welcome.astro";
 ---
 
 <Layout title="Heyder Medina - Portfolio">
 	<Navbar />
 	<main class="flex flex-col min-h-screen w-full py-24 px-48">
 		<Welcome />
-		<ul class="flex gap-6 text-base text-defaultWhite">
-			<a href="#" class="socialLink" target="_blank">
-				<InstagramIcon class="size-6"/>
-				<!-- Instagram -->
-			</a>
-			<a href="#" class="socialLink" target="_blank">
-				<FacebookIcon class="size-6"/>
-				<!-- Facebook -->
-			</a>
-			<a href="#" class="socialLink" target="_blank">
-				<TiktokIcon class="size-6"/>
-				<!-- Tiktok -->
-			</a>
-			<a href="#" class="socialLink" target="_blank">
-				<LinkedInIcon class="size-6"/>
-				<!-- LinkedIn -->
-			</a>
-		</ul>
 	</main>
 </Layout>

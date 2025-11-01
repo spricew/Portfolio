@@ -1,6 +1,11 @@
-<div class="flex md:flex-row items-center justify-start gap-8 w-full h-[12rem] mb-6">
+---
+import Socials from "../home/Socials.astro";
+
+---
+
+<div class="flex md:flex-row items-center justify-start gap-10 w-full h-[15rem] mb-6">
     <!-- Imagen -->
-    <div class="flex shrink-0 w-[12rem] h-full rounded-full overflow-hidden">
+    <div class="flex shrink-0 w-[15rem] h-full rounded-full overflow-hidden">
         <img
             src="/images/myphoto.png"
             alt="Profile Picture"
@@ -11,13 +16,14 @@
     <!-- Texto -->
     <div class="flex flex-col h-full w-fit justify-between">
         <h1 class="text-5xl font-semibold w-fit text-defaultWhite">Hi, I'm Heyder</h1>
-        <h2 class="text-xl font-medium w-fit text-tertiary-300">Junior Software Developer</h2>
-        <p class="text-lg tracking-wide text-defaultWhite text-balance">
+        <h2 class="text-xl font-medium w-fit -mb-2 text-tertiary-300">Junior Software Developer</h2>
+        <p class="text-lg tracking-wide text-balance text-defaultWhite">
             I'm a software developer with experience in building modern and
             efficient web applications. I have a passion for frontend
             development and enjoy creating beautiful and functional user
             interfaces. I'm always eager to learn new technologies and improve
             my skills.
         </p>
+        <Socials />
     </div>
 </div>

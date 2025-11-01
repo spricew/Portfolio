@@ -110,7 +110,6 @@ body {
   background-color: var(--color-defaultWhite);
 }
 
-/* w-fit flex items-center gap-2 transition ease-out duration-300 hover:scale-105 hover:text-secondary-500 */
 .socialLink{
   width: fit-content;
   display: flex;
