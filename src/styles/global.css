@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@theme {
+  /* color primario verde */
+  --color-primary-50: #f1fdf0;
+  --color-primary-100: #dcfddb;
+  --color-primary-200: #baf9b9;
+  --color-primary-300: #85f283;
+  --color-primary-400: #48e246;
+  --color-primary-500: #20c91e;
+  --color-primary-600: #16b514;
+  --color-primary-700: #138312;
+  --color-primary-800: #146714;
+  --color-primary-900: #125513;
+  --color-primary-950: #042f06;
+  --color-primary-1000: #021a03;
+  
+/* color secundario amarillo */
+  /* --color-secondary-50: #fdfce9;
+  --color-secondary-100: #fdf7c4;
+  --color-secondary-200: #fbec8d;
+  --color-secondary-300: #f8db4c;
+  --color-secondary-400: #f4c415;
+  --color-secondary-500: #e4ad0e;
+  --color-secondary-600: #c58509;
+  --color-secondary-700: #9d5f0b;
+  --color-secondary-800: #824b11;
+  --color-secondary-900: #6f3e14;
+  --color-secondary-950: #401f08;
+  --color-secondary-1000: #170a02; */
+
+--color-secondary-50: #fffcea;
+--color-secondary-100: #fff3c5;
+--color-secondary-200: #ffe785;
+--color-secondary-300: #ffd346;
+--color-secondary-400: #ffbe1b;
+--color-secondary-500: #ff9f0a;
+--color-secondary-600: #e27300;
+--color-secondary-700: #bb4e02;
+--color-secondary-800: #983c08;
+--color-secondary-900: #7c320b;
+--color-secondary-950: #481800;
+
+
+
+  /* color terciario azul */
+  --color-tertiary-50: #effcfb;
+  --color-tertiary-100: #d6f7f6;
+  --color-tertiary-200: #b2efee;
+  --color-tertiary-300: #7de3e3;
+  --color-tertiary-400: #43ced0;
+  --color-tertiary-500: #25b1b5;
+  --color-tertiary-600: #228f98;
+  --color-tertiary-700: #22747d;
+  --color-tertiary-800: #235f67;
+  --color-tertiary-900: #224f57;
+  --color-tertiary-950: #11343b;
+  
+  --color-defaultWhite: #ffffff;
+  --color-defaultBlack: #0B0B0B;
+}
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Urbanist';
+  src: url('/fonts/Urbanist-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbanist';
+  src: url('/fonts/Urbanist-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbanist';
+  src: url('/fonts/Urbanist-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbanist';
+  src: url('/fonts/Urbanist-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbanist';
+  src: url('/fonts/Urbanist-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font: 20px "Urbanist", system-ui, Arial, Helvetica, sans-serif;
+  background-color: var(--color-defaultWhite);
+}
+
+/* w-fit flex items-center gap-2 transition ease-out duration-300 hover:scale-105 hover:text-secondary-500 */
+.socialLink{
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: 0.3s ease-out;
+  background-color: var(--color-tertiary-300);
+  color: var(--color-defaultBlack);
+  padding: 0.6rem;
+  border-radius: 100%
+}
+
+.socialLink:hover{
+  transition: 0.3s ease-out;
+  transform: scale(1.05);
+ opacity: 70%;
+}
+
+/* *{
+  outline: red  solid 1px;
+  box-sizing: border-box;
+} */
