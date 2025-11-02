@@ -110,7 +110,7 @@ body {
   background-color: var(--color-defaultWhite);
 }
 
-*{
+/* *{
   outline: red  solid 1px;
   box-sizing: border-box;
-}
+} */

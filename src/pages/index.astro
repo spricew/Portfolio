@@ -2,17 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/ui/Navbar.astro";
 import Welcome from "../components/home/Welcome.astro";
+import Technologies from "../components/home/Technologies.astro";
 ---
 
 <Layout title="Heyder Medina - Portfolio">
 	<Navbar />
 	<main class="flex flex-col h-fit min-h-screen w-full py-24 px-48 gap-24">
 		<Welcome />
-		<section class="flex flex-col w-full gap-6">
-			<h2 class="text-4xl tracking-wide font-semibold text-defaultWhite">Technologies</h2>
-			<div class="flex flex-col w-full h-[43rem]">
-
-			</div>
-		</section>
+		<Technologies />
 	</main>
 </Layout>
