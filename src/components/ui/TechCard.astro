@@ -1,15 +1,16 @@
 ---
 const {
   Icon,
-  IconHeight = "h-12",
-  IconWidth = "w-12",
+  IconHeight = "h-10",
+  IconWidth = "w-10",
   IconTitle = "",
 } = Astro.props;
 ---
 
 <div
-  class="flex items-center justify-center rounded-3xl bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg"
+  class="flex items-center justify-center rounded-3xl overflow-hidden bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg"
   title={IconTitle}
 >
-  <Icon class={`${IconHeight} ${IconWidth}`} />
+  <Icon class={`block ${IconHeight} ${IconWidth}`} />
+  <Icon class={`absolute -z-1 right-18 top-14 -rotate-10 ${IconHeight} ${IconWidth} blur-xl opacity-80 scale-150`} />
 </div>
