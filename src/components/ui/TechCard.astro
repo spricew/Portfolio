@@ -1,0 +1,15 @@
+---
+const {
+  Icon,
+  IconHeight = "h-12",
+  IconWidth = "w-12",
+  IconTitle = "",
+} = Astro.props;
+---
+
+<div
+  class="flex items-center justify-center rounded-3xl bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg"
+  title={IconTitle}
+>
+  <Icon class={`${IconHeight} ${IconWidth}`} />
+</div>

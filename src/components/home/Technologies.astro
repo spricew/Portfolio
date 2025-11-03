@@ -1,4 +1,5 @@
 ---
+import TechCard from "../../components/ui/TechCard.astro";
 import HtmlIcon from "../../icons/techs/HtmlIcon.astro";
 import CssIcon from "../../icons/techs/CssIcon.astro";
 import JsIcon from "../../icons/techs/JsIcon.astro";
@@ -18,6 +19,28 @@ import PosgresIcon from "../../icons/techs/PostgresIcon.astro";
 import MongoIcon from "../../icons/techs/MongoIcon.astro";
 import CsharpIcon from "../../icons/techs/CsharpIcon.astro";
 import NpmIcon from "../../icons/techs/NpmIcon.astro";
+
+const techs = [
+  { Icon: HtmlIcon, IconTitle: "HTML"},
+  { Icon: CssIcon, IconTitle: "CSS" },
+  { Icon: JsIcon, IconTitle: "JavaScript" },
+  { Icon: ReactIcon, IconTitle: "React" },
+  { Icon: NextIcon, IconHeight: "h-12", IconWidth: "w-14", IconTitle: "Next.js" },
+  { Icon: AstroIcon, IconTitle: "Astro" },
+  { Icon: TailwindIcon, IconTitle: "TailwindCSS" },
+  { Icon: BootstrapIcon, IconTitle: "Bootstrap" },
+  { Icon: FlutterIcon, IconHeight: "h-12", IconWidth: "w-14", IconTitle: "Flutter" },
+  { Icon: DartIcon, IconTitle: "Dart" },
+  { Icon: FigmaIcon, IconTitle: "Figma" },
+  { Icon: IllustratorIcon, IconTitle: "Illustrator" },
+  { Icon: GitIcon, IconTitle: "Git" },
+  { Icon: GithubIcon, IconTitle: "GitHub" },
+  { Icon: VercelIcon, IconHeight: "h-14", IconWidth: "w-16", IconTitle: "Vercel" },
+  { Icon: PosgresIcon, IconTitle: "PostgreSQL" },
+  { Icon: MongoIcon, IconTitle: "MongoDB" },
+  { Icon: CsharpIcon, IconTitle: "C#" },
+  { Icon: NpmIcon, IconTitle: "NPM" },
+];
 ---
 
 <section class="flex flex-col w-full gap-10">
@@ -25,83 +48,16 @@ import NpmIcon from "../../icons/techs/NpmIcon.astro";
         Technologies
     </h2>
 
-    <div class="techs w-full h-[20rem]">
-        <div class="flex items-center justify-center rounded-3xl bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <HtmlIcon className="h-12 w-12" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <CssIcon className="h-12 w-12" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <JsIcon className="h-12 w-12" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <ReactIcon className="h-12 w-12" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10  outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <NextIcon className="h-12 w-14 object-cover" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10  outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <AstroIcon className="h-12 w-12" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10  outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <TailwindIcon className="h-12 w-12" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10  outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <BootstrapIcon className="h-12 w-12" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <FlutterIcon className="h-12 w-14" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <DartIcon className="h-12 w-12" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <FigmaIcon className="h-12 w-12" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <IllustratorIcon className="h-12 w-12" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <GitIcon className="h-12 w-12" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <GithubIcon className="h-12 w-12" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <VercelIcon className="h-14 w-16 object-cover" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <PosgresIcon className="h-12 w-12" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <MongoIcon className="h-12 w-12" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <CsharpIcon className="h-12 w-12" />
-        </div>
-
-        <div class="flex items-center justify-center rounded-3xl bg-white/10 outline-white/25 outline-[0.50px] backdrop-blur-lg">
-            <NpmIcon className="h-12 w-12" />
-        </div>
-    </div>
+   <div class="techs w-full h-[18rem]">
+    {techs.map(({ Icon, IconHeight, IconWidth, IconTitle }) => (
+      <TechCard
+        Icon={Icon}
+        IconHeight={IconHeight}
+        IconWidth={IconWidth}
+        IconTitle={IconTitle}
+      />
+    ))}
+  </div>
 </section>
 
 <style>
