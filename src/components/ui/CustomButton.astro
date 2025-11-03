@@ -3,9 +3,9 @@ const { textColor = "text-white", hoverTextColor, hoverBgColor } = Astro.props;
 ---
 
 <button
-    class=`flex items-center gap-2 px-4 py-2 rounded-full 
+    class={`flex items-center gap-2 px-4 py-2 rounded-full 
     font-medium ${textColor} bg-white/10 outline-[0.50px] outline-white/25 backdrop-blur-lg
-    transition duration-300 ease-out hover:scale-102 ${hoverTextColor} ${hoverBgColor} active:scale-95`
+    transition duration-300 ease-out hover:scale-102 ${hoverTextColor} ${hoverBgColor} active:scale-95`}
 >
     <slot />
 </button>
