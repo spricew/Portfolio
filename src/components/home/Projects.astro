@@ -1,0 +1,30 @@
+---
+import Card from "../ui/Card.astro"
+---
+
+<section class="flex flex-col gap-8">
+    <h1 class="text-4xl tracking-wide font-semibold text-defaultWhite">
+        Projects
+    </h1>
+  
+    <div class="grid grid-rows-2 grid-cols-[repeat(auto-fit,minmax(20rem,1fr))] gap-4 h-[58rem] overflow-hidden">
+        <Card 
+        imageAlt = "Portafolio personal",
+        projectTitle = "Portafolio personal",
+        projectDescription = "Lorem ipsum dolor sit amet consectetur adipiscing elit, massa aliquet quisque eu ultricies parturient mi, curae hendrerit augue duis cubilia suscipit. Imperdiet posuere fames suspendisse urna ad etiam mollis tellus egestas, diam habitant ultrices natoque platea per scelerisque malesuada ac himenaeos, bibendum nulla nullam"/>
+        <Card 
+        imageSrc = "https://cdn-images.dzcdn.net/images/cover/a7a16b8f63b1ec0e9fbd327619966737/1900x1900-000000-81-0-0.jpg"
+        imageAlt = "Project Image 1",
+        projectTitle = "Cifrador de textos",
+        projectDescription = "Lorem ipsum dolor sit amet consectetur adipiscing elit, massa aliquet quisque eu ultricies parturient mi, curae hendrerit augue duis cubilia suscipit. Imperdiet posuere fames suspendisse urna ad etiam mollis tellus egestas, diam habitant ultrices natoque platea per scelerisque malesuada ac himenaeos, bibendum nulla nullam"/>
+         <Card 
+        imageSrc = "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_1000/v1709147758/catalog/1598229736060620800/y8qkfd7nbovlkxjntkmj.webp"
+        imageAlt = "Project Image 1",
+        projectTitle = "Keidot Gardening App",
+        projectDescription = "Lorem ipsum dolor sit amet consectetur adipiscing elit, massa aliquet quisque eu ultricies parturient mi, curae hendrerit augue duis cubilia suscipit. Imperdiet posuere fames suspendisse urna ad etiam mollis tellus egestas, diam habitant ultrices natoque platea per scelerisque malesuada ac himenaeos, bibendum nulla nullam"/>
+        <Card />
+        <Card />
+        <Card />
+    </div>
+
+</section>
