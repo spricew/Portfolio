@@ -1,0 +1,39 @@
+---
+import Pill from "./Pill.astro";
+
+const { imageSrc, imageAlt, projectTitle, projectDescription } = Astro.props;
+---
+
+<div class="flex flex-col relative overflow-hidden rounded-4xl">
+    <picture class="absolute w-full h-full -z-2">
+        <img
+            src={imageSrc ||
+                "https://m.media-amazon.com/images/I/71UzjXRiGHL.jpg"}
+            alt={imageAlt ?? "Project Image"}
+            class="w-full h-full object-cover"
+        />
+    </picture>
+
+    <!-- blur layer -->
+    <div class="absolute w-full h-full bottom-0 -z-1 mask-t-from-30% backdrop-blur-md">
+    </div>
+    <!-- dark opacity layer -->
+    <div class="absolute w-full h-full bottom-0 -z-0 mask-t-from-30% bg-black/50">
+    </div>
+
+    <div class="flex flex-col justify-between h-full w-full p-6">
+        <div class="flex gap-2 flex-wrap w-full h-fit">
+            <Pill pillText="TailwindCSS" />
+            <Pill pillText="React" />
+            <Pill pillText="TailwindCSS" />
+            <Pill pillText="Astro" />
+            <Pill pillText="React" />
+        </div>
+        <div class="flex flex-col gap-2 items-start justify-end w-full h-full text-defaultWhite z-10">
+            <p class="text-2xl font-semibold line-clamp-2">{projectTitle}</p>
+            <p class="text-sm text-balance line-clamp-7">
+                {projectDescription}
+            </p>
+        </div>
+    </div>
+</div>
