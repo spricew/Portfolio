@@ -39,16 +39,16 @@ const techs = [
   { Icon: PosgresIcon, IconTitle: "PostgreSQL" },
   { Icon: MongoIcon, IconTitle: "MongoDB" },
   { Icon: CsharpIcon, IconTitle: "C#" },
-  { Icon: NpmIcon, IconTitle: "NPM" },
+  // { Icon: NpmIcon, IconTitle: "NPM" },
 ];
 ---
 
-<section class="flex flex-col w-full gap-10">
+<section class="flex flex-col w-full gap-8">
     <h2 class="text-4xl tracking-wide font-semibold text-defaultWhite">
         Technologies
     </h2>
 
-   <div class="techs w-full h-[16rem]">
+   <div class="techs w-full h-[10rem]">
     {techs.map(({ Icon, IconHeight, IconWidth, IconTitle }) => (
       <TechCard
         Icon={Icon}
@@ -64,7 +64,7 @@ const techs = [
    .techs {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
         gap: 1rem;
     }
 </style>
