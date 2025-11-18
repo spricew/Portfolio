@@ -1,11 +1,13 @@
 ---
+import SectionTitle from "../ui/SectionTitle.astro"
+import ProjectsIcon from "../../icons/ProjectsIcon.astro"
 import Card from "../ui/Card.astro"
 ---
-
 <section class="flex flex-col gap-8">
-    <h1 class="text-4xl font-semibold text-defaultWhite  font-['Figtree']">
-        Projects
-    </h1>
+    <SectionTitle
+      title="Projects"
+      Icon={ProjectsIcon}
+    />
   
     <div class="grid grid-rows-[repeat(auto-fit,minmax(34rem,1fr))] grid-cols-2 gap-6 h-fit overflow-hidden">
         <Card 
@@ -17,14 +19,5 @@ import Card from "../ui/Card.astro"
         imageAlt = "Project Image 1",
         projectTitle = "Cifrador de textos",
         projectDescription = "Lorem ipsum dolor sit amet consectetur adipiscing elit, massa aliquet quisque eu ultricies parturient mi, curae hendrerit augue duis cubilia suscipit. Imperdiet posuere fames suspendisse urna ad etiam mollis tellus egestas, diam habitant ultrices natoque platea per scelerisque malesuada ac himenaeos, bibendum nulla nullam"/>
-         <Card 
-        imageSrc = "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_1000/v1709147758/catalog/1598229736060620800/y8qkfd7nbovlkxjntkmj.webp"
-        imageAlt = "Project Image 1",
-        projectTitle = "Keidot Gardening App",
-        projectDescription = "Lorem ipsum dolor sit amet consectetur adipiscing elit, massa aliquet quisque eu ultricies parturient mi, curae hendrerit augue duis cubilia suscipit. Imperdiet posuere fames suspendisse urna ad etiam mollis tellus egestas, diam habitant ultrices natoque platea per scelerisque malesuada ac himenaeos, bibendum nulla nullam"/>
-        <Card />
-        <Card />
-        <Card />
     </div>
-
 </section>
