@@ -4,36 +4,54 @@ import Pill from "./Pill.astro";
 const { imageSrc, imageAlt, projectTitle, projectDescription } = Astro.props;
 ---
 
-<div class="flex flex-col h-fit gap-3">
-  <div
-    class="relative flex flex-col justify-end p-6 gap-4 h-[28rem] rounded-4xl border-1 border-white/20 overflow-hidden"
-  >
-    <picture class="absolute inset-0 z-0">
-      <img
-        src={imageSrc ?? "https://m.media-amazon.com/images/I/71UzjXRiGHL.jpg"}
-        alt={imageAlt ?? "Project Image"}
-        class="w-full h-full object-cover"
-        loading="lazy"
-        decoding="async"
-      />
-    </picture>
+<div class="relative flex flex-col overflow-hidden rounded-4xl border-1 border-white/20">
+  <!-- Imagen de fondo -->
+  <picture class="absolute inset-0 -z-[2]">
+    <img
+      src={
+        imageSrc ??
+          "https://m.media-amazon.com/images/I/71UzjXRiGHL.jpg"
+      }
+      alt={imageAlt ?? "Project Image"}
+      class="w-full h-full object-cover"
+      loading="lazy"
+      decoding="async"
+    />
+  </picture>
 
-    <!-- blur layer -->
-    <div class="absolute inset-0 mask-t-from-30% backdrop-blur-md z-1"></div>
+  <!-- blur layer -->
+  <div class="absolute inset-0 -z-[1] mask-t-from-30% backdrop-blur-md"></div>
 
-    <!-- dark layer -->
-    <div class="absolute inset-0 bg-black/30 mask-t-from-30% z-2"></div>
+  <!-- capa oscura -->
+  <div class="absolute inset-0 -z-[2] bg-black/40"></div>
 
-    <div class=" z-10">
+  <!-- Contenido -->
+  <div class="flex flex-col justify-between h-full w-full p-6 relative z-0">
+    <!-- Pills -->
+    <div class="flex flex-wrap gap-2 w-full">
+      <Pill pillText="TailwindCSS" />
+      <Pill pillText="React" />
+    </div>
+
+    <!-- Texto -->
+    <div class="flex flex-col gap-2 items-start justify-end w-full h-full">
+     
+     <div class="flex flex-wrap gap-2 w-full">
+      <Pill pillText="TailwindCSS" />
+      <Pill pillText="React" />
+      <Pill pillText="TailwindCSS" />
+      <Pill pillText="Astro" />
+      <Pill pillText="React" />
+    </div>
+
+
       <p class="text-2xl font-semibold line-clamp-2 text-white">
         {projectTitle}
       </p>
-    </div>
-  </div>
-
-  <div class="p-2">
-      <p class="text-sm text-pretty line-clamp-5 text-white/90">
+      
+      <p class="text-sm text-pretty line-clamp-7 text-white/90">
         {projectDescription}
       </p>
+    </div>
   </div>
 </div>
