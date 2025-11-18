@@ -1,4 +1,7 @@
 ---
+import SectionTitle from "../ui/SectionTitle.astro";
+import TechsIcon from "../../icons/TechsIcon.astro";
+
 import TechCard from "../../components/ui/TechCard.astro";
 import HtmlIcon from "../../icons/techs/HtmlIcon.astro";
 import CssIcon from "../../icons/techs/CssIcon.astro";
@@ -44,9 +47,11 @@ const techs = [
 ---
 
 <section class="flex flex-col w-full gap-8">
-    <h2 class="text-4xl font-semibold text-defaultWhite font-['Figtree']">
-        Technologies
-    </h2>
+
+    <SectionTitle
+      title="Technologies"
+      Icon={TechsIcon}
+    />
 
    <div class="techs w-full h-[10rem]">
     {techs.map(({ Icon, IconHeight, IconWidth, IconTitle }) => (
