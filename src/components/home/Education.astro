@@ -1,12 +1,17 @@
 ---
 import SectionTitle from "../ui/SectionTitle.astro";
 import BookIcon from "../../icons/BookIcon.astro";
+import EducationIcon from "../../icons/EducationIcon.astro";
+import RectangularCard from "../ui/RectangularCard.astro";
 ---
 
 <section class="flex flex-col w-full gap-8">
     <SectionTitle title="Education" Icon={BookIcon} />
 
-    <div class="flex flex-col gap-4 p-6 ring-1 ring-white/20 rounded-full overflow-hidden">
-        
-    </div>
+    <RectangularCard
+        Icon={EducationIcon}
+        schoolName="Universidad Tecnológica Metropolitana"
+        career="Ingeniería en desarrollo y gestión de software"
+        date="sept. 2020 - jun. 2023"
+    />
 </section>
