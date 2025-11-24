@@ -8,19 +8,32 @@ const {
     bgColor = "bg-white/10",
     hoverTextColor,
     hoverBgColor,
+    href = null, // si es null es renderizado como button, si tiene valor como link
 } = Astro.props;
+
+// definicion de estilos para no repetirlos
+const baseStyles = `
+    flex items-center gap-2 px-4 py-2 rounded-full 
+    font-medium ${textSize} ${textColor} ${bgColor} 
+    ring-1 ring-white/25 backdrop-blur-lg cursor-pointer
+    transition duration-300 ease-out hover:scale-102 
+    ${hoverTextColor} ${hoverBgColor} active:scale-95
+`;
 ---
 
-<button
-    class={`flex items-center gap-2 px-4 py-2 rounded-full 
-    font-medium ${textSize} ${textColor} ${bgColor} ring-1 ring-white/25 backdrop-blur-lg cursor-pointer
-    transition duration-300 ease-out hover:scale-102 ${hoverTextColor} ${hoverBgColor} active:scale-95`}
->
-    {(<Icon class={iconSize} />)}
-    {text}
-</button>
-
-<!-- <button class="flex items-center gap-2 px-4 py-2 rounded-full font-semibold text-tertiary-950 bg-tertiary-300
-    transition duration-300 ease-out hover:bg-tertiary-400 hover:scale-105 active:scale-95">
-    <slot />
-</button> -->
+{href ? (
+    <a 
+        href={href} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class={baseStyles}
+    >
+        <Icon class={iconSize} />
+        {text}
+    </a>
+) : (
+    <button class={baseStyles}>
+        <Icon class={iconSize} />
+        {text}
+    </button>
+)}
