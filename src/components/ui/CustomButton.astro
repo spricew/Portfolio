@@ -1,13 +1,23 @@
 ---
-const { textColor = "text-white", hoverTextColor, hoverBgColor } = Astro.props;
+const {
+    text,
+    Icon,
+    textSize = "text-xl",
+    iconSize = "size-5",
+    textColor = "text-white",
+    bgColor = "bg-white/10",
+    hoverTextColor,
+    hoverBgColor,
+} = Astro.props;
 ---
 
 <button
     class={`flex items-center gap-2 px-4 py-2 rounded-full 
-    font-medium ${textColor} bg-white/10 outline-[0.50px] outline-white/25 backdrop-blur-lg
+    font-medium ${textSize} ${textColor} ${bgColor} ring-1 ring-white/25 backdrop-blur-lg cursor-pointer
     transition duration-300 ease-out hover:scale-102 ${hoverTextColor} ${hoverBgColor} active:scale-95`}
 >
-    <slot />
+    {(<Icon class={iconSize} />)}
+    {text}
 </button>
 
 <!-- <button class="flex items-center gap-2 px-4 py-2 rounded-full font-semibold text-tertiary-950 bg-tertiary-300
