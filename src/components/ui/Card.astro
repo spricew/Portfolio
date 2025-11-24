@@ -2,18 +2,36 @@
 import Pill from "./Pill.astro";
 import CustomButton from "./CustomButton.astro";
 import PreviewIcon from "../../icons/PreviewIcon.astro";
-import GithubOutlineIcon from "../../icons/GithubOutlineIcon.astro"
-const { imageSrc, imageAlt, projectTitle, projectDescription } = Astro.props;
+import GithubOutlineIcon from "../../icons/GithubOutlineIcon.astro";
+
+interface Props {
+  imageSrc?: string; // El ? significa que es opcional
+  imageAlt?: string;
+  projectTitle: string;
+  projectDescription: string;
+  previewLink?: string;
+  githubLink?: string;
+  techs?: string[];
+}
+
+const {
+  imageSrc,
+  imageAlt,
+  projectTitle,
+  projectDescription,
+  previewLink,
+  githubLink,
+  techs = [],
+} = Astro.props;
 ---
 
-<div class="relative flex flex-col overflow-hidden rounded-4xl border-1 border-white/20">
+<div
+  class="relative flex flex-col overflow-hidden rounded-4xl border-1 border-white/20"
+>
   <!-- Imagen de fondo -->
   <picture class="absolute inset-0 -z-[2]">
     <img
-      src={
-        imageSrc ??
-          "https://m.media-amazon.com/images/I/71UzjXRiGHL.jpg"
-      }
+      src={imageSrc ?? "https://m.media-amazon.com/images/I/71UzjXRiGHL.jpg"}
       alt={imageAlt ?? "Project Image"}
       class="w-full h-full object-cover"
       loading="lazy"
@@ -28,46 +46,38 @@ const { imageSrc, imageAlt, projectTitle, projectDescription } = Astro.props;
   <div class="absolute inset-0 -z-[2] bg-black/40"></div>
 
   <div class="flex flex-col justify-between h-full w-full p-6 relative z-0">
-
     <!-- buttons -->
     <div class="flex flex-wrap gap-2 w-full">
-      <CustomButton 
-      text="Preview"
-      Icon={PreviewIcon}
-      textSize="text-base"
-      textColor = "text-tertiary-300"
-      bgColor="bg-zinc-950/50"
-      hoverTextColor = ""
-      hoverBgColor
+      <CustomButton
+        text="Preview"
+        Icon={PreviewIcon}
+        textSize="text-base"
+        textColor="text-tertiary-300"
+        bgColor="bg-zinc-950/50"
+        href={previewLink}
       />
 
-      <CustomButton 
-      text="Repository"
-      Icon={GithubOutlineIcon}
-      textSize="text-base"
-      textColor = "text-secondary-300"
-      bgColor="bg-zinc-900/50"
-      hoverTextColor = ""
-      hoverBgColor
+      <CustomButton
+        text="Github"
+        Icon={GithubOutlineIcon}
+        textSize="text-base"
+        textColor="text-tertiary-300"
+        bgColor="bg-zinc-900/50"
+        href={githubLink}
       />
     </div>
 
-    <!-- Texto -->
     <div class="flex flex-col gap-2 items-start justify-end w-full h-full">
-     
-     <div class="flex flex-wrap gap-2 w-full">
-      <Pill pillText="TailwindCSS" />
-      <Pill pillText="React" />
-      <Pill pillText="TailwindCSS" />
-      <Pill pillText="Astro" />
-      <Pill pillText="React" />
-    </div>
+      <div class="flex flex-wrap gap-2 w-full">
+        {techs.map((tech) => (
+          <Pill pillText={tech} />
+        ))}
+      </div>
 
-
-      <p class="text-2xl font-semibold line-clamp-2 text-white">
+      <span class="text-2xl font-semibold line-clamp-2 text-white">
         {projectTitle}
-      </p>
-      
+      </span>
+
       <p class="text-sm text-pretty line-clamp-7 text-white/90">
         {projectDescription}
       </p>
