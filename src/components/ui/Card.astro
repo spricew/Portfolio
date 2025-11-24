@@ -1,6 +1,8 @@
 ---
 import Pill from "./Pill.astro";
-
+import CustomButton from "./CustomButton.astro";
+import PreviewIcon from "../../icons/PreviewIcon.astro";
+import GithubOutlineIcon from "../../icons/GithubOutlineIcon.astro"
 const { imageSrc, imageAlt, projectTitle, projectDescription } = Astro.props;
 ---
 
@@ -25,12 +27,29 @@ const { imageSrc, imageAlt, projectTitle, projectDescription } = Astro.props;
   <!-- capa oscura -->
   <div class="absolute inset-0 -z-[2] bg-black/40"></div>
 
-  <!-- Contenido -->
   <div class="flex flex-col justify-between h-full w-full p-6 relative z-0">
-    <!-- Pills -->
+
+    <!-- buttons -->
     <div class="flex flex-wrap gap-2 w-full">
-      <Pill pillText="TailwindCSS" />
-      <Pill pillText="React" />
+      <CustomButton 
+      text="Preview"
+      Icon={PreviewIcon}
+      textSize="text-base"
+      textColor = "text-tertiary-300"
+      bgColor="bg-zinc-950/50"
+      hoverTextColor = ""
+      hoverBgColor
+      />
+
+      <CustomButton 
+      text="Repository"
+      Icon={GithubOutlineIcon}
+      textSize="text-base"
+      textColor = "text-secondary-300"
+      bgColor="bg-zinc-900/50"
+      hoverTextColor = ""
+      hoverBgColor
+      />
     </div>
 
     <!-- Texto -->
