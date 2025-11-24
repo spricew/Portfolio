@@ -8,10 +8,20 @@ import RectangularCard from "../ui/RectangularCard.astro";
 <section class="flex flex-col w-full gap-8">
     <SectionTitle title="Education" Icon={BookIcon} />
 
-    <RectangularCard
+    <div class="flex flex-col gap-4">
+        <RectangularCard
         Icon={EducationIcon}
         schoolName="Universidad Tecnológica Metropolitana"
         career="Ingeniería en desarrollo y gestión de software"
+        date="sept. 2023 - jul. 2026"
+    />
+
+    <RectangularCard
+        Icon={EducationIcon}
+        schoolName="Conalep Mérida 1"
+        career="Carrera técnica en informática"
         date="sept. 2020 - jun. 2023"
     />
+    </div>
+    
 </section>
