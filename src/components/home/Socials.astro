@@ -1,13 +1,13 @@
 ---
-// icons
 import InstagramIcon from "../../icons/instagramIcon.astro";
 import MailIcon from "../../icons/MailIcon.astro";
 import GithubIcon from "../../icons/GithubIcon.astro";
 import LinkedInIcon from "../../icons/linkedinIcon.astro";
 ---
 
-<ul class="flex gap-4 text-base text-white">
-    <a href="#" class="socialLink" target="_blank">
+<ul class="h-full flex gap-4 text-base text-white">
+    <a href="#" class="socialLink" 
+    target="_blank">
         <MailIcon class="size-5" />
     </a>
     <a href="#" class="socialLink" target="_blank">
@@ -23,20 +23,19 @@ import LinkedInIcon from "../../icons/linkedinIcon.astro";
 
 <style>
     .socialLink {
-        width: fit-content;
         display: flex;
+        height: 100%;
+        aspect-ratio: 1/1;
         align-items: center;
-        gap: 0.4rem;
+        justify-content: center;
         transition: 0.3s ease-out;
         background-color: var(--color-tertiary-300);
         color: var(--color-tertiary-950);
-        padding: 0.6rem;
         border-radius: 100%;
     }
 
     .socialLink:hover {
-        transition: 0.3s ease-out;
         transform: scale(1.05);
-        opacity: 70%;
+        opacity: 0.6;
     }
 </style>
