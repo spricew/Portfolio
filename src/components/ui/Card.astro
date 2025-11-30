@@ -3,6 +3,7 @@ import Pill from "./Pill.astro";
 import CustomButton from "./CustomButton.astro";
 import PreviewIcon from "../../icons/PreviewIcon.astro";
 import GithubOutlineIcon from "../../icons/GithubOutlineIcon.astro";
+import MeshButton from "./MeshButton.astro";
 
 interface Props {
   imageSrc?: string; // El ? significa que es opcional
@@ -47,31 +48,29 @@ const {
 
   <div class="flex flex-col justify-between h-full w-full p-6 relative z-0">
     <!-- buttons -->
-    <div class="flex flex-wrap gap-2 w-full">
-      <CustomButton
+    <div class="relative flex gap-2 w-full">
+      <MeshButton
         text="Preview"
         Icon={PreviewIcon}
         textSize="text-base"
-        textColor="text-tertiary-300"
-        bgColor="bg-zinc-950/50"
+        textColor="text-slate-800"
         href={previewLink}
       />
 
       <CustomButton
-        text="Github"
-        Icon={GithubOutlineIcon}
-        textSize="text-base"
-        textColor="text-tertiary-300"
-        bgColor="bg-zinc-900/50"
-        href={githubLink}
+      text="Repository"
+      Icon={GithubOutlineIcon}
+      textSize="text-base"
+      textColor="text-white"
+      bgColor="bg-zinc-900/60"
+      href={githubLink}
+      extraClass="font-medium rounded-xl"
       />
     </div>
 
     <div class="flex flex-col gap-2 items-start justify-end w-full h-full">
       <div class="flex flex-wrap gap-2 w-full">
-        {techs.map((tech) => (
-          <Pill pillText={tech} />
-        ))}
+        {techs.map((tech) => <Pill pillText={tech} />)}
       </div>
 
       <span class="text-2xl font-semibold line-clamp-2 text-white">
