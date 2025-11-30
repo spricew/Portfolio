@@ -1,0 +1,32 @@
+---
+const {
+    text = "Button",
+    Icon,
+    textSize = "text-base",
+    iconSize = "size-5",
+    textColor = "text-white",
+    href = "#",
+} = Astro.props;
+---
+
+<a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class={`
+        group flex items-center justify-start gap-2
+        rounded-xl font-bold ${textSize} ${textColor} 
+        bg-[linear-gradient(90deg,#FFF0F5_0%,#FFF8DC_50%,#E0FFFF_100%)]
+        transition-all duration-300 ease-out cursor-pointer hover:scale-102 
+        overflow-hidden px-4 py-2
+        active:scale-95  
+    `}
+>
+    <!-- Ícono fijo en la izquierda -->
+    <Icon class={`${iconSize}`} />
+
+    <!-- Texto que aparece sin empujar el ícono -->
+    <span>
+        {text}
+    </span>
+</a>
