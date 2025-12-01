@@ -38,12 +38,15 @@ import DownloadIcon from "../../icons/DownloadIcon.astro";
             my skills.
         </p>
         <div class="flex gap-3 items-center">
+            <!-- TODO: IMPLEMENTAR ARCHIVO DE CURRICULUM -->
             <CustomButton
                 text="Download CV"
                 Icon={DownloadIcon}
                 textColor="text-white"
                 hoverTextColor="hover:text-tertiary-300"
                 hoverBgColor="hover:bg-tertiary-950/10"
+                href="/CV_Heyder.pdf"
+                download={true}
             />
             <Socials />
         </div>
