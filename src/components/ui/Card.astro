@@ -27,7 +27,7 @@ const {
 ---
 
 <div
-  class="relative flex flex-col overflow-hidden rounded-4xl border-1 border-white/20"
+  class="relative flex flex-col min-h-[34rem] overflow-hidden rounded-4xl border-1 border-white/20"
 >
   <!-- Imagen de fondo -->
   <picture class="absolute inset-0 -z-[2]">
@@ -59,6 +59,8 @@ const {
         href={previewLink}
       />
       )}
+      
+      {githubLink && (
       <CustomButton
       text="Repository"
       Icon={GithubOutlineIcon}
@@ -67,7 +69,7 @@ const {
       bgColor="bg-zinc-900/60"
       href={githubLink}
       extraClass="font-medium rounded-xl"
-      />
+      />)}
     </div>
 
     <div class="flex flex-col gap-2 items-start justify-end w-full h-full">
