@@ -1,8 +1,19 @@
 ---
 import SectionTitle from "../ui/SectionTitle.astro";
 import SkillsIcon from "../../icons/SkillsIcon.astro";
+import MiniCard from "../ui/MiniCard.astro";
+import IconHtml from "../../icons/techs/IconHtml.astro";
+import CambridgeLogo from "../../icons/CambridgeLogo.astro";
+import ScrumLogo from "../../icons/ScrumLogo.astro";
+import CiscoLogo from "../../icons/CiscoLogo.astro"
 ---
 
 <section class="flex flex-col w-full gap-8">
   <SectionTitle title="Skills" Icon={SkillsIcon} />
+  <div class="flex flex-wrap justify-center gap-6">
+    <MiniCard text="Cambridge B1 English Certificate" Icon={CambridgeLogo}/>
+    <MiniCard text="Scrum Foundation Certificate" Icon={ScrumLogo}/>
+    <MiniCard text="Cisco CCNA (V7) Introduction Certificate" Icon={CiscoLogo}/>
+    
+  </div>
 </section>
