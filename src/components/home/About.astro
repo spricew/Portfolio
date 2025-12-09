@@ -1,9 +1,52 @@
 ---
 import SectionTitle from "../ui/SectionTitle.astro";
 import AboutIcon from "../../icons/AboutIcon.astro";
+import AboutPhoto from "../../assets/about_photo.jpg";
+import { Image } from "astro:assets";
 ---
 
 <section class="flex flex-col w-full gap-8">
     <SectionTitle title="About me" Icon={AboutIcon} />
 
+    <div class="flex gap-8 h-84">
+        <!-- imagen -->
+        <div class="self-stretch shrink-0 rounded-3xl ring-1 ring-white/10 overflow-hidden">
+            <Image
+                src={AboutPhoto}
+                alt={"asd"}
+                quality={50}
+                class="w-120 h-full object-cover object-center"
+            />
+        </div>
+
+        <!-- contenedor de texto -->
+        <div class="flex flex-col self-stretch">
+            <p class="text-lg text-pretty text-white mb-[1lh]">
+                Soy <span class="highlight">Heyder Ix Medina</span>,
+                un desarrollador de software en formación
+                con enfoque en <span class="highlight">Frontend</span>
+                y un gusto especial por el diseño digital. Disfruto crear 
+                interfaces atractivas, trabajar en ideas visuales y
+                también editar videos como parte de mi proceso creativo.
+                Actualmente estudio <span class="highlight">Ingeniería en Gestión y Desarrollo
+                de Software</span>, complementando mi aprendizaje práctico en el desarrollo web.
+            </p>
+
+            <p class="text-lg text-pretty text-white">
+                Tengo experiencia con tecnologías como Astro, Next.js, Tailwind
+                y Javascript, construyendo proyectos orientados a la
+                funcionalidad y la experiencia del usuario. <span class="highlight">Mi objetivo es</span>
+                seguir creciendo profesionalmente, colaborar en proyectos
+                retadores y mejorar constantemente mis habilidades para aportar
+                soluciones que realmente generen valor.
+            </p>
+        </div>
+    </div>
 </section>
+
+<style>
+    .highlight{
+        color: var(--color-tertiary-300);
+        font-weight: 600;
+    }
+</style>
