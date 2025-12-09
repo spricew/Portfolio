@@ -10,7 +10,9 @@ import { Image } from "astro:assets";
 
     <div class="flex gap-8 h-84">
         <!-- imagen -->
-        <div class="self-stretch shrink-0 rounded-3xl ring-1 ring-white/10 overflow-hidden">
+        <div
+            class="self-stretch shrink-0 rounded-3xl ring-1 ring-white/10 overflow-hidden"
+        >
             <Image
                 src={Portrait}
                 alt={"asd"}
@@ -22,30 +24,33 @@ import { Image } from "astro:assets";
         <!-- contenedor de texto -->
         <div class="flex flex-col self-stretch">
             <p class="text-lg text-pretty text-white mb-[1lh]">
-                Soy <span class="highlight">Heyder Ix Medina</span>,
-                un desarrollador de software en formación
-                con enfoque en <span class="highlight">Frontend</span>
-                y un gusto especial por el diseño digital. Disfruto crear 
-                interfaces atractivas, trabajar en ideas visuales y
-                también editar videos como parte de mi proceso creativo.
-                Actualmente estudio <span class="highlight">Ingeniería en Gestión y Desarrollo
-                de Software</span>, complementando mi aprendizaje práctico en el desarrollo web.
+                I'm <span class="highlight">Heyder Ix Medina</span>, a software
+                developer in training with a focus on
+                <span class="highlight">Frontend</span> and a special interest in
+                digital design. I enjoy creating attractive interfaces, working on
+                visual ideas, and editing videos as part of my creative process.
+                I'm currently studying
+                <span class="highlight"
+                    >Software Management and Development Engineering</span
+                >, complementing my hands-on learning in web development.
             </p>
 
             <p class="text-lg text-pretty text-white">
                 Tengo experiencia con tecnologías como Astro, Next.js, Tailwind
                 y Javascript, construyendo proyectos orientados a la
-                funcionalidad y la experiencia del usuario. <span class="highlight">Mi objetivo es</span>
-                seguir creciendo profesionalmente, colaborar en proyectos
-                retadores y mejorar constantemente mis habilidades para aportar
-                soluciones que realmente generen valor.
+                funcionalidad y la experiencia del usuario. <span
+                    class="highlight">Mi objetivo es</span
+                >
+                seguir creciendo profesionalmente, colaborar en proyectos retadores
+                y mejorar constantemente mis habilidades para aportar soluciones
+                que realmente generen valor.
             </p>
         </div>
     </div>
 </section>
 
 <style>
-    .highlight{
+    .highlight {
         color: var(--color-tertiary-300);
         font-weight: 600;
     }
