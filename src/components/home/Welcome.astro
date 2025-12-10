@@ -9,7 +9,7 @@ import DownloadIcon from "../../icons/DownloadIcon.astro";
 >
     <!-- Imagen -->
     <figure
-        class="relative flex shrink-0 h-full aspect-square rounded-full overflow-hidden ring-1 ring-white/25 bg-white/15"
+        class="scale-in relative flex shrink-0 h-full aspect-square rounded-full overflow-hidden ring-1 ring-white/25 bg-white/15"
     >
         <img
             src="https://res.cloudinary.com/deyv1rwqh/image/upload/v1763430013/memoji_pfp_iobatg.png"
@@ -38,14 +38,14 @@ import DownloadIcon from "../../icons/DownloadIcon.astro";
                 Junior Software Developer
             </h2>
         </header>
-        <p class="text-lg tracking-wide text-balance text-white">
+        <p class="text-lg tracking-wide text-balance text-white fade-in">
             I'm a software developer with experience in building modern and
             efficient web applications. I have a passion for frontend
             development and enjoy creating beautiful and functional user
             interfaces. I'm always eager to learn new technologies and improve
             my skills.
         </p>
-        <div class="flex gap-3 items-center">
+        <div id="btnContainer" class="flex gap-3 items-center w-fit">
             <CustomButton
                 text="Download CV"
                 Icon={DownloadIcon}
@@ -59,3 +59,59 @@ import DownloadIcon from "../../icons/DownloadIcon.astro";
         </div>
     </div>
 </section>
+
+<style>
+    h1{
+        animation: fadeIn 0.6s ease-out 0.1s forwards;
+    }
+
+    h2{
+        animation: fadeIn 0.6s ease-out 0.2s forwards;
+    }
+
+    #btnContainer {
+    animation: scaleIn 0.6s ease-out 0.4s forwards;
+    }
+
+
+    .fade-in {
+        animation: fadeIn 0.6s ease-out 0.3s forwards;
+    }
+
+    .scale-in {
+        animation: scaleIn 0.8s ease-out 0.2s forwards;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        50% {
+            transform: translateY(-10px);
+            opacity: 0.8;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes scaleIn {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+            filter: blur(10px);
+        }
+        50% {
+            transform: scale(1.1);
+            opacity: 0.8;
+            filter: blur(0);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+            filter: blur(0);
+        }
+    }
+</style>
