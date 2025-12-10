@@ -4,31 +4,23 @@
         <img src="/images/UsaFlag.webp" alt="USA Flag" class="h-6 w-9 object-cover rounded-xs"/>
     </div>
     <ul class="flex gap-6">
-        <li id="about">
+        <li class="scale-in" style={"animation-delay: .3s"}>
             <a href="#about" class="block transition duration-300 ease-out hover:scale-110 p-2 hover:text-tertiary-300">About</a>
         </li>
-        <li id="projects">
+        <li class="scale-in" style={"animation-delay: .4s"}>
             <a href="#projects" class="block transition duration-300 ease-out hover:scale-110 p-2 hover:text-tertiary-300">Projects</a>
         </li>
-        <li id="contact">
+        <li class="scale-in" style={"animation-delay: .5s"}>
             <a href="#contact" class="block transition duration-300 ease-out hover:scale-110 p-2 pr-0 hover:text-tertiary-300">Contact</a>
         </li>
     </ul>
 </nav>
 
-
 <style>
-    #about{
-      animation: scaleIn 0.8s ease-out .3s forwards;
-    }
-
-    #projects{
-      animation: scaleIn 0.8s ease-out .4s forwards;
+    .scale-in{
+      animation: scaleIn 0.8s ease-out backwards;
     }
     
-    #contact{
-      animation: scaleIn 0.8s ease-out .5s forwards;
-    }
     @keyframes scaleIn {
         0% {
             transform: scale(0);
