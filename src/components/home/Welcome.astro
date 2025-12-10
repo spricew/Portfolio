@@ -31,21 +31,25 @@ import DownloadIcon from "../../icons/DownloadIcon.astro";
     <!-- Texto -->
     <div class="flex flex-col h-full w-fit justify-between">
         <header>
-            <h1 class="text-4xl md:text-5xl font-semibold text-white">
+            <h1 class="slide-in text-4xl md:text-5xl font-semibold text-white"
+            style={"animation-delay: 0.1s"}>
                 Hi, I'm Heyder Medina
             </h1>
-            <h2 class="relative top-4 text-lg md:text-xl font-medium text-tertiary-300 font-['Figtree']">
+            <h2 class="slide-in relative top-4 text-lg md:text-xl font-medium text-tertiary-300 font-['Figtree']"
+            style={"animation-delay: 0.2s"}>
                 Junior Software Developer
             </h2>
         </header>
-        <p class="text-lg tracking-wide text-balance text-white fade-in">
+        <p class="slide-in text-lg tracking-wide text-balance text-white"
+        style={"animation-delay: 0.3s"}>
             I'm a software developer with experience in building modern and
             efficient web applications. I have a passion for frontend
             development and enjoy creating beautiful and functional user
             interfaces. I'm always eager to learn new technologies and improve
             my skills.
         </p>
-        <div id="btnContainer" class="flex gap-3 items-center w-fit">
+        <div id="btnContainer" class="scale-in flex gap-3 items-center w-fit"
+        style={"animation-delay: 0.3s"}>
             <CustomButton
                 text="Download CV"
                 Icon={DownloadIcon}
@@ -61,28 +65,16 @@ import DownloadIcon from "../../icons/DownloadIcon.astro";
 </section>
 
 <style>
-    h1{
-        animation: fadeIn 0.6s ease-out 0.1s forwards;
-    }
 
-    h2{
-        animation: fadeIn 0.6s ease-out 0.2s forwards;
-    }
-
-    #btnContainer {
-    animation: scaleIn 0.6s ease-out 0.4s forwards;
-    }
-
-
-    .fade-in {
-        animation: fadeIn 0.6s ease-out 0.3s forwards;
+    .slide-in {
+        animation: slideIn 0.6s ease-out backwards;
     }
 
     .scale-in {
-        animation: scaleIn 0.8s ease-out 0.2s forwards;
+        animation: scaleIn 0.8s ease-out 0.2s backwards;
     }
 
-    @keyframes fadeIn {
+    @keyframes slideIn {
         0% {
             transform: translateY(50px);
             opacity: 0;
