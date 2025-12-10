@@ -5,7 +5,7 @@ import Card from "../ui/Card.astro";
 ---
 
 <section class="flex flex-col gap-8">
-  <div class="slide-in">
+  <div class="fade-up-view">
     <SectionTitle title="Projects" Icon={ProjectsIcon} />
   </div>
 
@@ -39,26 +39,3 @@ import Card from "../ui/Card.astro";
     />
   </div>
 </section>
-
-<style>
-  .slide-in {
-    animation: slideIn 0.6s ease-out backwards;
-    animation-timeline: view();
-    animation-range: entry 100% cover 60%;
-  }
-
-  @keyframes slideIn {
-    0% {
-      transform: translateY(50px);
-      opacity: 0;
-    }
-    50% {
-      transform: translateY(-10px);
-      opacity: 0.8;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-</style>

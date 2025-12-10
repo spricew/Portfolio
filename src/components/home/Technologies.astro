@@ -46,7 +46,8 @@ const techs = [
 
 <section class="flex flex-col w-full gap-8">
 
-    <div id="title">
+    <div class="slide-in"
+    style={"animation-delay:0.5s"}>
       <SectionTitle
       title="Technologies"
       Icon={TechsIcon}
@@ -82,23 +83,4 @@ const techs = [
         grid-template-rows: repeat(2, 1fr);
         gap: 1rem;
     }
-
-    #title{
-      animation: fadeIn 0.8s ease-out 0.5s backwards;
-    }
-
-    @keyframes fadeIn {
-      0% {
-          transform: translateY(50px);
-          opacity: 0;
-      }
-      50% {
-          transform: translateY(-10px);
-          opacity: 0.8;
-      }
-      100% {
-          transform: translateY(0);
-          opacity: 1;
-      }
-  }
 </style>
