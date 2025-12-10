@@ -5,11 +5,11 @@ import Card from "../ui/Card.astro";
 ---
 
 <section class="flex flex-col gap-8">
-  <SectionTitle title="Projects" Icon={ProjectsIcon} />
+  <div class="slide-in">
+    <SectionTitle title="Projects" Icon={ProjectsIcon} />
+  </div>
 
-  <div
-    class="grid grid-cols-2 gap-6 overflow-hidden"
-  >
+  <div class="grid grid-cols-2 gap-6">
     <Card
       previewLink="https://mayanlifeyucatan.com/"
       projectTitle="Mayan Life Inmobiliaria Web"
@@ -27,7 +27,7 @@ import Card from "../ui/Card.astro";
       imageAlt="Keidot App"
       techs={["Flutter", "Dart"]}
     />
- 
+
     <Card
       previewLink="https://heyder-medina-portfolio.vercel.app/"
       githubLink="https://github.com/spricew/Portfolio"
@@ -39,3 +39,26 @@ import Card from "../ui/Card.astro";
     />
   </div>
 </section>
+
+<style>
+  .slide-in {
+    animation: slideIn 0.6s ease-out backwards;
+    animation-timeline: view();
+    animation-range: entry 100% cover 60%;
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(-10px);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>
