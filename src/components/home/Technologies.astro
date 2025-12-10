@@ -21,7 +21,6 @@ import VercelIcon from "../../icons/techs/VercelIcon.astro";
 import PosgresIcon from "../../icons/techs/PostgresIcon.astro";
 import MongoIcon from "../../icons/techs/MongoIcon.astro";
 import CsharpIcon from "../../icons/techs/CsharpIcon.astro";
-import NpmIcon from "../../icons/techs/NpmIcon.astro";
 
 const techs = [
   { Icon: IconHtml, IconTitle: "Html"},
@@ -42,27 +41,38 @@ const techs = [
   { Icon: PosgresIcon, IconTitle: "PostgreSQL" },
   { Icon: MongoIcon, IconTitle: "MongoDB" },
   { Icon: CsharpIcon, IconTitle: "C#" },
-  // { Icon: NpmIcon, IconTitle: "NPM" },
 ];
 ---
 
 <section class="flex flex-col w-full gap-8">
 
-    <SectionTitle
+    <div id="title">
+      <SectionTitle
       title="Technologies"
       Icon={TechsIcon}
     />
+    </div>
 
-   <div class="techs w-full h-[10rem]">
-    {techs.map(({ Icon, IconHeight, IconWidth, IconTitle }) => (
-      <TechCard
-        Icon={Icon}
-        IconHeight={IconHeight}
-        IconWidth={IconWidth}
-        IconTitle={IconTitle}
-      />
-    ))}
-  </div>
+    <div class="techs w-full h-[10rem]">
+        {techs.map(({ Icon, IconHeight, IconWidth, IconTitle }, index) => {
+            const initialDelay = 0.1;
+            const delayIncrement = 0.1;
+            
+            const calculatedDelay = initialDelay + (index * delayIncrement);
+            
+            const delayString = `${calculatedDelay.toFixed(2)}s`; 
+            
+            return (
+                <TechCard
+                    Icon={Icon}
+                    IconHeight={IconHeight}
+                    IconWidth={IconWidth}
+                    IconTitle={IconTitle}
+                    delay={delayString}
+                />
+            );
+        })}
+    </div>
 </section>
 
 <style>
@@ -72,4 +82,23 @@ const techs = [
         grid-template-rows: repeat(2, 1fr);
         gap: 1rem;
     }
+
+    #title{
+      animation: fadeIn 0.8s ease-out 0.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      0% {
+          transform: translateY(50px);
+          opacity: 0;
+      }
+      50% {
+          transform: translateY(-10px);
+          opacity: 0.8;
+      }
+      100% {
+          transform: translateY(0);
+          opacity: 1;
+      }
+  }
 </style>

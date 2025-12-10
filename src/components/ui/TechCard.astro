@@ -4,13 +4,40 @@ const {
   IconHeight = "h-10",
   IconWidth = "w-10",
   IconTitle = "",
+  delay
 } = Astro.props;
 ---
 
 <div
-  class="relative flex items-center justify-center rounded-3xl overflow-hidden bg-white/10 backdrop-blur-lg ring-1 ring-white/20"
+  class="scale-in relative flex items-center justify-center rounded-3xl overflow-hidden bg-white/10 backdrop-blur-lg ring-1 ring-white/20"
   title={IconTitle}
+  style={`--animation-delay: ${delay};`}
 >
   <Icon class={`block ${IconHeight} ${IconWidth}`} />
   <Icon class={`absolute -z-1 right-18 top-14 -rotate-10 ${IconHeight} ${IconWidth} blur-xl opacity-80 scale-150`}/>
 </div>
+
+<style>
+
+  .scale-in{
+    animation: scaleIn 0.8s ease-out var(--animation-delay) forwards;
+  }
+  
+  @keyframes scaleIn {
+      0% {
+          transform: scale(0);
+          opacity: 0;
+          filter: blur(10px);
+      }
+      50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+          filter: blur(0);
+      }
+      100% {
+          transform: scale(1);
+          opacity: 1;
+          filter: blur(0);
+      }
+  }
+</style>
