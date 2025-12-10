@@ -4,14 +4,46 @@
         <img src="/images/UsaFlag.webp" alt="USA Flag" class="h-6 w-9 object-cover rounded-xs"/>
     </div>
     <ul class="flex gap-6">
-        <li>
+        <li id="about">
             <a href="#about" class="block transition duration-300 ease-out hover:scale-110 p-2 hover:text-tertiary-300">About</a>
         </li>
-        <li>
+        <li id="projects">
             <a href="#projects" class="block transition duration-300 ease-out hover:scale-110 p-2 hover:text-tertiary-300">Projects</a>
         </li>
-        <li>
+        <li id="contact">
             <a href="#contact" class="block transition duration-300 ease-out hover:scale-110 p-2 pr-0 hover:text-tertiary-300">Contact</a>
         </li>
     </ul>
 </nav>
+
+
+<style>
+    #about{
+      animation: scaleIn 0.8s ease-out .3s forwards;
+    }
+
+    #projects{
+      animation: scaleIn 0.8s ease-out .4s forwards;
+    }
+    
+    #contact{
+      animation: scaleIn 0.8s ease-out .5s forwards;
+    }
+    @keyframes scaleIn {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+            filter: blur(10px);
+        }
+        50% {
+            transform: scale(1.1);
+            opacity: 0.8;
+            filter: blur(0);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+            filter: blur(0);
+        }
+    }
+  </style>
