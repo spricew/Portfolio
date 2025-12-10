@@ -27,7 +27,7 @@ const {
 ---
 
 <div
-  class="relative flex flex-col min-h-[34rem] overflow-hidden rounded-4xl border-1 border-white/20"
+  class="slide-in relative flex flex-col min-h-[34rem] overflow-hidden rounded-4xl border-1 border-white/20"
 >
   <!-- Imagen de fondo -->
   <picture class="absolute inset-0 -z-[2]">
@@ -40,39 +40,42 @@ const {
     />
   </picture>
 
-  <!-- blur layer -->
-  <!-- <div class="absolute inset-0 -z-[1] mask-t-from-45% backdrop-blur-lg"></div> -->
-
   <!-- capa oscura -->
   <div class="absolute inset-0 -z-[2] mask-t-from-10% bg-black/50"></div>
 
   <div class="flex flex-col justify-between h-full w-full relative z-0">
     <!-- buttons -->
     <div class="relative flex gap-2 w-full p-6">
+      {
+        previewLink && (
+          <MeshButton
+            text="Preview"
+            Icon={PreviewIcon}
+            textSize="text-base"
+            textColor="text-slate-800"
+            href={previewLink}
+          />
+        )
+      }
 
-      {previewLink && (
-      <MeshButton
-        text="Preview"
-        Icon={PreviewIcon}
-        textSize="text-base"
-        textColor="text-slate-800"
-        href={previewLink}
-      />
-      )}
-      
-      {githubLink && (
-      <CustomButton
-      text="Repository"
-      Icon={GithubOutlineIcon}
-      textSize="text-base"
-      textColor="text-white"
-      bgColor="bg-zinc-900/60"
-      href={githubLink}
-      extraClass="font-medium rounded-xl"
-      />)}
+      {
+        githubLink && (
+          <CustomButton
+            text="Repository"
+            Icon={GithubOutlineIcon}
+            textSize="text-base"
+            textColor="text-white"
+            bgColor="bg-zinc-900/60"
+            href={githubLink}
+            extraClass="font-medium rounded-xl"
+          />
+        )
+      }
     </div>
 
-    <div class="flex flex-col gap-2 items-start justify-end w-full h-fit p-6 ring-1 ring-white/20 bg-white/10 backdrop-blur-xl">
+    <div
+      class="flex flex-col gap-2 items-start justify-end w-full h-fit p-6 ring-1 ring-white/20 bg-white/10 backdrop-blur-xl"
+    >
       <div class="flex flex-wrap gap-2 w-full">
         {techs.map((tech) => <Pill pillText={tech} />)}
       </div>
@@ -87,3 +90,27 @@ const {
     </div>
   </div>
 </div>
+
+<style>
+  
+  .slide-in {
+    animation: slideIn 0.6s ease-out backwards;
+    animation-timeline: view();
+    animation-range: entry 20% cover 70%;
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateY(1px);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(-10px);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>
