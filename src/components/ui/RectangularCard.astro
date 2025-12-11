@@ -2,13 +2,32 @@
 const { Icon, schoolName, career, date } = Astro.props;
 ---
 
-<div class="relative flex items-center gap-8 px-8 py-6 rounded-4xl ring-1 ring-white/20 bg-white/10 backdrop-blur-md">
+<div class="fade-up-target relative flex items-center gap-8 px-8 py-6 
+rounded-4xl ring-1 ring-white/20 bg-white/10 backdrop-blur-md">
 
     <Icon class="size-14 text-white" />
-
     <div class="flex flex-col gap-2">
         <span class="text-2xl font-semibold text-tertiary-300">{schoolName}</span>
         <p class="text-xl font-medium text-white">{career}</p>
         <span class="text-base text-white/70">{date}</span>
     </div>
 </div>
+
+<style>
+    .fade-up-target{
+        animation: target 0.6s ease-out backwards;
+        animation-timeline: view();
+        animation-range: entry 90% cover 40%;
+    }
+    @keyframes target {
+        0% {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+</style>
