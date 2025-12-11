@@ -1,9 +1,9 @@
 ---
-const { text, Icon } = Astro.props;
+const { text, Icon, delay } = Astro.props;
 ---
 
 <div
-  class="relative flex w-80 h-50 flex-col gap-4 p-8 rounded-4xl ring-1 ring-white/20 bg-white/10 overflow-hidden"
+  class=`minicard-scale-in relative flex w-80 h-50 flex-col gap-4 p-8 rounded-4xl ring-1 ring-white/20 bg-white/10 overflow-hidden`
 >
   {Icon && (
     <>
@@ -17,3 +17,24 @@ const { text, Icon } = Astro.props;
 
   <span class="text-2xl font-medium text-white">{text}</span>
 </div>
+
+<style>
+  .minicard-scale-in{
+    animation: minicard 0.6s ease-out backwards;
+    animation-timeline: view();
+    animation-range: entry 20% cover 35%;
+  }
+
+  @keyframes minicard {
+    0% {
+      transform: scale(0);
+      filter: blur(10px);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+</style>
