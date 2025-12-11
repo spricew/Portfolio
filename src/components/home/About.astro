@@ -6,12 +6,14 @@ import { Image } from "astro:assets";
 ---
 
 <section class="flex flex-col w-full gap-8">
-    <SectionTitle title="About me" Icon={AboutIcon} />
+    <div class="fade-up-view">
+        <SectionTitle title="About me" Icon={AboutIcon} />
+    </div>
 
     <div class="flex gap-8 h-84">
         <!-- imagen -->
         <div
-            class="self-stretch shrink-0 rounded-3xl ring-1 ring-white/10 overflow-hidden"
+            class="self-stretch shrink-0 rounded-3xl ring-1 ring-white/10 overflow-hidden left-fade-in"
         >
             <Image
                 src={Portrait}
@@ -23,7 +25,7 @@ import { Image } from "astro:assets";
 
         <!-- contenedor de texto -->
         <div class="flex flex-col self-stretch">
-            <p class="text-lg text-pretty text-white mb-[1lh]">
+            <p class="text-lg text-pretty text-white mb-[1lh] right-fade-in">
                 I'm <span class="highlight">Heyder Ix Medina</span>, a software
                 developer in training with a focus on
                 <span class="highlight">Frontend</span> and a special interest in
@@ -34,7 +36,8 @@ import { Image } from "astro:assets";
                  complementing my hands-on learning in web development.
             </p>
 
-            <p class="text-lg text-pretty text-white">
+            <p class="text-lg text-pretty text-white right-fade-in"
+            style={"animation-range: entry 20% cover 30%;"}>
                 I have experience with technologies like Astro, Next.js, Tailwind,
                 and JavaScript, building projects focused on functionality and user
                 experience. <span class="highlight">My goal is</span> to keep growing
@@ -48,5 +51,49 @@ import { Image } from "astro:assets";
     .highlight {
         color: var(--color-tertiary-300);
         font-weight: 600;
+    }
+
+    .right-fade-in{
+        animation: rightFadeIn 0.6s ease-out .3s backwards;
+        animation-timeline: view();
+        animation-range: entry 20% cover 50%;
+    }
+
+    @keyframes rightFadeIn {
+        0% {
+            transform: translateX(80px);
+            opacity: 0;
+        }
+
+        50% {
+            transform: translateX(-10px);
+        }
+
+        100%{
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    .left-fade-in{
+        animation: leftFadeIn 0.6s ease-out .3s backwards;
+        animation-timeline: view();
+        animation-range: entry 30% cover 50%;
+    }
+
+    @keyframes leftFadeIn {
+        0% {
+            transform: translateX(-80px);
+            opacity: 0;
+        }
+
+        50% {
+            transform: translateX(10px);
+        }
+
+        100%{
+            transform: translateX(0);
+            opacity: 1;
+        }
     }
 </style>
