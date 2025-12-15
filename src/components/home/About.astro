@@ -13,7 +13,7 @@ import { Image } from "astro:assets";
     <div class="flex gap-8 h-84">
         <!-- imagen -->
         <div
-            class="self-stretch shrink-0 rounded-3xl ring-1 ring-white/10 overflow-hidden left-fade-in"
+            class="squircle self-stretch shrink-0 rounded-3xl ring-1 ring-white/10 overflow-hidden left-fade-in"
         >
             <Image
                 src={Portrait}
@@ -94,6 +94,13 @@ import { Image } from "astro:assets";
         100%{
             transform: translateX(0);
             opacity: 1;
+        }
+    }
+    
+    @supports (corner-shape: squircle) {
+        .squircle {
+            border-radius: 3.5rem;
+            corner-shape: squircle; 
         }
     }
 </style>

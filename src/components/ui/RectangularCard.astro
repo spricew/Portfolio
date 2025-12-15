@@ -2,7 +2,7 @@
 const { Icon, schoolName, career, date } = Astro.props;
 ---
 
-<div class="fade-up-target relative flex items-center gap-8 px-8 py-6 
+<div class="squircle fade-up-target relative flex items-center gap-8 px-8 py-6 
 rounded-4xl ring-1 ring-white/20 bg-white/10 backdrop-blur-md">
 
     <Icon class="size-14 text-white" />
@@ -28,6 +28,13 @@ rounded-4xl ring-1 ring-white/20 bg-white/10 backdrop-blur-md">
         100% {
             transform: translateY(0);
             opacity: 1;
+        }
+    }
+    
+    @supports (corner-shape: squircle) {
+        .squircle {
+            border-radius: 3.5rem;
+            corner-shape: squircle; 
         }
     }
 </style>

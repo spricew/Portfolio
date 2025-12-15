@@ -3,7 +3,7 @@ const { text, Icon, delay } = Astro.props;
 ---
 
 <div
-  class=`minicard-scale-in relative flex w-80 h-50 flex-col gap-4 p-8 rounded-4xl ring-1 ring-white/20 bg-white/10 overflow-hidden`
+  class=`squircle minicard-scale-in relative flex w-80 h-50 flex-col gap-4 p-8 rounded-4xl ring-1 ring-white/20 bg-white/10 overflow-hidden`
 >
   {Icon && (
     <>
@@ -37,4 +37,11 @@ const { text, Icon, delay } = Astro.props;
       opacity: 1;
     }
   }
+
+  @supports (corner-shape: squircle) {
+        .squircle {
+            border-radius: 3.5rem;
+            corner-shape: squircle; 
+        }
+    }
 </style>
