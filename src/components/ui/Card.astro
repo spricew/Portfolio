@@ -6,7 +6,7 @@ import GithubOutlineIcon from "../../icons/GithubOutlineIcon.astro";
 import MeshButton from "./MeshButton.astro";
 
 interface Props {
-  imageSrc?: string; // El ? significa que es opcional
+  imageSrc?: string;
   imageAlt?: string;
   projectTitle: string;
   projectDescription: string;
@@ -100,7 +100,7 @@ const {
   
   @supports (corner-shape: squircle) {
         .squircle {
-            border-radius: 3.5rem;
+            border-radius: 4.5rem;
             corner-shape: squircle; 
         }
     }
