@@ -10,16 +10,16 @@ import { Image } from "astro:assets";
         <SectionTitle title="About me" Icon={AboutIcon} />
     </div>
 
-    <div class="flex gap-8 h-84">
+    <div class="flex md:flex-row flex-col gap-8 h-fit md:h-84">
         <!-- imagen -->
         <div
-            class="squircle self-stretch shrink-0 rounded-3xl ring-1 ring-white/10 overflow-hidden left-fade-in"
+            class="squircle self-stretch shrink-0 w-full md:w-120 aspect-video md:h-full rounded-3xl ring-1 ring-white/10 overflow-hidden left-fade-in"
         >
             <Image
                 src={Portrait}
                 alt={"asd"}
                 quality={50}
-                class="w-120 h-full object-cover object-center"
+                class="w-full h-full object-cover"
             />
         </div>
 
