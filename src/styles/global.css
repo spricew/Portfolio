@@ -96,6 +96,7 @@ html {
   scroll-behavior: smooth;
 }
 
+/* reduce motion if the user has it enabled (accessibility) */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
