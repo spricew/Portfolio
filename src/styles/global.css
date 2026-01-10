@@ -92,6 +92,16 @@
   src: url('/fonts/Figtree.ttf');
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   font: 20px "Urbanist", system-ui, Arial, Helvetica, sans-serif;
   background-color: white;
