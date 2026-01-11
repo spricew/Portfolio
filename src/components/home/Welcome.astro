@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 import Socials from "../home/Socials.astro";
 import CustomButton from "../ui/CustomButton.astro";
 import DownloadIcon from "../../icons/DownloadIcon.astro";
@@ -11,20 +13,26 @@ import DownloadIcon from "../../icons/DownloadIcon.astro";
     <figure
         class="scale-in relative flex shrink-0 h-60 lg:h-full aspect-square rounded-full overflow-hidden ring-1 ring-white/25 bg-white/15"
     >
-        <img
+        <Image
             src="https://res.cloudinary.com/deyv1rwqh/image/upload/v1763430013/memoji_pfp_iobatg.png"
             alt="Portrait of Heyder Medina"
             class="w-full h-full z-10 object-cover object-center"
             loading="lazy"
             decoding="async"
+            width={100}
+            height={100}
         />
-
-        <img
+        
+        <!-- image blurred -->
+        <Image
             src="https://res.cloudinary.com/deyv1rwqh/image/upload/v1763430013/memoji_pfp_iobatg.png"
             alt="Portrait of Heyder Medina"
             class="absolute blur-2xl scale-90 animate-pulse -rotate-12 z-9 w-full h-full object-cover object-center"
             loading="lazy"
             decoding="async"
+            width={100}
+            height={100}
+            aria-hidden="true"
         />
     </figure>
 
