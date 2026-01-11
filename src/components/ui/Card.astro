@@ -69,7 +69,9 @@ const {
       class="flex flex-col gap-2 items-start justify-end w-full h-fit p-6 ring-1 ring-white/20 bg-white/10 backdrop-blur-xl"
     >
       <div class="flex flex-wrap gap-2 w-full">
-        {techs.map((tech) => <Pill pillText={tech} />)}
+        {techs.map((tech) => (
+          <Pill pillText={tech} key={tech} />
+        ))}
       </div>
 
       <span class="text-2xl font-semibold line-clamp-2 text-white">
