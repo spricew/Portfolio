@@ -1,19 +1,11 @@
 ---
+import type { ProjectProps } from "@/data/projects"
+
 import Pill from "./Pill.astro";
 import CustomButton from "./CustomButton.astro";
 import PreviewIcon from "../../icons/PreviewIcon.astro";
 import GithubOutlineIcon from "../../icons/GithubOutlineIcon.astro";
 import MeshButton from "./MeshButton.astro";
-
-interface Props {
-  imageSrc?: string;
-  imageAlt?: string;
-  projectTitle: string;
-  projectDescription: string;
-  previewLink?: string;
-  githubLink?: string;
-  techs?: string[];
-}
 
 const {
   imageSrc,
@@ -23,7 +15,7 @@ const {
   previewLink,
   githubLink,
   techs = [],
-} = Astro.props;
+} = Astro.props as ProjectProps;
 ---
 
 <div
