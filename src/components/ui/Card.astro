@@ -1,6 +1,6 @@
 ---
 import type { ProjectProps } from "@/data/projects";
-
+import { Image } from "astro:assets";
 import Pill from "./Pill.astro";
 import CustomButton from "./CustomButton.astro";
 import PreviewIcon from "../../icons/PreviewIcon.astro";
@@ -22,15 +22,13 @@ const {
 
     <div class="relative w-full h-1/2 p-6">
       <!-- Imagen de fondo -->
-      <picture class="absolute inset-0 -z-[2]">
-        <img
+      <div class="absolute inset-0 -z-[2]">
+          <Image
           src={imageSrc}
           alt={imageAlt ?? "Project Image"}
           class="w-full h-full object-cover"
-          loading="lazy"
-          decoding="async"
-        />
-      </picture>
+          />
+      </div>
 
       {
         previewLink && (
@@ -61,17 +59,15 @@ const {
 
     <div class="relative flex flex-col w-full h-1/2 p-6">
 
-      <picture class="absolute inset-0 -z-[2]">
-        <img
+      <div class="absolute inset-0 -z-[2]">
+          <Image
           src={imageSrc}
           alt={imageAlt ?? "Project Image"}
-          class="w-full h-full object-cover"
-          loading="lazy"
-          decoding="async"
-        />
-      </picture>
+          class="w-full h-full object-cover object-center"
+          />
+      </div>
 
-      <div class="absolute inset-0 -z-[1] backdrop-blur-2xl"></div>
+      <div class="absolute inset-0 -z-[1] bg-black/10 backdrop-blur-2xl"></div>
 
       <div class="flex flex-col">
         <div class="flex flex-wrap gap-x-1.5 w-full">
