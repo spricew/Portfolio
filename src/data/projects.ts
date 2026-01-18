@@ -1,5 +1,5 @@
 import mayanlifeCover from "@/assets/projectCovers/mayanlife.webp"
-import spacexCover from "@/assets/projectCovers/spacex.png"
+import spacexCover from "@/assets/projectCovers/spacex.webp"
 import keidotCover from "@/assets/projectCovers/keidot.png"
 import portfolioCover from "@/assets/projectCovers/portfolio.png"
 
