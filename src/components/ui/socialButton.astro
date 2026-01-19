@@ -1,0 +1,16 @@
+---
+export interface SocialProps {
+    href: string;
+    title: string;
+    Icon: any;
+
+}
+
+const { href, title, Icon } = Astro.props as SocialProps;
+---
+
+<a href={href} aria-label={title} title={title}
+    class="inline-flex items-center justify-center xl:h-full aspect-square xl:w-fit w-10 rounded-full bg-tertiary-300 text-tertiary-950
+    transition duration-300 ease-out hover:scale-110 hover:opacity-50" >
+    <Icon class="size-5" />
+</a>

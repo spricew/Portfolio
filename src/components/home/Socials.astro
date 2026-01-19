@@ -1,36 +1,38 @@
 ---
+import type { SocialProps } from "../ui/socialButton.astro";
+import SocialButton from "../ui/socialButton.astro";
 import MailIcon from "@/icons/MailIcon.astro";
 import GithubIcon from "@/icons/GithubIcon.astro";
 import LinkedInIcon from "@/icons/linkedinIcon.astro";
+
+const socials: SocialProps[] = [
+    {
+        href: "mailto:medinaheyder@gmail.com",
+        title: "Email",
+        Icon: MailIcon,
+    },
+    {
+        href: "https://github.com/spricew",
+        title: "GitHub",
+        Icon: GithubIcon,
+    },
+    {
+        href: "https://www.linkedin.com/in/heyderix/",
+        title: "LinkedIn",
+        Icon: LinkedInIcon,
+    },
+];
 ---
 
-<ul class="h-full flex gap-3 text-base text-white">
-    <a href="mailto:medinaheyder@gmail.com" class="socialLink" aria-label="Email" title="Email">
-        <MailIcon class="size-5" />
-    </a>
-    <a href="https://github.com/spricew" class="socialLink" target="_blank" aria-label="GitHub" title="GitHub">
-        <GithubIcon class="size-5" />
-    </a>
-    <a href="https://www.linkedin.com/in/heyderix/" class="socialLink" target="_blank" aria-label="LinkedIn" title="LinkedIn">
-        <LinkedInIcon class="size-5" />
-    </a>
+<ul class="h-full inline-flex gap-3 items-center text-base text-white" >
+    {
+        socials.map((social: SocialProps) => (
+            <SocialButton
+                key={social.title}
+                href={social.href}
+                title={social.title}
+                Icon={social.Icon}
+            />
+        ))
+    }
 </ul>
-
-<style>
-    .socialLink {
-        display: flex;
-        height: 100%;
-        aspect-ratio: 1/1;
-        align-items: center;
-        justify-content: center;
-        transition: 0.3s ease-out;
-        background-color: var(--color-tertiary-300);
-        color: var(--color-tertiary-950);
-        border-radius: 100%;
-    }
-
-    .socialLink:hover {
-        transform: scale(1.05);
-        opacity: 0.6;
-    }
-</style>
