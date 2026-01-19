@@ -54,7 +54,7 @@ const techs = [
     />
     </div>
 
-    <div class="techs w-full h-[10rem]">
+    <div class="techs grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-4 w-full ">
         {techs.map(({ Icon, IconHeight, IconWidth, IconTitle }, index) => {
             const initialDelay = 0.1;
             const delayIncrement = 0.1;
@@ -75,12 +75,3 @@ const techs = [
         })}
     </div>
 </section>
-<!-- TODO: ARREGLAR DISPLAY DE TECNOLOGIAS EN PANTALLAS MOBILE Y MD -->
-<style>
-   .techs {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        grid-template-rows: repeat(2, 1fr);
-        gap: 1rem;
-    }
-</style>
