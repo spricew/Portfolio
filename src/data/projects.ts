@@ -1,7 +1,7 @@
 import mayanlifeCover from "@/assets/projectCovers/mayanlife.webp"
 import spacexCover from "@/assets/projectCovers/spacex.webp"
-import keidotCover from "@/assets/projectCovers/keidot.png"
-import portfolioCover from "@/assets/projectCovers/portfolio.png"
+import keidotCover from "@/assets/projectCovers/keidot.webp"
+import portfolioCover from "@/assets/projectCovers/portfolio.webp"
 
 export interface ProjectProps {
     previewLink?: string;
