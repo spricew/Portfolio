@@ -87,10 +87,20 @@ const {
 
 <style>
   .fade-up-card {
-    animation: slideIn 0.6s ease-out backwards;
+    animation: slideInCard 0.6s ease-out backwards;
     animation-timeline: view();
     animation-range: entry 20% cover 40%;
   }
+
+  @keyframes slideInCard {
+  0% {
+    transform: translateY(100px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
 
   @supports (corner-shape: squircle) {
     .squircle {
