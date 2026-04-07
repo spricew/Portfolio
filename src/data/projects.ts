@@ -36,7 +36,7 @@ export interface ProjectProps {
       githubLink: "https://github.com/spricew/tasker-app",
       previewLink: "https://tasker-studio.vercel.app",
       projectTitle: "Tasker App",
-      projectDescription: "Tasker App is a web application that allows users to create, manage, and track their tasks efficiently. It provides a clean and intuitive interface for organizing daily activities, setting deadlines, and monitoring progress. The project focuses on a user-friendly design with responsive elements and smooth interactions. It was built as a frontend project to practice state management, component architecture, and UI/UX design principles.",
+      projectDescription: "A comprehensive productivity platform built with Next.js and TypeScript. Tasker Studio empowers users to efficiently track daily tasks through a highly responsive interface featuring instant 'Optimistic UI' updates and real-time pending counters. Key functionalities include a custom secure authentication system with role-based access (Admin/Student), seamless CRUD operations, and an automated password recovery flow via email integration. The fluid user experience is driven by Framer Motion animations and Sileo notifications, all backed by a robust serverless PostgreSQL architecture.", 
       imageSrc: taskerCover,
       imageAlt: "website preview",
       techs: ["NextJs", "TypeScript", "TailwindCSS", "PostgreSQL"]
