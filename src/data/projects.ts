@@ -2,6 +2,7 @@ import mayanlifeCover from "@/assets/projectCovers/mayanlife.webp"
 import spacexCover from "@/assets/projectCovers/spacex.webp"
 import keidotCover from "@/assets/projectCovers/keidot.webp"
 import portfolioCover from "@/assets/projectCovers/portfolio.webp"
+import taskerCover from "@/assets/projectCovers/tasker.png"
 
 export interface ProjectProps {
     previewLink?: string;
@@ -30,6 +31,15 @@ export interface ProjectProps {
       imageSrc: spacexCover,
       imageAlt: "website preview",
       techs: ["NextJs", "TypeScript", "TailwindCSS"]
+    },
+    {
+      githubLink: "https://github.com/spricew/tasker-app",
+      previewLink: "https://tasker-studio.vercel.app",
+      projectTitle: "Tasker App",
+      projectDescription: "Tasker App is a web application that allows users to create, manage, and track their tasks efficiently. It provides a clean and intuitive interface for organizing daily activities, setting deadlines, and monitoring progress. The project focuses on a user-friendly design with responsive elements and smooth interactions. It was built as a frontend project to practice state management, component architecture, and UI/UX design principles.",
+      imageSrc: taskerCover,
+      imageAlt: "website preview",
+      techs: ["NextJs", "TypeScript", "TailwindCSS", "PostgreSQL"]
     },
     {
       githubLink: "https://github.com/spricew/Keidot-Project",
