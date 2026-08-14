@@ -45,7 +45,6 @@ export interface ProjectProps {
       techs: ["Flutter", "Dart"]
     },
     {
-      previewLink: "https://heyder-medina-portfolio.vercel.app/",
       githubLink: "https://github.com/spricew/Portfolio",
       projectTitle: "Personal portfolio",
       projectDescription: "My personal portfolio is a website where I showcase who I am, what I do, and the projects I've built. I developed it using Astro and Tailwind to achieve a clean and easy-to-navigate design. It includes informative sections, all intended to present my work clearly. It's a space I will continue improving as I learn new things, and it represents my journey and growth as a web developer.",
