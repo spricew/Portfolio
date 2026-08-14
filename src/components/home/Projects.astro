@@ -10,17 +10,17 @@ import { projects } from "@/data/projects";
     <SectionTitle title="Projects" Icon={ProjectsIcon} />
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
     {
-      projects.map((project) => (
+      projects.map((project, index) => (
         <Card
           key={project.projectTitle}
+          featured={index === 0}
           previewLink={project.previewLink}
           githubLink={project.githubLink}
           projectTitle={project.projectTitle}
           projectDescription={project.projectDescription}
           imageSrc={project.imageSrc}
-          imageAlt={project.imageAlt}
           techs={project.techs}
         />
       ))
