@@ -1,7 +1,49 @@
-Tabler Icons
-MIT License
+Third-party notices
+====================
 
+This file lists the third-party components bundled or referenced by this
+project, together with the relevant copyright notices and licenses.
+
+1. Fonts
+---------
+
+Urbanist — Copyright 2021 The Urbanist Project Authors
+(https://github.com/coreyhu/Urbanist)
+Licensed under the SIL Open Font License, Version 1.1.
+Full license text: public/fonts/OFL-Urbanist.txt
+
+Figtree — Copyright 2022 The Figtree Project Authors
+(https://github.com/erikdkennedy/figtree)
+Licensed under the SIL Open Font License, Version 1.1.
+Full license text: public/fonts/OFL-Figtree.txt
+
+2. Icon sets (included as Astro components under src/icons/)
+-------------------------------------------------------------
+
+Tabler Icons (UI icons: Book, Skills, Education, Projects, About, Techs,
+GithubOutline, Preview, LinkedIn)
+https://tabler.io/icons
 Copyright (c) 2020-2025 Paweł Kuna
+Licensed under the MIT License.
+
+Bootstrap Icons (icons: Download, Github)
+https://icons.getbootstrap.com
+Copyright (c) 2019-2024 The Bootstrap Authors
+Licensed under the MIT License.
+
+Heroicons (icon: Mail)
+https://heroicons.com
+Copyright (c) Tailwind Labs, Inc.
+Licensed under the MIT License.
+
+Simple Icons (brand/technology logos: React, Next.js, Astro, Tailwind CSS,
+Bootstrap, Flutter, Dart, Figma, Illustrator, Git, GitHub, PostgreSQL,
+MongoDB, C#, HTML, CSS, JavaScript, TypeScript)
+https://simpleicons.org
+Copyright (c) Simple Icons contributors
+Licensed under CC0 1.0 Universal. No attribution required.
+
+MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,3 +62,13 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+3. Trademark notice
+--------------------
+
+Cambridge English, Cisco, Scrum Alliance and the brand logos of the
+technologies showcased in this portfolio (React, Next.js, Tailwind CSS,
+PostgreSQL, MongoDB, GitHub, and others) are trademarks or registered
+trademarks of their respective owners. They are used solely for
+identification and attribution purposes and do not imply endorsement by or
+affiliation with the trademark holders.
