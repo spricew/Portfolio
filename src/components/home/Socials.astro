@@ -24,15 +24,15 @@ const socials: SocialProps[] = [
 ];
 ---
 
-<ul class="h-full inline-flex gap-3 items-center text-base text-white" >
-    {
-        socials.map((social: SocialProps) => (
+<ul class="h-full inline-flex gap-3 items-center text-base text-white" role="list" aria-label="Social links">
+    {socials.map((social: SocialProps) => (
+        <li class="list-none h-full">
             <SocialButton
                 key={social.title}
                 href={social.href}
                 title={social.title}
                 Icon={social.Icon}
             />
-        ))
-    }
+        </li>
+    ))}
 </ul>
