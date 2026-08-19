@@ -24,7 +24,7 @@ const {
   class:list={[
     "fade-up-card group relative flex flex-col justify-end overflow-hidden rounded-4xl ring-1 ring-white/20 transition-all duration-500 hover:ring-tertiary-300/60",
     featured
-      ? "min-h-[24rem] md:col-span-2 md:min-h-[28rem]"
+      ? "min-h-[24rem] md:col-span-2 md:min-h-[26rem]"
       : "min-h-[19rem] md:min-h-[22rem]",
   ]}
 >
@@ -73,7 +73,7 @@ const {
       featured ? "md:max-w-2xl" : "",
     ]}
   >
-    <div class="flex flex-wrap gap-1.5">
+    <div class="flex flex-wrap-reverse gap-1.5">
       {techs.map((tech) => <Pill pillText={tech} key={tech} />)}
     </div>
 

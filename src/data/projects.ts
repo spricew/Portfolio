@@ -23,13 +23,6 @@ export interface ProjectProps {
       techs: ["NextJs", "TypeScript", "TailwindCSS", "PostgreSQL"]
     },
     {
-      previewLink: "https://mayanlifeyucatan.com/",
-      projectTitle: "Mayan Life Inmobiliaria Web",
-      projectDescription: "Mayan Life is a real estate website designed to showcase properties in a clear and easy-to-navigate way. It allows users to explore listings through filters, image galleries, and detailed information, offering a smooth experience for clients and visitors. Additionally, it includes an admin panel for managing properties and user roles.",
-      imageSrc: mayanlifeCover,
-      techs: ["NextJs", "TailwindCSS", "Express", "PostgreSQL"]
-    }, 
-    {
       githubLink: "https://github.com/spricew/spacex-dashboard",
       previewLink: "https://spacex-dashboard-spricew.vercel.app",
       projectTitle: "SpaceX Dashboard",
@@ -37,6 +30,13 @@ export interface ProjectProps {
       imageSrc: spacexCover,
       techs: ["NextJs", "TypeScript", "TailwindCSS"]
     },
+    {
+      previewLink: "https://mayanlifeyucatan.com/",
+      projectTitle: "Mayan Life Web ",
+      projectDescription: "Mayan Life is a real estate website designed to showcase properties in a clear and easy-to-navigate way. It allows users to explore listings through filters, image galleries, and detailed information, offering a smooth experience for clients and visitors. Additionally, it includes an admin panel for managing properties and user roles.",
+      imageSrc: mayanlifeCover,
+      techs: ["NextJs", "TailwindCSS", "Express", "PostgreSQL"]
+    }, 
     {
       githubLink: "https://github.com/spricew/Keidot-Project",
       projectTitle: "Keidot App",
