@@ -15,6 +15,14 @@ export interface ProjectProps {
 
   export const projects: ProjectProps[] = [
     {
+      githubLink: "https://github.com/spricew/tasker-app",
+      previewLink: "https://tasker-studio.vercel.app",
+      projectTitle: "Tasker App",
+      projectDescription: "Tasker Studio empowers users to efficiently track daily tasks through a highly responsive interface featuring instant 'Optimistic UI' updates and real-time pending counters. Key functionalities include a custom secure authentication system with role-based access (Admin/Student), seamless CRUD operations, and an automated password recovery flow via email integration. The fluid user experience is driven by Framer Motion animations and Sileo notifications, all backed by a robust serverless PostgreSQL architecture.", 
+      imageSrc: taskerCover,
+      techs: ["NextJs", "TypeScript", "TailwindCSS", "PostgreSQL"]
+    },
+    {
       previewLink: "https://mayanlifeyucatan.com/",
       projectTitle: "Mayan Life Inmobiliaria Web",
       projectDescription: "Mayan Life is a real estate website designed to showcase properties in a clear and easy-to-navigate way. It allows users to explore listings through filters, image galleries, and detailed information, offering a smooth experience for clients and visitors. Additionally, it includes an admin panel for managing properties and user roles.",
@@ -28,14 +36,6 @@ export interface ProjectProps {
       projectDescription: "SpaceX Dashboard is a web application that displays relevant information about SpaceX launches in a clear and organized way. It allows users to explore past, recent, and upcoming launches, showing details such as launch dates, mission status, rockets, and launchpads. The project focuses on a clean, user-friendly interface with reusable components and smooth navigation. It was built as a frontend project to practice API consumption, data handling, and interface design.",
       imageSrc: spacexCover,
       techs: ["NextJs", "TypeScript", "TailwindCSS"]
-    },
-    {
-      githubLink: "https://github.com/spricew/tasker-app",
-      previewLink: "https://tasker-studio.vercel.app",
-      projectTitle: "Tasker App",
-      projectDescription: "Tasker Studio empowers users to efficiently track daily tasks through a highly responsive interface featuring instant 'Optimistic UI' updates and real-time pending counters. Key functionalities include a custom secure authentication system with role-based access (Admin/Student), seamless CRUD operations, and an automated password recovery flow via email integration. The fluid user experience is driven by Framer Motion animations and Sileo notifications, all backed by a robust serverless PostgreSQL architecture.", 
-      imageSrc: taskerCover,
-      techs: ["NextJs", "TypeScript", "TailwindCSS", "PostgreSQL"]
     },
     {
       githubLink: "https://github.com/spricew/Keidot-Project",
