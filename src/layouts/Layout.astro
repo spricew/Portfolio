@@ -51,5 +51,25 @@ const { title, description = "Heyder Medina — Junior Software Developer. Porta
 	<body class="relative min-h-dvh">
 		<div class="absolute top-0 z-[-2] h-full w-full bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
 		<slot />
+		<script>
+			import Lenis from 'lenis';
+
+			const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+			if (!prefersReducedMotion) {
+				const lenis = new Lenis({
+					lerp: 0.1,
+					wheelMultiplier: 1,
+					touchMultiplier: 1.5,
+					anchors: true,
+				});
+
+				function raf(time: number) {
+					lenis.raf(time);
+					requestAnimationFrame(raf);
+				}
+				requestAnimationFrame(raf);
+			}
+		</script>
 	</body>
 </html>
