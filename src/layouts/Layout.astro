@@ -55,12 +55,13 @@ const { title, description = "Heyder Medina — Junior Software Developer. Porta
 			import Lenis from 'lenis';
 
 			const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			// Solo desktop: dispositivo con puntero fino (mouse/trackpad), sin depender del ancho de pantalla
+			const isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-			if (!prefersReducedMotion) {
+			if (!prefersReducedMotion && isDesktop) {
 				const lenis = new Lenis({
 					lerp: 0.1,
 					wheelMultiplier: 1,
-					touchMultiplier: 1.5,
 					anchors: true,
 				});
 

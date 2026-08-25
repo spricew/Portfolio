@@ -20,6 +20,10 @@ import { Image } from "astro:assets";
                 src={Portrait}
                 alt={"Portrait of Heyder Medina"}
                 quality={50}
+                widths={[480, 960]}
+                sizes="(min-width: 64rem) 30rem, 92vw"
+                loading="lazy"
+                decoding="async"
                 class="w-full h-full object-cover object-top lg:object-center"
             />
         </div>
