@@ -77,7 +77,11 @@ const {
       featured ? "md:max-w-2xl" : "",
     ]}
   >
-    <div class="flex flex-wrap-reverse gap-1.5">
+    <div 
+    class:list={["flex flex-wrap-reverse gap-1.5",
+      featured ? "max-w-lg" : "",
+    ]}
+    >
       {techs.map((tech) => <Pill pillText={tech} key={tech} />)}
     </div>
 
