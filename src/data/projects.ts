@@ -19,7 +19,7 @@ export const projects: ProjectProps[] = [
     githubLink: "https://github.com/spricew/tasker-app",
     previewLink: "https://tasker-studio.vercel.app",
     projectTitle: "Tasker App",
-    projectDescription: "Tasker Studio empowers users to efficiently track daily tasks through a highly responsive interface featuring instant 'Optimistic UI' updates and real-time pending counters. Key functionalities include a custom secure authentication system with role-based access (Admin/Student), seamless CRUD operations, and an automated password recovery flow via email integration. The fluid user experience is driven by Framer Motion animations and Sileo notifications, all backed by a robust serverless PostgreSQL architecture.",
+    projectDescription: "Tasker Studio helps users track daily tasks with optimistic updates and real-time counters. It includes secure role-based authentication, CRUD operations, password recovery, and a serverless PostgreSQL backend.",
     imageSrc: taskerCover,
     techs: ["NextJs", "TypeScript", "TailwindCSS", "PostgreSQL", "Prisma", "Framer Motion"]
   },
@@ -27,28 +27,28 @@ export const projects: ProjectProps[] = [
     githubLink: "https://github.com/spricew/spacex-dashboard",
     previewLink: "https://spacex-dashboard-spricew.vercel.app",
     projectTitle: "SpaceX Dashboard",
-    projectDescription: "SpaceX Dashboard is a web application that displays relevant information about SpaceX launches in a clear and organized way. It allows users to explore past, recent, and upcoming launches, showing details such as launch dates, mission status, rockets, and launchpads. The project focuses on a clean, user-friendly interface with reusable components and smooth navigation. It was built as a frontend project to practice API consumption, data handling, and interface design.",
+    projectDescription: "SpaceX Dashboard presents past, recent, and upcoming launches with mission details, rockets, and launchpads. It features a clean interface built to practice API consumption and data handling.",
     imageSrc: spacexCover,
     techs: ["NextJs", "TypeScript", "TailwindCSS"]
   },
   {
     // previewLink: "https://mayanlifeyucatan.com/",
     projectTitle: "Mayan Life Web ",
-    projectDescription: "Mayan Life is a real estate website designed to showcase properties in a clear and easy-to-navigate way. It allows users to explore listings through filters, image galleries, and detailed information, offering a smooth experience for clients and visitors. Additionally, it includes an admin panel for managing properties and user roles.",
+    projectDescription: "Mayan Life showcases real estate listings through filters, image galleries, and detailed property information. It also includes an admin panel for managing properties and user roles.",
     imageSrc: mayanlifeCover,
     techs: ["NextJs", "Express", "PostgreSQL"]
   },
   {
     githubLink: "https://github.com/spricew/Keidot-Project",
     projectTitle: "Keidot App",
-    projectDescription: "Keidot is a mobile app that connects clients with workers quickly and safely. It allows users to request gardening services and displays nearby workers based on location. The process includes requesting a service, worker acceptance, and secure payment. The app also features a review system to ensure quality. Keidot aims to be a modern and accessible solution for those who need help in their garden and for individuals looking to earn extra income.",
+    projectDescription: "Keidot connects clients with nearby workers for gardening services. Users can request services, manage acceptance and payments, and leave reviews through a simple mobile experience.",
     imageSrc: keidotCover,
     techs: ["Flutter", "Dart"]
   },
   {
     githubLink: "https://github.com/spricew/Portfolio",
     projectTitle: "Personal portfolio",
-    projectDescription: "My personal portfolio is a website where I showcase who I am, what I do, and the projects I've built. I developed it using Astro and Tailwind to achieve a clean and easy-to-navigate design. It includes informative sections, all intended to present my work clearly. It's a space I will continue improving as I learn new things, and it represents my journey and growth as a web developer.",
+    projectDescription: "My personal portfolio showcases my background, skills, and projects through a clean, accessible design. It was built with Astro and Tailwind and continues to evolve with my work.",
     imageSrc: portfolioCover,
     techs: ["AstroJs", "TailwindCSS"]
   },
@@ -56,7 +56,7 @@ export const projects: ProjectProps[] = [
     // "previewLink": "https://keidot-chatbot.vercel.app",
     "githubLink": "https://github.com/spricew/keidot-chatbot-front",
     "projectTitle": "Keidot AI Chatbot",
-    "projectDescription": "AI assistant that provides customer support for the Keidot gardening services platform. It uses a RAG pipeline built with LangChain, ChromaDB and locally hosted LLMs to answer questions about services and policies accurately. Through function calling, it can quote prices, check availability, and schedule or cancel appointments — always asking for explicit user confirmation before any write action. Responses stream in real time, and the system includes defenses against prompt injection and data exfiltration",
+    "projectDescription": "AI assistant for Keidot that answers service and policy questions using a RAG pipeline with LangChain, ChromaDB, and local LLMs. It can quote prices, check availability, and manage appointments with confirmation and prompt-injection protections.",
     "imageSrc": chatbotCover,
     "techs": ["LangChain", "ChromaDB", "Ollama"]
   },
