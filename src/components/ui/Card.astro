@@ -32,6 +32,10 @@ const {
     src={imageSrc}
     alt=""
     aria-hidden="true"
+    widths={[400, 700, 1000]}
+    sizes={featured ? "(min-width: 64rem) 62vw, (min-width: 48rem) 100vw, 100vw" : "(min-width: 64rem) 31vw, (min-width: 48rem) 46vw, 100vw"}
+    loading="lazy"
+    decoding="async"
     class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
   />
 
