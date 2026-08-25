@@ -46,19 +46,19 @@ export const projects: ProjectProps[] = [
     techs: ["Flutter", "Dart"]
   },
   {
-    githubLink: "https://github.com/spricew/Portfolio",
-    projectTitle: "Personal portfolio",
-    projectDescription: "My personal portfolio showcases my background, skills, and projects through a clean, accessible design. It was built with Astro and Tailwind and continues to evolve with my work.",
-    imageSrc: portfolioCover,
-    techs: ["AstroJs", "TailwindCSS"]
-  },
-  {
     // "previewLink": "https://keidot-chatbot.vercel.app",
     "githubLink": "https://github.com/spricew/keidot-chatbot-front",
     "projectTitle": "Keidot AI Chatbot",
     "projectDescription": "AI assistant for Keidot that answers service and policy questions using a RAG pipeline with LangChain, ChromaDB, and local LLMs. It can quote prices, check availability, and manage appointments with confirmation and prompt-injection protections.",
     "imageSrc": chatbotCover,
     "techs": ["LangChain", "ChromaDB", "Ollama"]
+  },
+  {
+    githubLink: "https://github.com/spricew/Portfolio",
+    projectTitle: "Personal portfolio",
+    projectDescription: "My personal portfolio showcases my background, skills, and projects through a clean, accessible design. It was built with Astro and Tailwind and continues to evolve with my work.",
+    imageSrc: portfolioCover,
+    techs: ["AstroJs", "TailwindCSS"]
   },
 ];
 
