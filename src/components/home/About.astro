@@ -7,7 +7,7 @@ import { Image } from "astro:assets";
 
 <section id="about" class="flex flex-col w-full gap-8">
     <div class="fade-up-view">
-        <SectionTitle title="About me" Icon={AboutIcon} />
+        <SectionTitle title="About me" Icon={AboutIcon} titleKey="sectionAboutMe" />
     </div>
 
     <div class="flex lg:flex-row flex-col gap-8 h-fit lg:h-84">
@@ -31,23 +31,23 @@ import { Image } from "astro:assets";
         <!-- contenedor de texto -->
         <div class="flex flex-col self-stretch lg:justify-center">
             <p class="text-lg text-pretty text-white mb-[1lh] right-fade-in">
-                I'm <span class="highlight">Heyder Ix Medina</span>, a software
+                <span data-i18n="aboutP1" data-i18n-html="true">I'm <span class="highlight">Heyder Ix Medina</span>, a software
                 developer in training with a focus on
                 <span class="highlight">Frontend</span> and a special interest in
                 digital design. I enjoy creating attractive interfaces, working on
                 visual ideas, and editing videos as part of my creative process.
                 I'm currently studying
                 <span class="highlight">Software Management and Development Engineering</span>,
-                 complementing my hands-on learning in web development.
+                 complementing my hands-on learning in web development.</span>
             </p>
 
             <p class="text-lg text-pretty text-white right-fade-in"
             style={"animation-range: entry 20% cover 30%;"}>
-                I have experience with technologies like Astro, Next.js, Tailwind,
+                <span data-i18n="aboutP2" data-i18n-html="true">I have experience with technologies like Astro, Next.js, Tailwind,
                 and JavaScript, building projects focused on functionality and user
                 experience. <span class="highlight">My goal is</span> to keep growing
                 professionally, collaborate on challenging projects, and continuously
-                improve my skills to deliver solutions that truly create value.
+                improve my skills to deliver solutions that truly create value.</span>
             </p>
     </div>
 </section>

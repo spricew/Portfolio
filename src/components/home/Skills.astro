@@ -9,15 +9,11 @@ import CiscoLogo from "../../icons/skills/CiscoLogo.astro"
 
 <section class="flex flex-col w-full gap-8">
   <div class="fade-up-view">
-    <SectionTitle title="Skills" Icon={SkillsIcon} />
+    <SectionTitle title="Skills" Icon={SkillsIcon} titleKey="sectionSkills" />
   </div>
   <div class="flex flex-wrap justify-center gap-6">
-    <MiniCard text="Cambridge B2 English Certificate" Icon={CambridgeLogo}/>
-    <MiniCard text="Scrum Foundation Certificate" Icon={ScrumLogo}/>
-    <MiniCard text="Cisco CCNA (V7) Introduction Certificate" Icon={CiscoLogo}/>
+    <MiniCard text="Cambridge B2 English Certificate" Icon={CambridgeLogo} textKey="skillCambridge"/>
+    <MiniCard text="Scrum Foundation Certificate" Icon={ScrumLogo} textKey="skillScrum"/>
+    <MiniCard text="Cisco CCNA (V7) Introduction Certificate" Icon={CiscoLogo} textKey="skillCisco"/>
   </div>
 </section>
-
-<style>
-
-</style>

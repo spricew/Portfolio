@@ -1,4 +1,4 @@
----                               
+---
 import '../styles/global.css';  
 
 interface Props {
@@ -6,7 +6,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Heyder Medina — Junior Software Developer. Portafolio con proyectos de desarrollo web: Astro, Next.js, React, TypeScript y más." } = Astro.props;
+const { title, description = "Heyder Medina — Junior Software Developer. Portfolio with web development projects: Astro, Next.js, React, TypeScript and more." } = Astro.props;
 ---  
 
 <!doctype html>
@@ -72,5 +72,6 @@ const { title, description = "Heyder Medina — Junior Software Developer. Porta
 				requestAnimationFrame(raf);
 			}
 		</script>
+		<script src="../scripts/lang.ts"></script>
 	</body>
 </html>

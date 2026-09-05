@@ -190,3 +190,8 @@ body {
   outline: red  solid 1px;
   box-sizing: border-box;
 } */
+
+.highlight {
+  color: var(--color-tertiary-300);
+  font-weight: 600;
+}

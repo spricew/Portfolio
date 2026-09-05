@@ -1,5 +1,5 @@
 ---
-const { text, Icon } = Astro.props;
+const { text, Icon, textKey } = Astro.props;
 ---
 
 <div
@@ -15,7 +15,7 @@ const { text, Icon } = Astro.props;
     </>
   )}
 
-  <span class="text-2xl font-medium text-white">{text}</span>
+  <span class="text-2xl font-medium text-white"><span data-i18n={textKey}>{text}</span></span>
 </div>
 
 <style>

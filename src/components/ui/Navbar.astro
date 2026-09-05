@@ -1,19 +1,63 @@
+---
+---
+
+<style>
+    .lang-flag.scale-in {
+        animation: flagScaleIn 0.8s ease-out backwards;
+    }
+
+    @keyframes flagScaleIn {
+        0% {
+            transform: scale(0);
+            filter: blur(5px);
+        }
+        50% {
+            transform: scale(1.1);
+            filter: blur(0);
+        }
+        100% {
+            transform: scale(1);
+            filter: blur(0);
+        }
+    }
+</style>
+
 <nav class="flex justify-between items-center w-full px-12 md:px-12 xl:px-48 py-6 lg:py-10 text-white">
-    <div class="flex items-center gap-2">
-        <img src="/images/MexicoFlag.webp" alt="Mexico Flag" class="scale-in h-6 w-9 object-cover rounded-xs"
-        style={"animation-delay: .3s"}/>
-        <img src="/images/UsaFlag.webp" alt="USA Flag" class="scale-in h-6 w-9 object-cover rounded-xs"
-        style={"animation-delay: .2s"}/>
+    <div class="flex items-center gap-1.5">
+        <button
+            data-lang-btn="en"
+            data-lang-active="true"
+            data-lang-value="en"
+            class="lang-flag scale-in relative h-7 w-10 rounded-sm overflow-hidden ring-1 ring-white/0 transition-opacity duration-500 delay-10 hover:scale-110 hover:ring-white/25 cursor-pointer data-[lang-active=true]:opacity-100 data-[lang-active=false]:opacity-40 data-[lang-active=false]:hover:opacity-70 data-[lang-active=false]:![transition-delay:0ms]"
+            style={"animation-delay: .3s"}
+        >
+            <img src="/images/UsaFlag.webp" alt="English" class="h-full w-full object-cover" />
+        </button>
+        <button
+            data-lang-btn="es"
+            data-lang-active="false"
+            data-lang-value="es"
+            class="lang-flag scale-in relative h-7 w-10 rounded-sm overflow-hidden ring-1 ring-white/0 transition-opacity duration-500 delay-10 hover:scale-110 hover:ring-white/25 cursor-pointer data-[lang-active=true]:opacity-100 data-[lang-active=false]:opacity-40 data-[lang-active=false]:hover:opacity-70 data-[lang-active=false]:![transition-delay:0ms]"
+            style={"animation-delay: .2s"}
+        >
+            <img src="/images/MexicoFlag.webp" alt="Español" class="h-full w-full object-cover" />
+        </button>
     </div>
     <ul class="hidden md:flex gap-6">
         <li class="scale-in" style={"animation-delay: .3s"}>
-            <a href="#about" class="block transition duration-300 ease-out hover:scale-110 p-2 hover:text-tertiary-300">About</a>
+            <a href="#about" class="block transition duration-300 ease-out hover:scale-110 p-2 hover:text-tertiary-300">
+                <span data-i18n="navAbout">About</span>
+            </a>
         </li>
         <li class="scale-in" style={"animation-delay: .4s"}>
-            <a href="#projects" class="block transition duration-300 ease-out hover:scale-110 p-2 hover:text-tertiary-300">Projects</a>
+            <a href="#projects" class="block transition duration-300 ease-out hover:scale-110 p-2 hover:text-tertiary-300">
+                <span data-i18n="navProjects">Projects</span>
+            </a>
         </li>
         <li class="scale-in" style={"animation-delay: .5s"}>
-            <a href="mailto: medinaheyder@gmail.com" class="block transition duration-300 ease-out hover:scale-110 p-2 pr-0 hover:text-tertiary-300">Contact</a>
+            <a href="mailto: medinaheyder@gmail.com" class="block transition duration-300 ease-out hover:scale-110 p-2 pr-0 hover:text-tertiary-300">
+                <span data-i18n="navContact">Contact</span>
+            </a>
         </li>
     </ul>
 </nav>

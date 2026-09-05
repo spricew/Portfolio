@@ -17,6 +17,8 @@ const {
   githubLink,
   techs = [],
   featured = false,
+  titleKey,
+  descKey,
 } = Astro.props as Props;
 ---
 
@@ -91,7 +93,7 @@ const {
         featured ? "text-2xl md:text-3xl" : "text-2xl",
       ]}
     >
-      {projectTitle}
+      <span data-i18n={titleKey}>{projectTitle}</span>
     </h3>
 
     <p
@@ -100,7 +102,7 @@ const {
         featured ? "md:text-base md:line-clamp-3" : "",
       ]}
     >
-      {projectDescription}
+      <span data-i18n={descKey}>{projectDescription}</span>
     </p>
   </div>
 </article>
