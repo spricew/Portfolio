@@ -136,7 +136,7 @@ body {
 }
 
 .slide-in {
-  animation: slideIn 0.6s ease-out backwards;
+  animation: slideIn 0.9s linear(0, 0.009 1.4%, 0.032 2.8%, 0.131 6%, 0.265 9.1%, 0.675 17.6%, 0.88 22.8%, 0.953 25.2%, 1.014 27.7%, 1.062 30.3%, 1.094 32.9%, 1.121 37.2%, 1.121 42.2%, 1.102 46.7%, 1.019 61.2%, 0.989 71.5%, 0.985 81.1%, 1) backwards;
 }
 
 .scale-in {
@@ -153,11 +153,6 @@ body {
   0% {
     transform: translateY(50px);
     opacity: 0;
-  }
-
-  50% {
-    transform: translateY(-10px);
-    opacity: 0.8;
   }
 
   100% {
