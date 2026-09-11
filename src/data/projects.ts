@@ -4,7 +4,7 @@ import keidotCover from "@/assets/projectCovers/keidot.webp"
 import portfolioCover from "@/assets/projectCovers/portfolio.webp"
 import taskerCover from "@/assets/projectCovers/tasker.webp"
 import chatbotCover from "@/assets/projectCovers/keidot-chatbot.webp"
-// import gardenCover from "@/assets/projects/garden-cover.webp";
+import gardenCover from "@/assets/projectCovers/gardenapp.webp";
 
 export interface ProjectProps {
   previewLink?: string;
@@ -51,8 +51,7 @@ export const projects: ProjectProps[] = [
     githubLink: "https://github.com/spricew/GardenApp",
     projectTitle: "GardenApp",
     projectDescription: "A mobile management app for gardening professionals to schedule jobs, track recurring services, organize clients, and manage payment dates. Built offline-first with an intuitive iOS-inspired UI, local SQLite persistence, and smooth gesture navigation.",
-    imageSrc: keidotCover,
-    // imageSrc: gardenCover,
+    imageSrc: gardenCover,
     techs: ["React Native", "TypeScript", "TailwindCSS"],
     titleKey: "projectGardenTitle",
     descKey: "projectGardenDesc"
