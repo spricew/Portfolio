@@ -68,15 +68,6 @@ export const projects: ProjectProps[] = [
     descKey: "projectChatbotDesc"
   },
   {
-    githubLink: "https://github.com/spricew/Portfolio",
-    projectTitle: "Personal portfolio",
-    projectDescription: "My personal portfolio showcases my background, skills, and projects through a clean, accessible design. It was built with Astro and Tailwind and continues to evolve with my work.",
-    imageSrc: portfolioCover,
-    techs: ["AstroJs", "TailwindCSS"],
-    titleKey: "projectPortfolioTitle",
-    descKey: "projectPortfolioDesc"
-  },
-  {
     githubLink: "https://github.com/spricew/Keidot-Project",
     projectTitle: "Keidot App",
     projectDescription: "Keidot connects clients with nearby workers for gardening services. Users can request services, manage acceptance and payments, and leave reviews through a simple mobile experience.",
@@ -84,5 +75,14 @@ export const projects: ProjectProps[] = [
     techs: ["Flutter", "Dart"],
     titleKey: "projectKeidotTitle",
     descKey: "projectKeidotDesc"
+  },
+  {
+    githubLink: "https://github.com/spricew/Portfolio",
+    projectTitle: "Personal portfolio",
+    projectDescription: "My personal portfolio showcases my background, skills, and projects through a clean, accessible design. It was built with Astro and Tailwind and continues to evolve with my work.",
+    imageSrc: portfolioCover,
+    techs: ["AstroJs", "TailwindCSS"],
+    titleKey: "projectPortfolioTitle",
+    descKey: "projectPortfolioDesc"
   },
 ];
