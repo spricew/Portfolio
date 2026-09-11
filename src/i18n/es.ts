@@ -44,6 +44,8 @@ export default {
   projectSpacexDesc: "SpaceX Dashboard presenta lanzamientos pasados, recientes y próximos con detalles de misiones, cohetes y bases de lanzamiento. Cuenta con una interfaz limpia diseñada para practicar el consumo de APIs y el manejo de datos.",
   projectMayanlifeTitle: "Mayan Life Web",
   projectMayanlifeDesc: "Mayan Life muestra listados de propiedades inmobiliarias a través de filtros, galerías de imágenes e información detallada de propiedades. También incluye un panel de administración para gestionar propiedades y roles de usuario.",
+  projectGardenTitle: "GardenApp",
+  projectGardenDesc: "Aplicación móvil de gestión para profesionales de jardinería para programar tareas, dar seguimiento a servicios recurrentes, organizar clientes y controlar fechas de pago. Diseñada offline-first con interfaz nativa para iOS, persistencia local con SQLite y navegación fluida por gestos.",
   projectKeidotTitle: "App Keidot",
   projectKeidotDesc: "Keidot conecta a los clientes con trabajadores cercanos para servicios de jardinería. Los usuarios pueden solicitar servicios, gestionar aceptaciones y pagos, y dejar reseñas a través de una experiencia móvil sencilla.",
   projectChatbotTitle: "Chatbot IA Keidot",
