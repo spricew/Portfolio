@@ -4,6 +4,7 @@ import keidotCover from "@/assets/projectCovers/keidot.webp"
 import portfolioCover from "@/assets/projectCovers/portfolio.webp"
 import taskerCover from "@/assets/projectCovers/tasker.webp"
 import chatbotCover from "@/assets/projectCovers/keidot-chatbot.webp"
+// import gardenCover from "@/assets/projects/garden-cover.webp";
 
 export interface ProjectProps {
   previewLink?: string;
@@ -17,7 +18,7 @@ export interface ProjectProps {
 }
 
 export const projects: ProjectProps[] = [
-  { 
+  {
     githubLink: "https://github.com/spricew/tasker-app",
     previewLink: "https://tasker-studio.vercel.app",
     projectTitle: "Tasker App",
@@ -47,13 +48,14 @@ export const projects: ProjectProps[] = [
     descKey: "projectMayanlifeDesc"
   },
   {
-    githubLink: "https://github.com/spricew/Keidot-Project",
-    projectTitle: "Keidot App",
-    projectDescription: "Keidot connects clients with nearby workers for gardening services. Users can request services, manage acceptance and payments, and leave reviews through a simple mobile experience.",
+    githubLink: "https://github.com/spricew/GardenApp",
+    projectTitle: "GardenApp",
+    projectDescription: "A mobile management app for gardening professionals to schedule jobs, track recurring services, organize clients, and manage payment dates. Built offline-first with an intuitive iOS-inspired UI, local SQLite persistence, and smooth gesture navigation.",
     imageSrc: keidotCover,
-    techs: ["Flutter", "Dart"],
-    titleKey: "projectKeidotTitle",
-    descKey: "projectKeidotDesc"
+    // imageSrc: gardenCover,
+    techs: ["React Native", "TypeScript", "TailwindCSS"],
+    titleKey: "projectGardenTitle",
+    descKey: "projectGardenDesc"
   },
   {
     // "previewLink": "https://keidot-chatbot.vercel.app",
@@ -73,5 +75,14 @@ export const projects: ProjectProps[] = [
     techs: ["AstroJs", "TailwindCSS"],
     titleKey: "projectPortfolioTitle",
     descKey: "projectPortfolioDesc"
+  },
+  {
+    githubLink: "https://github.com/spricew/Keidot-Project",
+    projectTitle: "Keidot App",
+    projectDescription: "Keidot connects clients with nearby workers for gardening services. Users can request services, manage acceptance and payments, and leave reviews through a simple mobile experience.",
+    imageSrc: keidotCover,
+    techs: ["Flutter", "Dart"],
+    titleKey: "projectKeidotTitle",
+    descKey: "projectKeidotDesc"
   },
 ];
