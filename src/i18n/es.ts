@@ -60,6 +60,11 @@ export default {
   footerDeveloped: "Desarrollado por",
   footerBuiltWith: "Hecho con",
 
+  // 404
+  notFoundTitle: "404",
+  notFoundMessage: "Esta página no existe o ha sido movida.",
+  notFoundButton: "Volver al inicio",
+
   // Meta
   metaDescription: "Heyder Medina — Desarrollador de Software Junior. Portafolio con proyectos de desarrollo web: Astro, Next.js, React, TypeScript y más.",
 } as const;

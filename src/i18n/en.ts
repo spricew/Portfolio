@@ -60,6 +60,11 @@ export default {
   footerDeveloped: "Developed by",
   footerBuiltWith: "Built with",
 
+  // 404
+  notFoundTitle: "404",
+  notFoundMessage: "This page doesn't exist or has been moved.",
+  notFoundButton: "Back to home",
+
   // Meta
   metaDescription: "Heyder Medina — Junior Software Developer. Portfolio with web development projects: Astro, Next.js, React, TypeScript and more.",
 } as const;
