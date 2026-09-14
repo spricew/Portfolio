@@ -1,0 +1,32 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/ui/Navbar.astro";
+import Footer from "@/components/ui/Footer.astro";
+---
+
+<Layout title="404 - Page Not Found" description="The page you are looking for does not exist.">
+	<Navbar />
+	<main class="relative flex flex-col items-center justify-center h-[80dvh] pb-20 w-full px-8 text-center gap-8">
+		<h1 class="text-4xl md:text-9xl font-bold 
+			bg-gradient-to-b from-white to-neutral-700 bg-clip-text text-transparent scale-in" style="animation-delay: .1s">
+			404
+		</h1>
+
+		<p class="text-xl md:text-2xl text-white/80 max-w-md slide-in" style="animation-delay: .3s" data-i18n="notFoundMessage">
+			This page doesn't exist or has been moved.
+		</p>
+
+		<a
+			href="/"
+			class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-lg text-white bg-white/10 ring-1 ring-white/25 backdrop-blur-lg cursor-pointer transition duration-300 ease-out hover:scale-105 hover:bg-white/15 active:scale-95 slide-in"
+				style="animation-delay: .5s"
+		>
+			<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+				<polyline points="9 22 9 12 15 12 15 22"/>
+			</svg>
+			<span data-i18n="notFoundButton">Back to home</span>
+		</a>
+	</main>
+	<Footer />
+</Layout>
