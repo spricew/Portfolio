@@ -4,9 +4,42 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  noindex?: boolean;
 }
 
-const { title, description = "Heyder Medina — Junior Software Developer. Portfolio with web development projects: Astro, Next.js, React, TypeScript and more." } = Astro.props;
+const { title, description = "Heyder Medina — Junior Software Developer. Portfolio with web development projects: Astro, Next.js, React, TypeScript and more.", noindex = false } = Astro.props;
+
+const site = Astro.site ?? new URL(Astro.url.pathname, Astro.url);
+const canonicalURL = new URL(Astro.url.pathname, site);
+const ogImageURL = new URL("/og-image.png", site);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${site.href}#website`,
+      url: site.href,
+      name: "Heyder Medina",
+      description,
+      inLanguage: "en",
+    },
+    {
+      "@type": "Person",
+      "@id": `${site.href}#person`,
+      name: "Heyder Medina",
+      url: site.href,
+      image: ogImageURL.href,
+      jobTitle: "Junior Software Developer",
+      description,
+      email: "mailto:medinaheyder@gmail.com",
+      sameAs: [
+        "https://github.com/spricew",
+        "https://www.linkedin.com/in/heyderix/",
+      ],
+    },
+  ],
+};
 ---  
 
 <!doctype html>
@@ -17,8 +50,25 @@ const { title, description = "Heyder Medina — Junior Software Developer. Portf
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
+		{noindex && <meta name="robots" content="noindex, nofollow" />}
 		<meta name="theme-color" content="#021a03" />
 		<title>{title}</title>
+		<link rel="canonical" href={canonicalURL.href} />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Heyder Medina" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalURL.href} />
+		<meta property="og:image" content={ogImageURL.href} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="Heyder Medina — Junior Software Developer" />
+		<meta property="og:locale" content="en_US" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageURL.href} />
+		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
 		<link
 		rel="preload"
 		href="/fonts/Urbanist-Regular.woff2"
