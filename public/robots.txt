@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://heyder-medina-portfolio.vercel.app/sitemap-index.xml
