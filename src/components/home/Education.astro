@@ -2,40 +2,328 @@
 import SectionTitle from "@/components/ui/SectionTitle.astro";
 import BookIcon from "@/icons/BookIcon.astro";
 import EducationIcon from "@/icons/EducationIcon.astro";
-import RectangularCard from "@/components/ui/RectangularCard.astro";
+
+interface EduItem {
+    school: string;
+    careerFallback: string;
+    careerKey: "edu1Career" | "edu2Career" | "edu3Career";
+    dateFallback: string;
+    dateKey: "edu1Date" | "edu2Date" | "edu3Date";
+    status: "current" | "done";
+    ghost: string;
+    tags: string[];
+    accent: string;
+}
+
+const items: EduItem[] = [
+    {
+        school: "Universidad Tecnológica Metropolitana",
+        careerFallback: "Engineering in Software Development and Management",
+        careerKey: "edu1Career",
+        dateFallback: "Sept. 2025 - Jul. 2026",
+        dateKey: "edu1Date",
+        status: "current",
+        ghost: "2026",
+        tags: ["Software Architecture", "Project Management", "Leadership"],
+        accent: "from-tertiary-300 to-primary-400",
+    },
+    {
+        school: "Universidad Tecnológica Metropolitana",
+        careerFallback: "Higher Technical Degree in Information and Communication Technologies (ICT)",
+        careerKey: "edu2Career",
+        dateFallback: "Sept. 2023 - Jun. 2025",
+        dateKey: "edu2Date",
+        status: "done",
+        ghost: "2025",
+        tags: ["Networks", "Databases", "Web Development"],
+        accent: "from-primary-400 to-secondary-300",
+    },
+    {
+        school: "Conalep Mérida 1",
+        careerFallback: "Technical High School Degree in Computer Science",
+        careerKey: "edu3Career",
+        dateFallback: "Sept. 2020 - Jun. 2023",
+        dateKey: "edu3Date",
+        status: "done",
+        ghost: "2023",
+        tags: ["Programming Logic", "Hardware", "Technical Foundations"],
+        accent: "from-secondary-300 to-tertiary-300",
+    },
+];
+
+const marquee: string[] = [
+    "Software Engineering",
+    "Web Development",
+    "Systems and Networks",
+    "Databases",
+    "Project Management",
+    "Technical Foundations",
+];
 ---
 
-<section class="flex flex-col w-full gap-8">
+<section id="education" class="relative w-full overflow-x-clip">
+    <!-- ambient wash -->
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+        <div class="absolute -top-24 right-[-10%] size-96 rounded-full bg-tertiary-500/10 blur-[120px]"></div>
+        <div class="absolute bottom-[-20%] left-[-10%] size-96 rounded-full bg-primary-500/10 blur-[120px]"></div>
+    </div>
+
     <div class="fade-up-view">
         <SectionTitle title="Education" Icon={BookIcon} titleKey="sectionEducation" />
     </div>
 
-    <div class="flex flex-col gap-4">
-        <RectangularCard
-            Icon={EducationIcon}
-            schoolName="Universidad Tecnológica Metropolitana"
-            career="Engineering in Software Development and Management"
-            date="Sept. 2025 - Jul. 2026"
-            careerKey="edu1Career"
-            dateKey="edu1Date"
-        />
+    <!-- editorial header -->
+    <div class="mt-6 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <h3
+            class="max-w-3xl font-['Figtree'] font-semibold text-balance text-white"
+            style={"font-size: clamp(2rem, 3.4vw, 3.25rem); line-height: 1.05; letter-spacing: -0.02em;"}
+        >
+            <span data-i18n="eduHeadingA">Formal</span>
+            <span data-i18n="eduHeadingB">training, engineered into practice.</span>
+        </h3>
+        <p class="shrink-0 font-['Figtree'] text-lg font-medium tracking-wide text-white/30 md:text-xl">
+            2020 <span class="text-tertiary-300/60">—</span> 2026
+        </p>
+    </div>
 
-        <RectangularCard
-            Icon={EducationIcon}
-            schoolName="Universidad Tecnológica Metropolitana"
-            career="Higher Technical Degree in Information and Communication Technologies (ICT)"
-            date="Sept. 2023 - Jun. 2025"
-            careerKey="edu2Career"
-            dateKey="edu2Date"
-        />
-    
-        <RectangularCard
-            Icon={EducationIcon}
-            schoolName="Conalep Mérida 1"
-            career="Technical High School Degree in Computer Science"
-            date="Sept. 2020 - Jun. 2023"
-            careerKey="edu3Career"
-            dateKey="edu3Date"
-        />
+    <!-- editorial marquee divider -->
+    <div aria-hidden="true" class="edu-marquee mt-10 border-y border-white/10 py-4">
+        <div class="edu-marquee-track">
+            {
+                [0, 1].map((copy) => (
+                    <div class="flex items-center gap-10 pr-10" key={copy}>
+                        {marquee.map((topic) => (
+                            <span
+                                class="flex items-center gap-10 text-sm font-medium uppercase tracking-[0.2em] text-white/40"
+                                key={`${copy}-${topic}`}
+                            >
+                                {topic}
+                                <span class="size-1.5 rounded-full bg-tertiary-300/60"></span>
+                            </span>
+                        ))}
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-14">
+        <!-- pinned context rail -->
+        <aside class="flex flex-col gap-8 self-start lg:sticky lg:top-28">
+            <p class="max-w-md text-lg text-pretty text-white/80">
+                <span data-i18n="eduLede"
+                    >Three stages from technical high school to software engineering — each one adding depth in
+                    systems, development and management.</span
+                >
+            </p>
+            <ul class="flex flex-col gap-3 text-sm text-white/60">
+                <li class="flex items-center gap-3">
+                    <span class="edu-pulse size-2 rounded-full bg-tertiary-300"></span>
+                    <span data-i18n="eduStatusCurrent">In progress</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <span class="size-2 rounded-full bg-primary-300"></span>
+                    <span data-i18n="eduStatusDone">Completed</span>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- stacking timeline -->
+        <ol class="grid grid-cols-1 grid-flow-dense gap-6">
+            {
+                items.map((item, index) => (
+                    <li class="edu-stack" style={`top: calc(6.5rem + ${index * 1.4}rem)`}>
+                        <article
+                            class="group relative overflow-hidden rounded-4xl bg-white/[0.07] p-7 ring-1 ring-white/15 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.09] hover:ring-white/30 md:p-9"
+                        >
+                            <span
+                                aria-hidden="true"
+                                class={`absolute inset-y-0 left-0 w-1 bg-gradient-to-b ${item.accent}`}
+                            ></span>
+                            <span
+                                aria-hidden="true"
+                                class="pointer-events-none absolute -bottom-7 right-5 font-['Figtree'] text-[6rem] leading-none font-bold text-white/[0.07] transition-all duration-700 ease-out select-none group-hover:scale-105 group-hover:text-white/[0.12] md:text-[8rem]"
+                            >
+                                {item.ghost}
+                            </span>
+
+                            <div class="relative flex flex-wrap items-center gap-3">
+                                <span class="rounded-full bg-white/5 px-4 py-1.5 text-sm font-medium text-white/75 ring-1 ring-white/15">
+                                    <span data-i18n={item.dateKey}>{item.dateFallback}</span>
+                                </span>
+                                {item.status === "current" ? (
+                                    <span class="flex items-center gap-2 rounded-full bg-tertiary-300/10 px-4 py-1.5 text-sm font-medium text-tertiary-300 ring-1 ring-tertiary-300/40">
+                                        <span class="edu-pulse size-1.5 rounded-full bg-tertiary-300"></span>
+                                        <span data-i18n="eduStatusCurrent">In progress</span>
+                                    </span>
+                                ) : (
+                                    <span class="rounded-full bg-primary-300/10 px-4 py-1.5 text-sm font-medium text-primary-200 ring-1 ring-primary-300/30">
+                                        <span data-i18n="eduStatusDone">Completed</span>
+                                    </span>
+                                )}
+                            </div>
+
+                            <div class="relative mt-6 flex items-start gap-5">
+                                <span class="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20 transition-transform duration-700 ease-out group-hover:scale-105">
+                                    <EducationIcon class="size-7 text-tertiary-300" />
+                                </span>
+                                <div class="min-w-0">
+                                    <h4 class="font-['Figtree'] text-xl font-semibold text-balance text-white md:text-2xl">
+                                        <span data-i18n={item.careerKey}>{item.careerFallback}</span>
+                                    </h4>
+                                    <p class="mt-1 text-base font-medium text-tertiary-300 md:text-lg">
+                                        {item.school}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="edu-reveal relative">
+                                <div>
+                                    <ul class="flex flex-wrap gap-2 pt-1">
+                                        {item.tags.map((tag) => (
+                                            <li
+                                                class="rounded-full px-3.5 py-1 text-[0.8rem] font-medium tracking-wide text-white/70 ring-1 ring-white/15 transition-colors duration-300 hover:text-white hover:ring-tertiary-300/50"
+                                                key={tag}
+                                            >
+                                                {tag}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                ))
+            }
+        </ol>
     </div>
 </section>
+
+<style>
+    .edu-pill {
+        background-image: url("https://picsum.photos/seed/campus/400/160");
+        filter: grayscale(1) contrast(1.25);
+        opacity: 0.9;
+        transform: scale(0.8);
+        animation: edu-pill-in 0.8s ease-out forwards;
+        animation-timeline: view();
+        animation-range: entry 90% cover 40%;
+    }
+
+    @keyframes edu-pill-in {
+        to {
+            transform: scale(1);
+            opacity: 0.9;
+        }
+    }
+
+    .edu-stack {
+        animation: edu-in 0.7s ease-out backwards;
+        animation-timeline: view();
+        animation-range: entry 85% cover 35%;
+    }
+
+    @keyframes edu-in {
+        from {
+            transform: translateY(48px) scale(0.94);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* horizontal-accordion behaviour: focus tags expand on hover / focus */
+    .edu-reveal {
+        display: grid;
+        grid-template-rows: 0fr;
+        opacity: 0;
+        margin-top: 0;
+        transition:
+            grid-template-rows 0.5s ease-out,
+            opacity 0.5s ease-out,
+            margin-top 0.5s ease-out;
+    }
+
+    .edu-reveal > div {
+        overflow: hidden;
+        min-height: 0;
+    }
+
+    .group:hover .edu-reveal,
+    .group:focus-within .edu-reveal {
+        grid-template-rows: 1fr;
+        opacity: 1;
+        margin-top: 1.5rem;
+    }
+
+    @media (max-width: 1023.98px) {
+        .edu-reveal {
+            grid-template-rows: 1fr;
+            opacity: 1;
+            margin-top: 1.5rem;
+        }
+    }
+
+    .edu-marquee {
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+        mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+    }
+
+    .edu-marquee-track {
+        display: flex;
+        width: max-content;
+        animation: edu-marquee 36s linear infinite;
+    }
+
+    @keyframes edu-marquee {
+        to {
+            transform: translateX(-50%);
+        }
+    }
+
+    .edu-pulse {
+        animation: edu-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes edu-pulse {
+        0%,
+        100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.35;
+        }
+    }
+
+    @supports (corner-shape: squircle) {
+        article {
+            border-radius: 3.5rem;
+            corner-shape: squircle;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .edu-stack,
+        .edu-pill,
+        .edu-marquee-track,
+        .edu-pulse {
+            animation: none;
+        }
+        .edu-stack,
+        .edu-reveal {
+            opacity: 1;
+            transform: none;
+        }
+        .edu-pill {
+            transform: none;
+        }
+        .edu-reveal {
+            grid-template-rows: 1fr;
+            margin-top: 1.5rem;
+            transition: none;
+        }
+    }
+</style>
