@@ -36,6 +36,12 @@ export default {
   edu2Date: "Sept. 2023 - Jun. 2025",
   edu3Career: "Técnico en informática (Bachillerato Técnico)",
   edu3Date: "Sept. 2020 - Jun. 2023",
+  eduHeadingA: "Formación",
+  eduHeadingB: "formal, convertida en práctica.",
+  eduLede:
+    "Tres etapas desde el bachillerato técnico hasta la ingeniería de software — cada una sumando profundidad en sistemas, desarrollo y gestión.",
+  eduStatusCurrent: "En curso",
+  eduStatusDone: "Completado",
 
   // Projects
   projectTaskerTitle: "Tasker App",

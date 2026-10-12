@@ -36,6 +36,12 @@ export default {
   edu2Date: "Sept. 2023 - Jun. 2025",
   edu3Career: "Technical High School Degree in Computer Science",
   edu3Date: "Sept. 2020 - Jun. 2023",
+  eduHeadingA: "Formal",
+  eduHeadingB: "training, engineered into practice.",
+  eduLede:
+    "Three stages from technical high school to software engineering — each one adding depth in systems, development and management.",
+  eduStatusCurrent: "In progress",
+  eduStatusDone: "Completed",
 
   // Projects
   projectTaskerTitle: "Tasker App",
