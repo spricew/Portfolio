@@ -128,71 +128,7 @@ const items: CertItem[] = [
     </div>
 </section>
 
-<script>
-    function splitCertLede(): void {
-        document.querySelectorAll<HTMLElement>("[data-cert-lede]").forEach((root: HTMLElement): void => {
-            const source = root.querySelector<HTMLElement>("[data-i18n]");
-            const tray = root.querySelector<HTMLElement>("[data-cert-words]");
-            if (!source || !tray) return;
-            const text: string = source.textContent ?? "";
-            const words: string[] = text.split(/\s+/).filter((w: string): boolean => w.length > 0);
-            tray.innerHTML = "";
-            words.forEach((word: string, i: number): void => {
-                const s: HTMLSpanElement = document.createElement("span");
-                s.className = "cert-word";
-                s.style.setProperty("--i", String(i));
-                s.textContent = word;
-                tray.appendChild(s);
-                tray.appendChild(document.createTextNode(" "));
-            });
-            root.classList.toggle("cert-is-split", words.length > 0);
-        });
-    }
-
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", splitCertLede);
-    } else {
-        splitCertLede();
-    }
-    window.addEventListener("load", splitCertLede);
-    window.addEventListener("lang-change", splitCertLede);
-</script>
-
 <style>
-    /* scrubbing text reveal: words scrub from 0.12 to 1 sequentially */
-    .cert-word {
-        display: inline-block;
-    }
-
-    [data-cert-words]:empty {
-        display: none;
-    }
-
-    .cert-is-split [data-cert-source] {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        clip: rect(0 0 0 0);
-        white-space: nowrap;
-    }
-
-    @supports (animation-timeline: view()) {
-        .cert-word {
-            opacity: 0.12;
-            animation: cert-word-in 0.5s linear forwards;
-            animation-timeline: view();
-            animation-range: entry 70% cover 40%;
-            animation-delay: calc(var(--i, 0) * 90ms);
-        }
-
-        @keyframes cert-word-in {
-            to {
-                opacity: 1;
-            }
-        }
-    }
-
     /* image scale and fade on scroll */
     .cert-logo {
         transform: scale(0.8);
@@ -290,21 +226,15 @@ const items: CertItem[] = [
 
     @media (prefers-reduced-motion: reduce) {
         .cert-slice,
-        .cert-pill,
-        .cert-logo,
-        .cert-word {
+        .cert-logo {
             animation: none;
         }
         .cert-slice {
             opacity: 1;
             transform: none;
         }
-        .cert-pill,
         .cert-logo {
             transform: none;
-        }
-        .cert-word {
-            opacity: 1;
         }
         .cert-grid,
         .cert-compact,
