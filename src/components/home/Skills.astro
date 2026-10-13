@@ -1,19 +1,320 @@
 ---
 import SectionTitle from "@/components/ui/SectionTitle.astro";
 import SkillsIcon from "@/icons/SkillsIcon.astro";
-import MiniCard from "@/components/ui/MiniCard.astro";
 import CambridgeLogo from "@/icons/skills/CambridgeLogo.astro";
 import ScrumLogo from "@/icons/skills/ScrumLogo.astro";
-import CiscoLogo from "@/icons/skills/CiscoLogo.astro"
+import CiscoLogo from "@/icons/skills/CiscoLogo.astro";
+
+interface CertItem {
+    issuer: string;
+    field: string;
+    level: string;
+    titleFallback: string;
+    titleKey: "skillCambridge" | "skillScrum" | "skillCisco";
+    tags: string[];
+    accent: string;
+    Logo: typeof CambridgeLogo;
+}
+
+const items: CertItem[] = [
+    {
+        issuer: "Cambridge",
+        field: "Language",
+        level: "B2",
+        titleFallback: "Cambridge B2 English Certificate",
+        titleKey: "skillCambridge",
+        tags: ["CEFR B2", "Reading and Writing", "Speaking"],
+        accent: "from-tertiary-300 to-primary-400",
+        Logo: CambridgeLogo,
+    },
+    {
+        issuer: "Scrum",
+        field: "Agile",
+        level: "SF",
+        titleFallback: "Scrum Foundation Certificate",
+        titleKey: "skillScrum",
+        tags: ["Agile", "Roles and Events", "Artifacts"],
+        accent: "from-secondary-300 to-tertiary-300",
+        Logo: ScrumLogo,
+    },
+    {
+        issuer: "Cisco",
+        field: "Networks",
+        level: "CCNA",
+        titleFallback: "Cisco CCNA (V7) Introduction Certificate",
+        titleKey: "skillCisco",
+        tags: ["Networking", "Routing and Switching", "CCNA Intro"],
+        accent: "from-primary-400 to-secondary-300",
+        Logo: CiscoLogo,
+    },
+];
 ---
 
-<section class="flex flex-col w-full gap-8">
-  <div class="fade-up-view">
-    <SectionTitle title="Skills" Icon={SkillsIcon} titleKey="sectionSkills" />
-  </div>
-  <div class="flex flex-wrap justify-center gap-6">
-    <MiniCard text="Cambridge B2 English Certificate" Icon={CambridgeLogo} textKey="skillCambridge"/>
-    <MiniCard text="Scrum Foundation Certificate" Icon={ScrumLogo} textKey="skillScrum"/>
-    <MiniCard text="Cisco CCNA (V7) Introduction Certificate" Icon={CiscoLogo} textKey="skillCisco"/>
-  </div>
+<section id="certifications" class="relative w-full overflow-x-clip">
+    <!-- ambient wash -->
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+        <div class="absolute -top-24 left-[-10%] size-96 rounded-full bg-secondary-500/10 blur-[120px]"></div>
+        <div class="absolute bottom-[-20%] right-[-10%] size-96 rounded-full bg-tertiary-500/10 blur-[120px]"></div>
+    </div>
+
+    <div class="fade-up-view flex justify-center">
+        <SectionTitle title="Skills" Icon={SkillsIcon} titleKey="sectionSkills" />
+    </div>
+
+    <!-- cinematic-center header -->
+    <h3
+        class="mx-auto mt-6 max-w-4xl text-center font-['Figtree'] font-semibold text-balance text-white"
+        style={"font-size: clamp(2.2rem, 4.5vw, 3.75rem); line-height: 1.05; letter-spacing: -0.02em;"}
+    >
+        <span data-i18n="certHeadingA">Proof of</span>
+       
+        <span data-i18n="certHeadingB">craft, certified.</span>
+    </h3>
+
+    <!-- horizontal accordion -->
+    <div class="cert-grid mt-12 grid grid-cols-1 grid-flow-dense gap-5 md:grid-cols-3">
+        {
+            items.map((item, index) => (
+                <article
+                    tabindex="0"
+                    data-slice={index}
+                    class="cert-slice group relative flex overflow-hidden rounded-4xl bg-white/[0.07] p-6 ring-1 ring-white/15 backdrop-blur-md transition-all duration-500 hover:bg-white/[0.09] hover:ring-white/30 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-tertiary-300 md:min-h-[26rem] md:p-8"
+                >
+                    <span
+                        aria-hidden="true"
+                        class={`absolute inset-y-0 left-0 w-1 bg-gradient-to-b ${item.accent}`}
+                    ></span>
+                    <span
+                        aria-hidden="true"
+                        class="pointer-events-none absolute -right-2 -bottom-6 font-['Figtree'] leading-none font-bold text-white/[0.06] transition-all duration-700 ease-out select-none group-hover:scale-105 group-hover:text-white/[0.11] text-[5.5rem] md:text-[7rem]"
+                    >
+                        {item.level}
+                    </span>
+
+                    <div class="relative flex w-full items-start gap-5 md:flex-col md:items-center md:gap-6">
+                        <span class="cert-logo block shrink-0 overflow-hidden rounded-2xl bg-white/10 p-2 ring-1 ring-white/20">
+                            <item.Logo class="block size-12 object-contain transition-transform duration-700 ease-out group-hover:scale-105 md:size-16" />
+                        </span>
+
+                        <div
+                            aria-hidden="true"
+                            class="cert-compact hidden flex-1 flex-col items-center justify-center gap-4 md:flex"
+                        >
+                            <span class="rotate-180 text-sm font-semibold tracking-[0.35em] text-white/55 uppercase [writing-mode:vertical-rl]">
+                                {item.issuer}
+                            </span>
+                        </div>
+
+                        <div class="cert-detail min-w-0 flex-1 md:absolute md:inset-0 md:flex md:flex-col md:items-center md:justify-center md:p-8 md:text-center">
+                            <span class="inline-block rounded-full bg-white/5 px-3.5 py-1 text-xs font-medium tracking-[0.18em] text-tertiary-300 uppercase ring-1 ring-white/15">
+                                {item.field}
+                            </span>
+                            <h4 class="mt-3 font-['Figtree'] text-xl font-semibold text-balance text-white md:text-2xl">
+                                <span data-i18n={item.titleKey}>{item.titleFallback}</span>
+                            </h4>
+                            <p class="mt-1 text-sm font-medium text-white/60 md:text-base">{item.issuer}</p>
+                            <ul class="mt-4 flex flex-wrap gap-2 md:justify-center">
+                                {item.tags.map((tag) => (
+                                    <li class="rounded-full px-3.5 py-1 text-[0.8rem] font-medium tracking-wide text-white/70 ring-1 ring-white/15 transition-colors duration-300 hover:text-white hover:ring-tertiary-300/50">
+                                        {tag}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            ))
+        }
+    </div>
 </section>
+
+<script>
+    function splitCertLede(): void {
+        document.querySelectorAll<HTMLElement>("[data-cert-lede]").forEach((root: HTMLElement): void => {
+            const source = root.querySelector<HTMLElement>("[data-i18n]");
+            const tray = root.querySelector<HTMLElement>("[data-cert-words]");
+            if (!source || !tray) return;
+            const text: string = source.textContent ?? "";
+            const words: string[] = text.split(/\s+/).filter((w: string): boolean => w.length > 0);
+            tray.innerHTML = "";
+            words.forEach((word: string, i: number): void => {
+                const s: HTMLSpanElement = document.createElement("span");
+                s.className = "cert-word";
+                s.style.setProperty("--i", String(i));
+                s.textContent = word;
+                tray.appendChild(s);
+                tray.appendChild(document.createTextNode(" "));
+            });
+            root.classList.toggle("cert-is-split", words.length > 0);
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", splitCertLede);
+    } else {
+        splitCertLede();
+    }
+    window.addEventListener("load", splitCertLede);
+    window.addEventListener("lang-change", splitCertLede);
+</script>
+
+<style>
+    /* scrubbing text reveal: words scrub from 0.12 to 1 sequentially */
+    .cert-word {
+        display: inline-block;
+    }
+
+    [data-cert-words]:empty {
+        display: none;
+    }
+
+    .cert-is-split [data-cert-source] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+    }
+
+    @supports (animation-timeline: view()) {
+        .cert-word {
+            opacity: 0.12;
+            animation: cert-word-in 0.5s linear forwards;
+            animation-timeline: view();
+            animation-range: entry 70% cover 40%;
+            animation-delay: calc(var(--i, 0) * 90ms);
+        }
+
+        @keyframes cert-word-in {
+            to {
+                opacity: 1;
+            }
+        }
+    }
+
+    /* image scale and fade on scroll */
+    .cert-logo {
+        transform: scale(0.8);
+    }
+
+    @supports (animation-timeline: view()) {
+        .cert-logo {
+            animation: cert-logo-in 0.7s ease-out forwards;
+            animation-timeline: view();
+            animation-range: entry 90% cover 40%;
+        }
+
+        @keyframes cert-logo-in {
+            to {
+                transform: scale(1);
+            }
+        }
+    }
+
+    /* horizontal accordion: expanding grid fractions via :has */
+    @media (min-width: 768px) {
+        .cert-grid {
+            grid-template-columns: 1fr 1fr 1fr;
+            transition: grid-template-columns 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .cert-grid:has([data-slice="0"]:hover, [data-slice="0"]:focus-within) {
+            grid-template-columns: 2.2fr 1fr 1fr;
+        }
+
+        .cert-grid:has([data-slice="1"]:hover, [data-slice="1"]:focus-within) {
+            grid-template-columns: 1fr 2.2fr 1fr;
+        }
+
+        .cert-grid:has([data-slice="2"]:hover, [data-slice="2"]:focus-within) {
+            grid-template-columns: 1fr 1fr 2.2fr;
+        }
+
+        .cert-compact {
+            opacity: 1;
+            transition: opacity 0.4s ease-out;
+        }
+
+        .cert-slice:hover .cert-compact,
+        .cert-slice:focus-within .cert-compact {
+            opacity: 0;
+        }
+
+        .cert-detail {
+            opacity: 0;
+            transform: translateY(16px);
+            pointer-events: none;
+            transition:
+                opacity 0.5s ease-out,
+                transform 0.5s ease-out;
+        }
+
+        .cert-slice:hover .cert-detail,
+        .cert-slice:focus-within .cert-detail {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        .cert-compact {
+            display: none;
+        }
+    }
+
+    .cert-slice {
+        animation: cert-in 0.7s ease-out backwards;
+        animation-timeline: view();
+        animation-range: entry 10% cover 60%;
+    }
+
+    @keyframes cert-in {
+        from {
+            transform: translateY(48px) scale(0.94);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+    }
+
+    @supports (corner-shape: squircle) {
+        article {
+            border-radius: 3.5rem;
+            corner-shape: squircle;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .cert-slice,
+        .cert-pill,
+        .cert-logo,
+        .cert-word {
+            animation: none;
+        }
+        .cert-slice {
+            opacity: 1;
+            transform: none;
+        }
+        .cert-pill,
+        .cert-logo {
+            transform: none;
+        }
+        .cert-word {
+            opacity: 1;
+        }
+        .cert-grid,
+        .cert-compact,
+        .cert-detail {
+            transition: none;
+        }
+        .cert-detail {
+            opacity: 1;
+            transform: none;
+            pointer-events: auto;
+        }
+    }
+</style>
