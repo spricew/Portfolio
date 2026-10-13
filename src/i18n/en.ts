@@ -29,6 +29,12 @@ export default {
   skillScrum: "Scrum Foundation Certificate",
   skillCisco: "Cisco CCNA (V7) Introduction Certificate",
 
+  // Certifications
+  certHeadingA: "Proof of",
+  certHeadingB: "craft, certified.",
+  certLede:
+    "Three credentials that back the work — language, agility and networks, each earned through examination.",
+
   // Education
   edu1Career: "Engineering in Software Development and Management",
   edu1Date: "Sept. 2025 - Jul. 2026",

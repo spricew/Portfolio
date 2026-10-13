@@ -29,6 +29,12 @@ export default {
   skillScrum: "Certificado de Fundamentos de Scrum",
   skillCisco: "Certificado de Cisco CCNA (V7)",
 
+  // Certifications
+  certHeadingA: "Prueba de",
+  certHeadingB: "oficio, certificado.",
+  certLede:
+    "Tres credenciales que respaldan el trabajo — idioma, agilidad y redes, cada una obtenida mediante examen.",
+
   // Education
   edu1Career: "Ingeniería en Gestión y Desarrollo de Software",
   edu1Date: "Sept. 2025 - Jul. 2026",
