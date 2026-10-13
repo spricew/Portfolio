@@ -14,7 +14,6 @@ import { projects } from "@/data/projects";
     {
       projects.map((project, index) => (
         <Card
-          key={project.projectTitle}
           featured={index === 0}
           previewLink={project.previewLink}
           githubLink={project.githubLink}
