@@ -91,11 +91,10 @@ const marquee: string[] = [
         <div class="edu-marquee-track">
             {
                 [0, 1].map((copy) => (
-                    <div class="flex items-center gap-10 pr-10" key={copy}>
+                    <div class="flex items-center gap-10 pr-10">
                         {marquee.map((topic) => (
                             <span
                                 class="flex items-center gap-10 text-sm font-medium uppercase tracking-[0.2em] text-white/40"
-                                key={`${copy}-${topic}`}
                             >
                                 {topic}
                                 <span class="size-1.5 rounded-full bg-tertiary-300/60"></span>
@@ -131,8 +130,8 @@ const marquee: string[] = [
         <!-- stacking timeline -->
         <ol class="grid grid-cols-1 grid-flow-dense gap-6">
             {
-                items.map((item, index) => (
-                    <li class="edu-stack" style={`top: calc(6.5rem + ${index * 1.4}rem)`}>
+                items.map((item) => (
+                    <li class="edu-stack">
                         <article
                             class="group relative overflow-hidden rounded-4xl bg-white/[0.07] p-7 ring-1 ring-white/15 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.09] hover:ring-white/30 md:p-9"
                         >
@@ -183,7 +182,6 @@ const marquee: string[] = [
                                         {item.tags.map((tag) => (
                                             <li
                                                 class="rounded-full px-3.5 py-1 text-[0.8rem] font-medium tracking-wide text-white/70 ring-1 ring-white/15 transition-colors duration-300 hover:text-white hover:ring-tertiary-300/50"
-                                                key={tag}
                                             >
                                                 {tag}
                                             </li>
@@ -200,23 +198,6 @@ const marquee: string[] = [
 </section>
 
 <style>
-    .edu-pill {
-        background-image: url("https://picsum.photos/seed/campus/400/160");
-        filter: grayscale(1) contrast(1.25);
-        opacity: 0.9;
-        transform: scale(0.8);
-        animation: edu-pill-in 0.8s ease-out forwards;
-        animation-timeline: view();
-        animation-range: entry 90% cover 40%;
-    }
-
-    @keyframes edu-pill-in {
-        to {
-            transform: scale(1);
-            opacity: 0.9;
-        }
-    }
-
     .edu-stack {
         animation: edu-in 0.7s ease-out backwards;
         animation-timeline: view();
@@ -307,7 +288,6 @@ const marquee: string[] = [
 
     @media (prefers-reduced-motion: reduce) {
         .edu-stack,
-        .edu-pill,
         .edu-marquee-track,
         .edu-pulse {
             animation: none;
@@ -315,9 +295,6 @@ const marquee: string[] = [
         .edu-stack,
         .edu-reveal {
             opacity: 1;
-            transform: none;
-        }
-        .edu-pill {
             transform: none;
         }
         .edu-reveal {
