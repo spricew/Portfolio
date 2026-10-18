@@ -1,7 +1,6 @@
 import mayanlifeCover from "@/assets/projectCovers/mayanlife.webp"
 import spacexCover from "@/assets/projectCovers/spacex.webp"
 import keidotCover from "@/assets/projectCovers/keidot.webp"
-import portfolioCover from "@/assets/projectCovers/portfolio.webp"
 import taskerCover from "@/assets/projectCovers/tasker.webp"
 import chatbotCover from "@/assets/projectCovers/keidot-chatbot.webp"
 import gardenCover from "@/assets/projectCovers/gardenapp.webp";
