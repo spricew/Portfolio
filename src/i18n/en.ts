@@ -53,7 +53,7 @@ export default {
   projHeadingA: "Selected",
   projHeadingB: "work, built end to end.",
   projLede:
-    "Seven builds spanning client work, mobile apps and AI experiments — designed, coded and shipped.",
+    "Eight builds spanning client work, mobile apps and AI and CSS experiments — designed, coded and shipped.",
   projectTaskerTitle: "Tasker App",
   projectTaskerDesc: "Tasker Studio helps users track daily tasks with optimistic updates and real-time counters. It includes secure role-based authentication, CRUD operations, password recovery, and a serverless PostgreSQL backend.",
   projectSpacexTitle: "SpaceX Dashboard",
@@ -68,6 +68,8 @@ export default {
   projectChatbotDesc: "AI assistant for Keidot that answers service and policy questions using a RAG pipeline with LangChain, ChromaDB, and local LLMs. It can quote prices, check availability, and manage appointments with confirmation and prompt-injection protections.",
   projectPortfolioTitle: "Personal portfolio",
   projectPortfolioDesc: "My personal portfolio showcases my background, skills, and projects through a clean, accessible design. It was built with Astro and Tailwind and continues to evolve with my work.",
+  projectGlassmorphismTitle: "Glassmorphism Lab",
+  projectGlassmorphismDesc: "An interactive lab that breaks Apple's frosted glass down into its CSS layers. Drag the panel over different backgrounds and toggle blur, saturation, tint, grain, hairline, glow, shadow and squircle corners to see exactly what each one adds.",
 
   projectPreview: "Preview",
   projectCode: "Code",

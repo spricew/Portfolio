@@ -53,7 +53,7 @@ export default {
   projHeadingA: "Trabajo",
   projHeadingB: "seleccionado, construido de principio a fin.",
   projLede:
-    "Siete proyectos entre trabajo para clientes, apps móviles y experimentos con IA — diseñados, programados y publicados.",
+    "Ocho proyectos entre trabajo para clientes, apps móviles y experimentos con IA y CSS — diseñados, programados y publicados.",
   projectTaskerTitle: "Tasker App",
   projectTaskerDesc: "Tasker Studio ayuda a los usuarios a rastrear tareas diarias con actualizaciones optimistas y contadores en tiempo real. Incluye autenticación segura por roles, operaciones CRUD, recuperación de contraseña y un backend PostgreSQL sin servidor.",
   projectSpacexTitle: "SpaceX Dashboard",
@@ -68,6 +68,8 @@ export default {
   projectChatbotDesc: "Asistente IA para Keidot que responde preguntas sobre servicios y políticas utilizando un pipeline RAG con LangChain, ChromaDB y LLMs locales. Puede cotizar precios, verificar disponibilidad y gestionar citas con protecciones contra inyección de prompts.",
   projectPortfolioTitle: "Portafolio personal",
   projectPortfolioDesc: "Mi portafolio personal muestra mi trayectoria, habilidades y proyectos a través de un diseño limpio y accesible. Fue construido con Astro y Tailwind y continúa evolucionando con mi trabajo.",
+  projectGlassmorphismTitle: "Glassmorphism Lab",
+  projectGlassmorphismDesc: "Laboratorio interactivo que descompone el vidrio esmerilado de Apple en sus capas CSS. Arrastra el panel sobre distintos fondos y activa o desactiva desenfoque, saturación, tinte, grano, borde, brillo, sombra y esquinas continuas para ver qué aporta cada una.",
 
   projectPreview: "Vista previa",
   projectCode: "Código",
