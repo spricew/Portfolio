@@ -50,6 +50,10 @@ export default {
   eduStatusDone: "Completed",
 
   // Projects
+  projHeadingA: "Selected",
+  projHeadingB: "work, built end to end.",
+  projLede:
+    "Seven builds spanning client work, mobile apps and AI experiments — designed, coded and shipped.",
   projectTaskerTitle: "Tasker App",
   projectTaskerDesc: "Tasker Studio helps users track daily tasks with optimistic updates and real-time counters. It includes secure role-based authentication, CRUD operations, password recovery, and a serverless PostgreSQL backend.",
   projectSpacexTitle: "SpaceX Dashboard",

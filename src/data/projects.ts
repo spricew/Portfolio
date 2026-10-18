@@ -75,13 +75,4 @@ export const projects: ProjectProps[] = [
     titleKey: "projectKeidotTitle",
     descKey: "projectKeidotDesc"
   },
-  {
-    githubLink: "https://github.com/spricew/Portfolio",
-    projectTitle: "Personal portfolio",
-    projectDescription: "My personal portfolio showcases my background, skills, and projects through a clean, accessible design. It was built with Astro and Tailwind and continues to evolve with my work.",
-    imageSrc: portfolioCover,
-    techs: ["AstroJs", "TailwindCSS"],
-    titleKey: "projectPortfolioTitle",
-    descKey: "projectPortfolioDesc"
-  },
 ];
