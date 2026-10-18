@@ -29,6 +29,16 @@ export const projects: ProjectProps[] = [
     descKey: "projectTaskerDesc"
   },
   {
+    githubLink: "https://github.com/spricew/glassmorphism-lab",
+    previewLink: "https://spricew.github.io/glassmorphism-lab/",
+    projectTitle: "Glassmorphism Lab",
+    projectDescription: "An interactive lab that breaks Apple's frosted glass down into its CSS layers. Drag the panel over different backgrounds and toggle blur, saturation, tint, grain, hairline, glow, shadow and squircle corners to see exactly what each one adds.",
+    imageSrc: glassmorphismCover,
+    techs: ["Astro", "TypeScript", "CSS", "Vitest"],
+    titleKey: "projectGlassmorphismTitle",
+    descKey: "projectGlassmorphismDesc"
+  },
+  {
     githubLink: "https://github.com/spricew/spacex-dashboard",
     previewLink: "https://spacex-dashboard-spricew.vercel.app",
     projectTitle: "SpaceX Dashboard",
@@ -37,14 +47,6 @@ export const projects: ProjectProps[] = [
     techs: ["NextJs", "TypeScript", "TailwindCSS"],
     titleKey: "projectSpacexTitle",
     descKey: "projectSpacexDesc"
-  },
-  {
-    projectTitle: "Mayan Life Web ",
-    projectDescription: "Mayan Life showcases real estate listings through filters, image galleries, and detailed property information. It also includes an admin panel for managing properties and user roles.",
-    imageSrc: mayanlifeCover,
-    techs: ["NextJs", "Express", "PostgreSQL"],
-    titleKey: "projectMayanlifeTitle",
-    descKey: "projectMayanlifeDesc"
   },
   {
     githubLink: "https://github.com/spricew/GardenApp",
@@ -65,6 +67,14 @@ export const projects: ProjectProps[] = [
     descKey: "projectChatbotDesc"
   },
   {
+    projectTitle: "Mayan Life Web ",
+    projectDescription: "Mayan Life showcases real estate listings through filters, image galleries, and detailed property information. It also includes an admin panel for managing properties and user roles.",
+    imageSrc: mayanlifeCover,
+    techs: ["NextJs", "Express", "PostgreSQL"],
+    titleKey: "projectMayanlifeTitle",
+    descKey: "projectMayanlifeDesc"
+  },
+  {
     githubLink: "https://github.com/spricew/Keidot-Project",
     projectTitle: "Keidot App",
     projectDescription: "Keidot connects clients with nearby workers for gardening services. Users can request services, manage acceptance and payments, and leave reviews through a simple mobile experience.",
@@ -72,15 +82,5 @@ export const projects: ProjectProps[] = [
     techs: ["Flutter", "Dart"],
     titleKey: "projectKeidotTitle",
     descKey: "projectKeidotDesc"
-  },
-  {
-    githubLink: "https://github.com/spricew/glassmorphism-lab",
-    previewLink: "https://spricew.github.io/glassmorphism-lab/",
-    projectTitle: "Glassmorphism Lab",
-    projectDescription: "An interactive lab that breaks Apple's frosted glass down into its CSS layers. Drag the panel over different backgrounds and toggle blur, saturation, tint, grain, hairline, glow, shadow and squircle corners to see exactly what each one adds.",
-    imageSrc: glassmorphismCover,
-    techs: ["Astro", "TypeScript", "CSS", "Vitest"],
-    titleKey: "projectGlassmorphismTitle",
-    descKey: "projectGlassmorphismDesc"
   },
 ];
