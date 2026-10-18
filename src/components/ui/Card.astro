@@ -7,7 +7,7 @@ import PreviewIcon from "@/icons/PreviewIcon.astro";
 import GithubOutlineIcon from "@/icons/GithubOutlineIcon.astro";
 import MeshButton from "./MeshButton.astro";
 
-type Props = ProjectProps & { featured?: boolean; key?: string };
+type Props = ProjectProps;
 
 const {
   imageSrc,
@@ -16,118 +16,125 @@ const {
   previewLink,
   githubLink,
   techs = [],
-  featured = false,
   titleKey,
   descKey,
 } = Astro.props as Props;
 ---
 
+<!-- Editorial index row: full-width glass card, cover right on desktop, banner on mobile -->
 <article
-  class:list={[
-    "fade-up-card group relative flex flex-col justify-end overflow-hidden rounded-4xl ring-1 ring-white/20 transition-all duration-500 hover:ring-tertiary-300/60",
-    featured
-      ? "min-h-[24rem] md:col-span-2 md:min-h-[26rem]"
-      : "min-h-[19rem] md:min-h-[22rem]",
-  ]}
+  class="group proj-row relative grid w-full grid-flow-dense grid-cols-1 overflow-hidden rounded-4xl bg-white/[0.07] ring-1 ring-white/15 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.09] hover:ring-tertiary-300/60 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] md:items-stretch md:gap-8 md:p-8 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]"
 >
-  <Image
-    src={imageSrc}
-    alt=""
-    aria-hidden="true"
-    widths={[400, 700, 1000]}
-    sizes={featured ? "(min-width: 64rem) 62vw, (min-width: 48rem) 100vw, 100vw" : "(min-width: 64rem) 31vw, (min-width: 48rem) 46vw, 100vw"}
-    loading="lazy"
-    decoding="async"
-    class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-  />
+  <span aria-hidden="true" class="proj-cover relative block aspect-[16/9] w-full overflow-hidden md:order-2 md:aspect-auto">
+    <Image
+      src={imageSrc}
+      alt=""
+      widths={[400, 700, 1000]}
+      sizes="(min-width: 64rem) 40vw, 100vw"
+      loading="lazy"
+      decoding="async"
+      class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+    />
+  </span>
 
-  <!-- Gradient overlay -->
-  <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/70 to-neutral-950/10"></div>
-
-  <!-- Actions -->
-  <div class="absolute right-5 top-5 flex gap-2">
-    {
-      previewLink && (
-        <MeshButton
-          text="Preview"
-          Icon={PreviewIcon}
-          textSize="text-sm"
-          textColor="text-slate-800"
-          href={previewLink}
-        />
-      )
-    }
-    {
-      githubLink && (
-        <CustomButton
-          text="Code"
-          Icon={GithubOutlineIcon}
-          textSize="text-sm"
-          textColor="text-white"
-          bgColor="bg-zinc-900/70"
-          href={githubLink}
-          extraClass="font-medium rounded-xl"
-        />
-      )
-    }
-  </div>
-
-  <!-- Content -->
-  <div
-    class:list={[
-      "relative flex flex-col gap-3 p-6 md:p-8",
-      featured ? "md:max-w-2xl" : "",
-    ]}
-  >
-    <div 
-    class:list={["flex flex-wrap-reverse gap-1.5",
-      featured ? "max-w-lg" : "",
-    ]}
-    >
+  <div class="relative order-2 flex min-w-0 flex-col gap-3 p-6 md:order-1 md:justify-center md:p-0">
+    <div class="flex flex-wrap gap-1.5">
       {techs.map((tech) => <Pill pillText={tech} />)}
     </div>
 
     <h3
-      class:list={[
-        "line-clamp-2 font-semibold text-white transition-colors duration-300 group-hover:text-tertiary-300",
-        featured ? "text-2xl md:text-3xl" : "text-2xl",
-      ]}
+      class="line-clamp-2 font-['Figtree'] font-semibold text-balance text-white transition-colors duration-300 group-hover:text-tertiary-300"
+      style={"font-size: clamp(1.65rem, 2.4vw, 2.25rem);"}
     >
       <span data-i18n={titleKey}>{projectTitle}</span>
     </h3>
 
-    <p
-      class:list={[
-        "text-sm text-pretty text-white/85 line-clamp-4",
-        featured ? "md:text-base md:line-clamp-3" : "",
-      ]}
-    >
+    <p class="max-w-2xl line-clamp-3 text-sm text-pretty text-white/80 md:text-base">
       <span data-i18n={descKey}>{projectDescription}</span>
     </p>
+
+    <div class="flex flex-wrap gap-2 pt-1">
+      {
+        previewLink && (
+          <MeshButton
+            text="Preview"
+            Icon={PreviewIcon}
+            textSize="text-sm"
+            textColor="text-slate-800"
+            href={previewLink}
+          />
+        )
+      }
+      {
+        githubLink && (
+          <CustomButton
+            text="Code"
+            Icon={GithubOutlineIcon}
+            textSize="text-sm"
+            textColor="text-white"
+            bgColor="bg-zinc-900/70"
+            href={githubLink}
+            extraClass="font-medium rounded-xl"
+          />
+        )
+      }
+    </div>
   </div>
 </article>
 
 <style>
-  .fade-up-card {
-    animation: slideInCard 0.6s ease-out backwards;
+  .proj-row {
+    animation: rowIn 0.6s ease-out backwards;
     animation-timeline: view();
-    animation-range: entry 20% cover 40%;
+    animation-range: entry 90% cover 35%;
   }
 
-  @keyframes slideInCard {
+  @keyframes rowIn {
     0% {
-      transform: translateY(100px);
+      transform: translateY(60px);
+      opacity: 0;
     }
 
     100% {
       transform: translateY(0);
+      opacity: 1;
     }
   }
 
   @supports (corner-shape: squircle) {
-    .fade-up-card {
-      border-radius: 4.5rem;
+    .proj-row {
+      border-radius: 3.5rem;
       corner-shape: squircle;
+    }
+  }
+
+  /* image scale and fade on scroll (wrapper-level, keeps img hover zoom intact) */
+  @supports (animation-timeline: view()) {
+    .proj-cover {
+      animation: proj-cover-in 0.8s ease-out backwards;
+      animation-timeline: view();
+      animation-range: entry 90% cover 45%;
+    }
+
+    @keyframes proj-cover-in {
+      from {
+        transform: scale(0.8);
+        opacity: 0.4;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .proj-row {
+      animation: none;
+      transform: none;
+    }
+    .proj-cover {
+      animation: none;
     }
   }
 </style>
