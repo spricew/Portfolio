@@ -2,19 +2,66 @@
 import SectionTitle from "@/components/ui/SectionTitle.astro";
 import ProjectsIcon from "@/icons/ProjectsIcon.astro";
 import Card from "@/components/ui/Card.astro";
+import { Image } from "astro:assets";
 import { projects } from "@/data/projects";
+
+const fan = [projects[1], projects[3], projects[5]];
 ---
 
-<section id="projects" class="flex flex-col gap-8">
+<section id="projects" class="flex w-full flex-col gap-8 overflow-x-clip">
   <div class="fade-up-view">
     <SectionTitle title="Projects" Icon={ProjectsIcon} titleKey="sectionProjects" />
   </div>
 
-  <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+  <!-- asymmetric header: text left, cover fan overlapping from the right -->
+  <div class="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+    <div class="max-w-3xl">
+      <h3
+        class="font-['Figtree'] font-semibold text-balance text-white"
+        style={"font-size: clamp(2rem, 3.4vw, 3.25rem); line-height: 1.05; letter-spacing: -0.02em;"}
+      >
+        <span data-i18n="projHeadingA">Selected</span>
+        </span>
+        <span data-i18n="projHeadingB">work, built end to end.</span>
+      </h3>
+      <p class="mt-5 max-w-xl text-lg text-pretty text-white/75">
+        <span data-i18n="projLede"
+          >Seven builds spanning client work, mobile apps and AI experiments — designed, coded and shipped.</span
+        >
+      </p>
+    </div>
+
+    <!-- mini cover accordion (decorative) -->
+    <div
+      aria-hidden="true"
+      class="proj-fan fade-up-view relative z-10 flex shrink-0 items-center lg:-mt-8 lg:-ml-8 lg:pb-2 xl:-ml-14"
+    >
+      {
+        fan.map((p, i) => (
+          <span
+            data-fan={i}
+            class="proj-fan-slice relative -ml-10 block aspect-[4/3] w-24 overflow-hidden rounded-2xl ring-1 ring-white/25 first:ml-0 first:rotate-[-8deg] last:rotate-[8deg] md:w-32"
+          >
+            <Image
+              src={p.imageSrc}
+              alt=""
+              widths={[320]}
+              sizes="(min-width: 768px) 256px, 192px"
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-cover grayscale contrast-125 opacity-90 transition-all duration-500 ease-out"
+            />
+          </span>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- editorial index: full-width rows -->
+  <div class="flex flex-col gap-6">
     {
-      projects.map((project, index) => (
+      projects.map((project) => (
         <Card
-          featured={index === 0}
           previewLink={project.previewLink}
           githubLink={project.githubLink}
           projectTitle={project.projectTitle}
@@ -28,3 +75,37 @@ import { projects } from "@/data/projects";
     }
   </div>
 </section>
+
+<style>
+  /* mini horizontal accordion: hovered cover widens, straightens, gains color */
+  .proj-fan {
+    --fan-open: 9rem;
+  }
+
+  @media (min-width: 768px) {
+    .proj-fan {
+      --fan-open: 12rem;
+    }
+  }
+
+  .proj-fan-slice {
+    transition:
+      width 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.5s ease-out;
+  }
+
+  @media (hover: hover) {
+    .proj-fan:has([data-fan="0"]:hover) [data-fan="0"],
+    .proj-fan:has([data-fan="1"]:hover) [data-fan="1"],
+    .proj-fan:has([data-fan="2"]:hover) [data-fan="2"] {
+      width: var(--fan-open);
+      transform: rotate(0deg);
+      z-index: 10;
+    }
+
+    .proj-fan-slice:hover img {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+  }
+</style>
