@@ -5,6 +5,7 @@ import portfolioCover from "@/assets/projectCovers/portfolio.webp"
 import taskerCover from "@/assets/projectCovers/tasker.webp"
 import chatbotCover from "@/assets/projectCovers/keidot-chatbot.webp"
 import gardenCover from "@/assets/projectCovers/gardenapp.webp";
+import glassmorphismCover from "@/assets/projectCovers/glassmorphism.webp";
 
 export interface ProjectProps {
   previewLink?: string;
@@ -39,7 +40,6 @@ export const projects: ProjectProps[] = [
     descKey: "projectSpacexDesc"
   },
   {
-    // previewLink: "https://mayanlifeyucatan.com/",
     projectTitle: "Mayan Life Web ",
     projectDescription: "Mayan Life showcases real estate listings through filters, image galleries, and detailed property information. It also includes an admin panel for managing properties and user roles.",
     imageSrc: mayanlifeCover,
@@ -57,7 +57,6 @@ export const projects: ProjectProps[] = [
     descKey: "projectGardenDesc"
   },
   {
-    // "previewLink": "https://keidot-chatbot.vercel.app",
     "githubLink": "https://github.com/spricew/keidot-chatbot-front",
     "projectTitle": "Keidot AI Chatbot",
     "projectDescription": "AI assistant for Keidot that answers service and policy questions using a RAG pipeline with LangChain, ChromaDB, and local LLMs. It can quote prices, check availability, and manage appointments with confirmation and prompt-injection protections.",
@@ -74,5 +73,15 @@ export const projects: ProjectProps[] = [
     techs: ["Flutter", "Dart"],
     titleKey: "projectKeidotTitle",
     descKey: "projectKeidotDesc"
+  },
+  {
+    githubLink: "https://github.com/spricew/glassmorphism-lab",
+    previewLink: "https://spricew.github.io/glassmorphism-lab/",
+    projectTitle: "Glassmorphism Lab",
+    projectDescription: "An interactive lab that breaks Apple's frosted glass down into its CSS layers. Drag the panel over different backgrounds and toggle blur, saturation, tint, grain, hairline, glow, shadow and squircle corners to see exactly what each one adds.",
+    imageSrc: glassmorphismCover,
+    techs: ["Astro", "TypeScript", "CSS", "Vitest"],
+    titleKey: "projectGlassmorphismTitle",
+    descKey: "projectGlassmorphismDesc"
   },
 ];
