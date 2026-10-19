@@ -27,7 +27,7 @@ const {
 >
   <span
     aria-hidden="true"
-    class="proj-cover relative block aspect-[16/9] w-full overflow-hidden rounded-2xl ring-1 ring-white/10 md:order-2 md:aspect-auto md:h-full md:rounded-3xl"
+    class="proj-cover relative block aspect-video w-full overflow-hidden rounded-2xl ring-1 ring-white/10 md:order-2 md:aspect-auto md:h-full md:rounded-2xl"
   >
     <Image
       src={imageSrc}
@@ -38,8 +38,6 @@ const {
       decoding="async"
       class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.03]"
     />
-    <!-- soft vignette: ties screenshot brightness to the glass canvas -->
-    <span class="absolute inset-0 bg-gradient-to-t from-neutral-950/40 via-transparent to-neutral-950/10 transition-opacity duration-500 ease-out group-hover:opacity-60"></span>
   </span>
 
   <div class="relative order-2 flex min-w-0 flex-col gap-3 p-6 md:order-1 md:justify-center md:p-0">
