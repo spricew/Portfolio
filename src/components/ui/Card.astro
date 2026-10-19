@@ -23,11 +23,11 @@ const {
 
 <!-- Editorial index row: full-width glass card, cover right on desktop, banner on mobile -->
 <article
-  class="group proj-row relative grid w-full grid-flow-dense gap-y-4 grid-cols-1 overflow-hidden rounded-4xl bg-white/[0.07] ring-1 ring-white/15 backdrop-blur-md transition-all duration-500 [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] hover:-translate-y-0.5 hover:bg-white/[0.09] hover:ring-tertiary-300/60 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] md:gap-8 lg:min-h-[17rem] lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-x-10 lg:p-7"
+  class="group proj-row relative grid w-full grid-flow-dense gap-y-2 grid-cols-1 overflow-hidden rounded-4xl bg-white/[0.07] p-3 ring-1 ring-white/15 backdrop-blur-md transition-all duration-500 [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] hover:-translate-y-0.5 hover:bg-white/[0.09] hover:ring-tertiary-300/60 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] md:gap-8 md:p-6 lg:min-h-[17rem] lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-x-10 lg:p-7"
 >
   <span
     aria-hidden="true"
-    class="proj-cover relative block aspect-video w-full overflow-hidden rounded-2xl ring-1 ring-white/10 md:order-2 md:aspect-auto md:h-full md:rounded-2xl"
+    class="proj-cover relative block aspect-video w-full overflow-hidden rounded-xl ring-1 ring-white/10 md:order-2 md:aspect-auto md:h-full md:rounded-2xl"
   >
     <Image
       src={imageSrc}
@@ -40,7 +40,7 @@ const {
     />
   </span>
 
-  <div class="relative order-2 flex min-w-0 flex-col gap-3 p-6 md:order-1 md:justify-center md:p-0">
+  <div class="relative order-2 flex min-w-0 flex-col gap-3 px-2 pb-2 pt-4 md:order-1 md:justify-center md:p-0">
     <div class="flex flex-wrap gap-1.5">
       {techs.map((tech) => <Pill pillText={tech} />)}
     </div>
