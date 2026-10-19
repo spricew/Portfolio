@@ -53,7 +53,7 @@ export default {
   projHeadingA: "Selected",
   projHeadingB: "work, built end to end.",
   projLede:
-    "Eight builds spanning client work, mobile apps and AI and CSS experiments — designed, coded and shipped.",
+    "A selection of my projects across professional work, mobile apps and personal experiments — designed, coded and shipped.",
   projectTaskerTitle: "Tasker App",
   projectTaskerDesc: "Tasker Studio helps users track daily tasks with optimistic updates and real-time counters. It includes secure role-based authentication, CRUD operations, password recovery, and a serverless PostgreSQL backend.",
   projectSpacexTitle: "SpaceX Dashboard",
