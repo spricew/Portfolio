@@ -9,7 +9,6 @@ export default {
   welcomeRole: "Junior Software Developer",
   welcomeDescription:
     "I'm a software developer with experience in building modern and efficient web applications. I have a passion for frontend development and enjoy creating beautiful and functional user interfaces. I'm always eager to learn new technologies and improve my skills.",
-  welcomeCv: "Download CV",
 
   // Sections
   sectionTechnologies: "Technologies",
@@ -32,8 +31,6 @@ export default {
   // Certifications
   certHeadingA: "Proof of",
   certHeadingB: "craft, certified.",
-  certLede:
-    "Three credentials that back the work — language, agility and networks, each earned through examination.",
 
   // Education
   edu1Career: "Engineering in Software Development and Management",
@@ -66,20 +63,14 @@ export default {
   projectKeidotDesc: "Keidot connects clients with nearby workers for gardening services. Users can request services, manage acceptance and payments, and leave reviews through a simple mobile experience.",
   projectChatbotTitle: "Keidot AI Chatbot",
   projectChatbotDesc: "AI assistant for Keidot that answers service and policy questions using a RAG pipeline with LangChain, ChromaDB, and local LLMs. It can quote prices, check availability, and manage appointments with confirmation and prompt-injection protections.",
-  projectPortfolioTitle: "Personal portfolio",
-  projectPortfolioDesc: "My personal portfolio showcases my background, skills, and projects through a clean, accessible design. It was built with Astro and Tailwind and continues to evolve with my work.",
   projectGlassmorphismTitle: "Glassmorphism Lab",
   projectGlassmorphismDesc: "An interactive lab that breaks Apple's frosted glass down into its CSS layers. Drag the panel over different backgrounds and toggle blur, saturation, tint, grain, hairline, glow, shadow and squircle corners to see exactly what each one adds.",
-
-  projectPreview: "Preview",
-  projectCode: "Code",
 
   // Footer
   footerDeveloped: "Developed by",
   footerBuiltWith: "Built with",
 
   // 404
-  notFoundTitle: "404",
   notFoundMessage: "This page doesn't exist or has been moved.",
   notFoundButton: "Back to home",
 

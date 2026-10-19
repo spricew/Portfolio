@@ -26,11 +26,6 @@ function applyTranslations(lang: Lang) {
     }
   });
 
-  document.querySelectorAll<HTMLAnchorElement>("[data-i18n-href]").forEach((el) => {
-    const key = el.dataset.i18nHref as TranslationKey;
-    el.href = t(key, lang);
-  });
-
   document.querySelectorAll<HTMLMetaElement>('meta[name="description"]').forEach((el) => {
     el.content = t("metaDescription", lang);
   });
@@ -47,7 +42,6 @@ function applyTranslations(lang: Lang) {
 function setLang(lang: Lang) {
   localStorage.setItem(STORAGE_KEY, lang);
   applyTranslations(lang);
-  window.dispatchEvent(new CustomEvent("lang-change", { detail: { lang } }));
 }
 
 function initLang() {
@@ -58,13 +52,6 @@ function initLang() {
     btn.addEventListener("click", () => {
       const newLang = btn.dataset.langBtn as Lang;
       if (newLang) setLang(newLang);
-    });
-  });
-
-  document.querySelectorAll<HTMLButtonElement>("[data-lang-toggle]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const current = getStoredLang();
-      setLang(current === "en" ? "es" : "en");
     });
   });
 }

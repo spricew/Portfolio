@@ -9,7 +9,6 @@ export default {
   welcomeRole: "Desarrollador de Software Junior",
   welcomeDescription:
     "Desarrollador de software enfocado en crear aplicaciones web modernas y eficientes. Apasionado por el frontend y el diseño de interfaces atractivas y funcionales. En constante aprendizaje para dominar nuevas tecnologías y mejorar mis habilidades.",
-  welcomeCv: "Descargar CV",
 
   // Sections
   sectionTechnologies: "Tecnologías",
@@ -32,8 +31,6 @@ export default {
   // Certifications
   certHeadingA: "Prueba de",
   certHeadingB: "oficio, certificado.",
-  certLede:
-    "Tres credenciales que respaldan el trabajo — idioma, agilidad y redes, cada una obtenida mediante examen.",
 
   // Education
   edu1Career: "Ingeniería en Gestión y Desarrollo de Software",
@@ -66,20 +63,14 @@ export default {
   projectKeidotDesc: "Keidot conecta a los clientes con trabajadores cercanos para servicios de jardinería. Los usuarios pueden solicitar servicios, gestionar aceptaciones y pagos, y dejar reseñas a través de una experiencia móvil sencilla.",
   projectChatbotTitle: "Keidot   Chatbot",
   projectChatbotDesc: "Asistente IA para Keidot que responde preguntas sobre servicios y políticas utilizando un pipeline RAG con LangChain, ChromaDB y LLMs locales. Puede cotizar precios, verificar disponibilidad y gestionar citas con protecciones contra inyección de prompts.",
-  projectPortfolioTitle: "Portafolio personal",
-  projectPortfolioDesc: "Mi portafolio personal muestra mi trayectoria, habilidades y proyectos a través de un diseño limpio y accesible. Fue construido con Astro y Tailwind y continúa evolucionando con mi trabajo.",
   projectGlassmorphismTitle: "Glassmorphism Lab",
   projectGlassmorphismDesc: "Laboratorio interactivo que descompone el vidrio esmerilado de Apple en sus capas CSS. Arrastra el panel sobre distintos fondos y activa o desactiva desenfoque, saturación, tinte, grano, borde, brillo, sombra y esquinas continuas para ver qué aporta cada una.",
-
-  projectPreview: "Vista previa",
-  projectCode: "Código",
 
   // Footer
   footerDeveloped: "Desarrollado por",
   footerBuiltWith: "Hecho con",
 
   // 404
-  notFoundTitle: "404",
   notFoundMessage: "Esta página no existe o ha sido movida.",
   notFoundButton: "Volver al inicio",
 
