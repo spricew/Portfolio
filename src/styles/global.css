@@ -132,6 +132,13 @@ html.lenis body {
   html {
     scroll-behavior: auto;
   }
+
+  .fade-up-view,
+  .fade-up-view:not(.is-in) {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 body {
@@ -147,10 +154,16 @@ body {
   animation: scaleIn 0.8s linear(0, 0.009 1.4%, 0.032 2.8%, 0.131 6%, 0.265 9.1%, 0.675 17.6%, 0.88 22.8%, 0.953 25.2%, 1.014 27.7%, 1.062 30.3%, 1.094 32.9%, 1.121 37.2%, 1.121 42.2%, 1.102 46.7%, 1.019 61.2%, 0.989 71.5%, 0.985 81.1%, 1) 0.2s backwards;
 }
 
-.fade-up-view {
+/* Entry reveal driven by IntersectionObserver (see Layout script): hidden
+   until .is-in is added, then a one-shot animation — scrolling back up
+   never re-hides the element (unlike animation-timeline: view()). */
+.fade-up-view:not(.is-in) {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.fade-up-view.is-in {
   animation: slideIn 0.6s ease-out backwards;
-  animation-timeline: view();
-  animation-range: entry 100% cover 60%;
 }
 
 @keyframes slideIn {

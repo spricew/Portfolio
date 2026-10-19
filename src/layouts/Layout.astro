@@ -122,6 +122,12 @@ const schema = {
 				requestAnimationFrame(raf);
 			}
 		</script>
+		<script>
+			import { revealOnView } from "../scripts/reveal";
+
+			// Reveal .fade-up-view blocks once they enter the viewport.
+			revealOnView(".fade-up-view");
+		</script>
 		<script src="../scripts/lang.ts"></script>
 	</body>
 </html>
