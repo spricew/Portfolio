@@ -21,7 +21,6 @@ const fan = [projects[1], projects[3], projects[6]];
         style={"font-size: clamp(2rem, 3.4vw, 3.25rem); line-height: 1.05; letter-spacing: -0.02em;"}
       >
         <span data-i18n="projHeadingA">Selected</span>
-        </span>
         <span data-i18n="projHeadingB">work, built end to end.</span>
       </h3>
       <p class="mt-5 max-w-xl text-lg text-pretty text-white/75">
@@ -34,13 +33,13 @@ const fan = [projects[1], projects[3], projects[6]];
     <!-- mini cover accordion (decorative) -->
     <div
       aria-hidden="true"
-      class="proj-fan fade-up-view relative z-10 flex shrink-0 items-center lg:-mt-8 lg:-ml-8 lg:pb-2 xl:-ml-14"
+      class="proj-fan fade-up-view relative z-10 mx-auto flex shrink-0 items-center lg:-mt-8 lg:-ml-8 lg:mx-0 lg:pb-2 xl:-ml-14"
     >
       {
         fan.map((p, i) => (
           <span
             data-fan={i}
-            class="proj-fan-slice relative -ml-10 block aspect-[4/3] w-24 overflow-hidden rounded-2xl ring-1 ring-white/25 first:ml-0 first:rotate-[-8deg] last:rotate-[8deg] md:w-32"
+            class="proj-fan-slice relative -ml-10 block aspect-[4/3] w-24 overflow-hidden rounded-2xl ring-1 ring-white/25 first:ml-0 md:w-32 md:first:rotate-[-8deg] md:last:rotate-[8deg]"
           >
             <Image
               src={p.imageSrc}
@@ -49,7 +48,7 @@ const fan = [projects[1], projects[3], projects[6]];
               sizes="(min-width: 768px) 256px, 192px"
               loading="lazy"
               decoding="async"
-              class="h-full w-full object-cover grayscale contrast-125 opacity-90 transition-all duration-500 ease-out"
+              class="absolute inset-0 h-full w-full object-cover grayscale contrast-125 opacity-90 transition-all duration-500 ease-out"
             />
           </span>
         ))
