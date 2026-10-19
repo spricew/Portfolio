@@ -86,10 +86,16 @@ const {
 </article>
 
 <style>
-  .proj-row {
+  /* Entry reveal driven by IntersectionObserver (see script): the card stays
+     hidden until .is-in is added, then plays a one-shot animation. Unlike
+     animation-timeline: view(), scrolling back up never re-hides the card. */
+  .proj-row:not(.is-in) {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .proj-row.is-in {
     animation: rowIn 0.7s cubic-bezier(0.25, 1, 0.5, 1) backwards;
-    animation-timeline: view();
-    animation-range: entry 10% cover 40%;
   }
 
   @keyframes rowIn {
@@ -104,6 +110,20 @@ const {
     }
   }
 
+  /* cover scale + fade on reveal (wrapper-level, keeps img hover zoom intact) */
+  .proj-cover {
+    opacity: 0.2;
+    transform: scale(0.985);
+    transition:
+      opacity 0.9s ease-out,
+      transform 0.9s ease-out;
+  }
+
+  .proj-row.is-in .proj-cover {
+    opacity: 1;
+    transform: scale(1);
+  }
+
   @supports (corner-shape: squircle) {
     .proj-row {
       border-radius: 3.5rem;
@@ -111,33 +131,27 @@ const {
     }
   }
 
-  /* image scale and fade on scroll (wrapper-level, keeps img hover zoom intact) */
-  @supports (animation-timeline: view()) {
-    .proj-cover {
-      animation: proj-cover-in 0.9s ease-out backwards;
-      animation-timeline: view();
-      animation-range: entry 10% cover 30%;
-    }
-
-    @keyframes proj-cover-in {
-      from {
-        transform: scale(0.985);
-        opacity: 0.2;
-      }
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    .proj-row {
-      animation: none;
+    .proj-row:not(.is-in) {
+      opacity: 1;
       transform: none;
     }
-    .proj-cover {
+
+    .proj-row.is-in {
       animation: none;
+    }
+
+    .proj-cover,
+    .proj-row.is-in .proj-cover {
+      opacity: 1;
+      transform: none;
+      transition: none;
     }
   }
 </style>
+
+<script>
+  import { revealOnView } from "../../scripts/reveal";
+
+  revealOnView(".proj-row");
+</script>
