@@ -46,12 +46,14 @@ const schema = {
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		{noindex && <meta name="robots" content="noindex, nofollow" />}
-		<meta name="theme-color" content="#021a03" />
+		<!-- Navegadores que sí leen theme-color (Chrome Android, iOS antiguo):
+		     coincide con el borde superior del fondo. Safari 26+ lo ignora. -->
+		<meta name="theme-color" content="#232234" />
 		<title>{title}</title>
 		<link rel="canonical" href={canonicalURL.href} />
 		<meta property="og:type" content="website" />
@@ -99,7 +101,6 @@ const schema = {
 		/>
 	</head>
 	<body class="relative min-h-dvh">
-		<div class="absolute top-0 z-[-2] h-full w-full bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
 		<slot />
 		<script>
 			import Lenis from 'lenis';

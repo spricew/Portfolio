@@ -109,6 +109,12 @@
 /* Lenis smooth scroll & section anchor navigation */
 html {
   scroll-padding-top: 50px;
+  /* En iOS 26+ (Liquid Glass) las barras de Safari recortan el fondo de <body>
+     y dejan ver el canvas blanco por arriba y por abajo. Pintar el canvas desde
+     <html> mantiene el fondo continuo en toda la pantalla, incluidas las safe
+     areas y el overscroll. */
+  background-color: var(--color-neutral-950);
+  color-scheme: dark;
 }
 
 html.lenis,
@@ -143,7 +149,23 @@ html.lenis body {
 
 body {
   font: 20px "Urbanist", system-ui, Arial, Helvetica, sans-serif;
-  background-color: white;
+  /* Fondo del sitio. Debe declararse explícitamente en <html> y <body>: en iOS
+     26+ Safari muestrea estos colores para teñir sus barras (Liquid Glass) y,
+     si el fondo raíz es transparente, cae a blanco y deja una franja cortada
+     entre la barra superior y la inferior.
+     El gradiente vive aquí (y no en un <div> con z-index negativo) para que se
+     pinte sobre el color base sin quedar detrás del background de <body>. */
+  background-color: var(--color-neutral-950);
+  background-image: radial-gradient(
+    ellipse 80% 80% at 50% -20%,
+    rgba(120, 119, 198, 0.3),
+    rgba(255, 255, 255, 0)
+  );
+  /* viewport-fit=cover permite que el fondo llegue a las safe areas; el
+     contenido recupera el margen seguro para no quedar bajo el notch ni la
+     barra de inicio. */
+  padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
+    env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
 }
 
 .slide-in {
