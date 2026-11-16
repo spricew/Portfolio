@@ -141,40 +141,40 @@
 }
 
 @font-face {
-  font-family: 'Urbanist';
-  src: url('/fonts/Urbanist-Light.woff2') format('woff2');
+  font-family: "Urbanist";
+  src: url("/fonts/Urbanist-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Urbanist';
-  src: url('/fonts/Urbanist-Regular.woff2') format('woff2');
+  font-family: "Urbanist";
+  src: url("/fonts/Urbanist-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Urbanist';
-  src: url('/fonts/Urbanist-Medium.woff2') format('woff2');
+  font-family: "Urbanist";
+  src: url("/fonts/Urbanist-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Urbanist';
-  src: url('/fonts/Urbanist-SemiBold.woff2') format('woff2');
+  font-family: "Urbanist";
+  src: url("/fonts/Urbanist-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Urbanist';
-  src: url('/fonts/Urbanist-Bold.woff2') format('woff2');
+  font-family: "Urbanist";
+  src: url("/fonts/Urbanist-Bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -182,32 +182,27 @@
 
 /* Figtree variable font (weights 400-700), latin + latin-ext subsets */
 @font-face {
-  font-family: 'Figtree';
+  font-family: "Figtree";
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url('/fonts/Figtree-Variable-LatinExt.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url("/fonts/Figtree-Variable-LatinExt.woff2") format("woff2");
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
-  font-family: 'Figtree';
+  font-family: "Figtree";
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url('/fonts/Figtree-Variable.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* Lenis smooth scroll & section anchor navigation */
-html {
-  scroll-padding-top: 50px;
-  /* En iOS 26+ (Liquid Glass) las barras de Safari recortan el fondo de <body>
-     y dejan ver el canvas blanco por arriba y por abajo. Pintar el canvas desde
-     <html> mantiene el fondo continuo en toda la pantalla, incluidas las safe
-     areas y el overscroll. */
-  background-color: var(--color-canvas);
-  color-scheme: dark;
+  src: url("/fonts/Figtree-Variable.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
 }
 
 html.lenis,
@@ -245,31 +240,57 @@ html.lenis body {
 
 body {
   font: 20px var(--font-sans);
-  /* Fondo del sitio. Debe declararse explícitamente en <html> y <body>: en iOS
-     26+ Safari muestrea estos colores para teñir sus barras (Liquid Glass) y,
-     si el fondo raíz es transparente, cae a blanco y deja una franja cortada
-     entre la barra superior y la inferior.
-     El gradiente vive aquí (y no en un <div> con z-index negativo) para que se
-     pinte sobre el color base sin quedar detrás del background de <body>. */
-  background-color: var(--color-canvas);
-  background-image: radial-gradient(
-    ellipse 80% 80% at 50% -20%,
-    rgba(120, 119, 198, 0.3),
-    rgba(255, 255, 255, 0)
-  );
-  /* viewport-fit=cover permite que el fondo llegue a las safe areas; el
-     contenido recupera el margen seguro para no quedar bajo el notch ni la
-     barra de inicio. */
-  padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
-    env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  background-color: rgb(7, 7, 31);
 }
 
 .slide-in {
-  animation: slideIn 0.9s linear(0, 0.009 1.4%, 0.032 2.8%, 0.131 6%, 0.265 9.1%, 0.675 17.6%, 0.88 22.8%, 0.953 25.2%, 1.014 27.7%, 1.062 30.3%, 1.094 32.9%, 1.121 37.2%, 1.121 42.2%, 1.102 46.7%, 1.019 61.2%, 0.989 71.5%, 0.985 81.1%, 1) backwards;
+  animation: slideIn 0.9s
+    linear(
+      0,
+      0.009 1.4%,
+      0.032 2.8%,
+      0.131 6%,
+      0.265 9.1%,
+      0.675 17.6%,
+      0.88 22.8%,
+      0.953 25.2%,
+      1.014 27.7%,
+      1.062 30.3%,
+      1.094 32.9%,
+      1.121 37.2%,
+      1.121 42.2%,
+      1.102 46.7%,
+      1.019 61.2%,
+      0.989 71.5%,
+      0.985 81.1%,
+      1
+    )
+    backwards;
 }
 
 .scale-in {
-  animation: scaleIn 0.8s linear(0, 0.009 1.4%, 0.032 2.8%, 0.131 6%, 0.265 9.1%, 0.675 17.6%, 0.88 22.8%, 0.953 25.2%, 1.014 27.7%, 1.062 30.3%, 1.094 32.9%, 1.121 37.2%, 1.121 42.2%, 1.102 46.7%, 1.019 61.2%, 0.989 71.5%, 0.985 81.1%, 1) 0.2s backwards;
+  animation: scaleIn 0.8s
+    linear(
+      0,
+      0.009 1.4%,
+      0.032 2.8%,
+      0.131 6%,
+      0.265 9.1%,
+      0.675 17.6%,
+      0.88 22.8%,
+      0.953 25.2%,
+      1.014 27.7%,
+      1.062 30.3%,
+      1.094 32.9%,
+      1.121 37.2%,
+      1.121 42.2%,
+      1.102 46.7%,
+      1.019 61.2%,
+      0.989 71.5%,
+      0.985 81.1%,
+      1
+    )
+    0.2s backwards;
 }
 
 /* Entry reveal driven by IntersectionObserver (see Layout script): hidden
@@ -291,7 +312,28 @@ body {
 }
 
 .scale-in-view.is-in {
-  animation: scaleIn 0.8s linear(0, 0.009 1.4%, 0.032 2.8%, 0.131 6%, 0.265 9.1%, 0.675 17.6%, 0.88 22.8%, 0.953 25.2%, 1.014 27.7%, 1.062 30.3%, 1.094 32.9%, 1.121 37.2%, 1.121 42.2%, 1.102 46.7%, 1.019 61.2%, 0.989 71.5%, 0.985 81.1%, 1) backwards;
+  animation: scaleIn 0.8s
+    linear(
+      0,
+      0.009 1.4%,
+      0.032 2.8%,
+      0.131 6%,
+      0.265 9.1%,
+      0.675 17.6%,
+      0.88 22.8%,
+      0.953 25.2%,
+      1.014 27.7%,
+      1.062 30.3%,
+      1.094 32.9%,
+      1.121 37.2%,
+      1.121 42.2%,
+      1.102 46.7%,
+      1.019 61.2%,
+      0.989 71.5%,
+      0.985 81.1%,
+      1
+    )
+    backwards;
 }
 
 @keyframes slideIn {
@@ -325,19 +367,12 @@ body {
   font-weight: 600;
 }
 
-/* Squircle: radio súper-elíptico solo en navegadores con soporte; sin
-   soporte se conserva el radio de respaldo declarado con rounded-*.
-   El radio por defecto (3.5rem) corresponde a las tarjetas grandes; los
-   mosaicos pequeños usan la variante .squircle-tile. La variable
-   --squircle-radius sigue disponible para casos intermedios. */
 @supports (corner-shape: squircle) {
   .squircle {
     border-radius: var(--squircle-radius, 3.5rem);
     corner-shape: squircle;
   }
 
-  /* Variante para mosaicos pequeños (TechCard): radio porcentual que escala
-     con la caja del tile, manteniendo la súper-elipse orgánica original. */
   .squircle-tile {
     border-radius: 45%;
     corner-shape: squircle;
