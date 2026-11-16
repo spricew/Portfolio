@@ -8,75 +8,28 @@ const {
 } = Astro.props;
 ---
 
+<!-- Mosaico de tecnología: reveal con escala vía .scale-in-view (global) y
+     súper-elipse orgánica vía .squircle-tile (ver DESIGN.md). -->
 <div
-  class="squircle card scale-out relative flex items-center justify-center min-h-18 rounded-3xl overflow-hidden bg-white/10
-  ring-1 ring-white/20"
+  class="tech-card squircle-tile scale-in-view relative flex items-center justify-center min-h-18 rounded-3xl overflow-hidden bg-surface-raised
+  ring-1 ring-line-strong"
   title={IconTitle}
-  style={`--animation-delay: ${delay};`}
+  style={`animation-delay: ${delay ?? "0s"};`}
 >
   <Icon class={`block ${IconHeight} ${IconWidth}`} />
   <Icon class={`absolute -z-1 right-18 top-14 -rotate-10 ${IconHeight} ${IconWidth} blur-xl opacity-80 scale-150`}/>
 </div>
 
 <script>
-  const cards = document.querySelectorAll('.card');
-  const showStatic = () => cards.forEach((card) => card.classList.remove('scale-out'));
+  import { revealOnView } from "../../scripts/reveal";
 
-  // Si no hay IntersectionObserver o el usuario prefiere menos movimiento,
-  // mostrar las tarjetas sin animación.
-  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    showStatic();
-  } else {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.remove('scale-out');
-          entry.target.classList.add('scale-in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.2
-    });
-
-    cards.forEach(card => observer.observe(card));
-  }
+  revealOnView(".tech-card", 0.2);
 </script>
 
 <style>
   /* For optimization: "will change", it's like an indication*/
   /* Only apply for components that really need that preparation for its animation interaction like modals */
-  .card {
+  .tech-card {
     will-change: transform, opacity, filter;
   }
-
-  .scale-out {
-    transform: scale(0);
-    opacity: 0;
-    filter: blur(10px);
-  }
-
-  .scale-in {
-    animation: scaleInBlur 0.7s linear(0, 0.009 1.4%, 0.032 2.8%, 0.131 6%, 0.265 9.1%, 0.675 17.6%, 0.88 22.8%, 0.953 25.2%, 1.014 27.7%, 1.062 30.3%, 1.094 32.9%, 1.121 37.2%, 1.121 42.2%, 1.102 46.7%, 1.019 61.2%, 0.989 71.5%, 0.985 81.1%, 1) var(--animation-delay, 0s) backwards;
-  }
-
-  @keyframes scaleInBlur {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
-    filter: blur(8px);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-    filter: blur(0);
-  }
-}
-
-  @supports (corner-shape: squircle) {
-  .squircle {
-    border-radius: 45%;
-    corner-shape: squircle; 
-  }
-}
 </style>

@@ -23,11 +23,11 @@ const {
 
 <!-- Editorial index row: full-width glass card, cover right on desktop, banner on mobile -->
 <article
-  class="group proj-row relative grid w-full grid-flow-dense gap-y-2 grid-cols-1 overflow-hidden rounded-4xl bg-white/[0.07] p-3 ring-1 ring-white/15 transition-all duration-500 [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] hover:-translate-y-0.5 hover:bg-white/[0.09] hover:ring-tertiary-300/60 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] md:gap-8 md:p-6 lg:min-h-[17rem] lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-x-10 lg:p-7"
+  class="proj-row glass-card squircle fade-up-view group grid w-full grid-flow-dense gap-y-2 grid-cols-1 p-3 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] md:gap-8 md:p-6 lg:min-h-[17rem] lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-x-10 lg:p-7"
 >
   <span
     aria-hidden="true"
-    class="proj-cover relative block aspect-video w-full overflow-hidden rounded-2xl ring-1 ring-white/10 md:order-2 md:aspect-auto md:h-full md:rounded-2xl"
+    class="proj-cover relative block aspect-video w-full overflow-hidden rounded-2xl ring-1 ring-line-soft md:order-2 md:aspect-auto md:h-full"
   >
     <Image
       src={imageSrc}
@@ -36,7 +36,7 @@ const {
       sizes="(min-width: 64rem) 40vw, 100vw"
       loading="lazy"
       decoding="async"
-      class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 [transition-timing-function:cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.03]"
+      class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 ease-emphasized group-hover:scale-[1.03]"
     />
   </span>
 
@@ -46,13 +46,12 @@ const {
     </div>
 
     <h3
-      class="line-clamp-2 font-['Figtree'] font-semibold text-balance text-white transition-colors duration-300 group-hover:text-tertiary-300"
-      style={"font-size: clamp(1.65rem, 2.4vw, 2.25rem);"}
+      class="line-clamp-2 text-editorial-sm font-display font-semibold text-balance text-white transition-colors duration-300 group-hover:text-tertiary-300"
     >
       <span data-i18n={titleKey}>{projectTitle}</span>
     </h3>
 
-    <p class="max-w-2xl line-clamp-3 text-sm text-pretty text-white/80 md:text-base">
+    <p class="max-w-2xl line-clamp-3 text-sm text-pretty text-ink-soft md:text-base">
       <span data-i18n={descKey}>{projectDescription}</span>
     </p>
 
@@ -63,7 +62,6 @@ const {
             text="Preview"
             Icon={PreviewIcon}
             textSize="text-sm"
-            textColor="text-slate-800"
             href={previewLink}
           />
         )
@@ -75,9 +73,9 @@ const {
             Icon={GithubOutlineIcon}
             textSize="text-sm"
             textColor="text-white"
-            bgColor="bg-zinc-900/70"
+            bgColor="bg-canvas/70"
             href={githubLink}
-            extraClass="font-medium rounded-xl"
+            extraClass="font-medium"
           />
         )
       }
@@ -86,31 +84,9 @@ const {
 </article>
 
 <style>
-  /* Entry reveal driven by IntersectionObserver (see script): the card stays
-     hidden until .is-in is added, then plays a one-shot animation. Unlike
-     animation-timeline: view(), scrolling back up never re-hides the card. */
-  .proj-row:not(.is-in) {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  .proj-row.is-in {
-    animation: rowIn 0.7s cubic-bezier(0.25, 1, 0.5, 1) backwards;
-  }
-
-  @keyframes rowIn {
-    0% {
-      transform: translateY(20px);
-      opacity: 0;
-    }
-
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  /* cover scale + fade on reveal (wrapper-level, keeps img hover zoom intact) */
+  /* Entry reveal handled globally: .fade-up-view + revealOnView() in the
+     Layout script. Only the cover scale/fade is scoped here — it runs once
+     the row is revealed (keeps the img hover zoom intact). */
   .proj-cover {
     opacity: 0.2;
     transform: scale(0.985);
@@ -124,23 +100,7 @@ const {
     transform: scale(1);
   }
 
-  @supports (corner-shape: squircle) {
-    .proj-row {
-      border-radius: 3.5rem;
-      corner-shape: squircle;
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    .proj-row:not(.is-in) {
-      opacity: 1;
-      transform: none;
-    }
-
-    .proj-row.is-in {
-      animation: none;
-    }
-
     .proj-cover,
     .proj-row.is-in .proj-cover {
       opacity: 1;
@@ -149,9 +109,3 @@ const {
     }
   }
 </style>
-
-<script>
-  import { revealOnView } from "../../scripts/reveal";
-
-  revealOnView(".proj-row");
-</script>
