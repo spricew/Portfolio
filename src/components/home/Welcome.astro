@@ -25,12 +25,10 @@ import Memoji from "@/assets/memoji.png";
             height={400}
         />
         
-        <!-- Halo estático tras el avatar: sin animación infinita (motion con
-             propósito; el pulso además quedaba vivo bajo Reduce Motion) -->
         <Image
             src={Memoji}
             alt="Portrait of Heyder Medina"
-            class="absolute blur-2xl scale-90 -rotate-12 z-9 w-full h-full object-cover object-center"
+            class="absolute blur-2xl scale-90 -rotate-12 z-9 w-full h-full object-cover object-center animate-pulse"
             loading="eager"
             decoding="async"
             width={100}
