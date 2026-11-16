@@ -138,22 +138,6 @@
   .ghost-num {
     @apply pointer-events-none absolute -bottom-7 right-5 select-none font-display text-[6rem] font-bold leading-none text-ghost transition-all duration-700 ease-out group-hover:scale-105 group-hover:text-ghost-strong md:text-[8rem];
   }
-
-  /* Isla flotante de la capa funcional (navbar): vidrio Liquid Glass.
-     El desenfoque + saturación actúan de scroll edge effect: el contenido
-     pasa por debajo y los controles siguen legibles (HIG Liquid Glass). */
-  .nav-pill {
-    @apply rounded-full bg-canvas/60 ring-1 ring-line-strong backdrop-blur-xl backdrop-saturate-150;
-  }
-
-  /* Reduce Transparency (HIG Dark Mode): relleno opaco, sin desenfoque. */
-  @media (prefers-reduced-transparency: reduce) {
-    .nav-pill {
-      background-color: var(--color-canvas);
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-    }
-  }
 }
 
 @font-face {
@@ -217,10 +201,7 @@
 
 /* Lenis smooth scroll & section anchor navigation */
 html {
-  /* Anclas nativas: dejan sitio a la barra flotante sticky (safe area +
-     top-1rem + pill). Lenis (anchors: true) respeta este mismo valor al
-     resolver anclas — el CSS es la única fuente de verdad. */
-  scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 6.5rem);
+  scroll-padding-top: 50px;
   /* En iOS 26+ (Liquid Glass) las barras de Safari recortan el fondo de <body>
      y dejan ver el canvas blanco por arriba y por abajo. Pintar el canvas desde
      <html> mantiene el fondo continuo en toda la pantalla, incluidas las safe
@@ -251,10 +232,6 @@ html.lenis body {
     scroll-behavior: auto;
   }
 
-  /* Reduce Motion apaga también las entradas automáticas (hero, nav, 404),
-     no solo los reveals por observador. */
-  .slide-in,
-  .scale-in,
   .fade-up-view,
   .fade-up-view:not(.is-in),
   .scale-in-view,
