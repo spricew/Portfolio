@@ -14,7 +14,7 @@ import { Image } from "astro:assets";
         <!-- imagen -->
         <div
             class="squircle self-stretch shrink-0 w-full lg:w-120 aspect-video
-            rounded-3xl ring-1 ring-white/10 overflow-hidden left-fade-in"
+            rounded-4xl ring-1 ring-line-soft overflow-hidden left-fade-in"
         >
             <Image
                 src={Portrait}
@@ -53,11 +53,6 @@ import { Image } from "astro:assets";
 </section>
 
 <style>
-    .highlight {
-        color: var(--color-tertiary-300);
-        font-weight: 600;
-    }
-
     .right-fade-in{
         animation: rightFadeIn 0.6s ease-out .3s backwards;
         animation-timeline: view();
@@ -91,13 +86,6 @@ import { Image } from "astro:assets";
         100%{
             transform: translateX(0);
             opacity: 1;
-        }
-    }
-    
-    @supports (corner-shape: squircle) {
-        .squircle {
-            border-radius: 3.5rem;
-            corner-shape: squircle; 
         }
     }
 </style>

@@ -61,8 +61,7 @@ const items: CertItem[] = [
 
     <!-- cinematic-center header -->
     <h3
-        class="mx-auto mt-6 max-w-4xl text-center font-['Figtree'] font-semibold text-balance text-white"
-        style={"font-size: clamp(2.2rem, 4.5vw, 3.75rem); line-height: 1.05; letter-spacing: -0.02em;"}
+        class="mx-auto mt-6 max-w-4xl text-center text-editorial-lg font-display font-semibold text-balance text-white"
     >
         <span data-i18n="certHeadingA">Proof of</span>
 
@@ -78,7 +77,7 @@ const items: CertItem[] = [
                 <article
                     tabindex="0"
                     data-slice={index}
-                    class="cert-slice group relative flex overflow-hidden rounded-4xl bg-white/[0.07] p-6 ring-1 ring-white/15 transition-all duration-500 hover:bg-white/[0.09] hover:ring-white/30 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-tertiary-300 md:min-h-[26rem] md:p-8"
+                    class="cert-slice glass-card squircle group flex p-6 md:min-h-[26rem] md:p-8"
                 >
                     <span
                         aria-hidden="true"
@@ -86,13 +85,13 @@ const items: CertItem[] = [
                     />
                     <span
                         aria-hidden="true"
-                        class="pointer-events-none absolute -right-2 -bottom-6 font-['Figtree'] leading-none font-bold text-white/[0.06] transition-all duration-700 ease-out select-none group-hover:scale-105 group-hover:text-white/[0.11] text-[5.5rem] md:text-[7rem]"
+                        class="ghost-num"
                     >
                         {item.level}
                     </span>
 
                     <div class="relative flex w-full items-start gap-5 md:flex-col md:items-center md:gap-6">
-                        <span class="cert-logo block shrink-0 overflow-hidden rounded-2xl bg-white/10 p-2 ring-1 ring-white/20">
+                        <span class="cert-logo block shrink-0 overflow-hidden rounded-2xl bg-surface-raised p-2 ring-1 ring-line-strong">
                             <item.Logo class="block size-12 object-contain transition-transform duration-700 ease-out group-hover:scale-105 md:size-16" />
                         </span>
 
@@ -100,26 +99,26 @@ const items: CertItem[] = [
                             aria-hidden="true"
                             class="cert-compact hidden flex-1 flex-col items-center justify-center gap-4 md:flex"
                         >
-                            <span class="rotate-180 text-sm font-semibold tracking-[0.35em] text-white/55 uppercase [writing-mode:vertical-rl]">
+                            <span class="rotate-180 text-sm font-semibold tracking-[0.35em] text-ink-muted uppercase [writing-mode:vertical-rl]">
                                 {item.issuer}
                             </span>
                         </div>
 
                         <div class="cert-detail min-w-0 flex-1 md:absolute md:inset-0 md:flex md:flex-col md:items-center md:justify-center md:p-8 md:text-center">
-                            <span class="inline-block rounded-full bg-white/5 px-3.5 py-1 text-xs font-medium tracking-[0.18em] text-tertiary-300 uppercase ring-1 ring-white/15">
+                            <span class="chip chip-badge uppercase tracking-[0.18em]">
                                 {item.field}
                             </span>
-                            <h4 class="mt-3 font-['Figtree'] text-xl font-semibold text-balance text-white md:text-2xl">
+                            <h4 class="mt-3 font-display text-xl font-semibold text-balance text-white md:text-2xl">
                                 <span data-i18n={item.titleKey}>
                                     {item.titleFallback}
                                 </span>
                             </h4>
-                            <p class="mt-1 text-sm font-medium text-white/60 md:text-base">
+                            <p class="mt-1 text-sm font-medium text-ink-muted md:text-base">
                                 {item.issuer}
                             </p>
                             <ul class="mt-4 flex flex-wrap gap-2 md:justify-center">
                                 {item.tags.map((tag) => (
-                                    <li class="rounded-full px-3.5 py-1 text-[0.8rem] font-medium tracking-wide text-white/70 ring-1 ring-white/15 transition-colors duration-300 hover:text-white hover:ring-tertiary-300/50">
+                                    <li class="chip chip-tag">
                                         {tag}
                                     </li>
                                 ))}
@@ -156,8 +155,7 @@ const items: CertItem[] = [
     @media (min-width: 768px) {
         .cert-grid {
             grid-template-columns: 1fr 1fr 1fr;
-            transition: grid-template-columns 0.6s
-                cubic-bezier(0.22, 1, 0.36, 1);
+            transition: grid-template-columns 0.6s var(--ease-emphasized);
         }
 
         .cert-grid:has([data-slice="0"]:hover, [data-slice="0"]:focus-within) {
@@ -208,7 +206,7 @@ const items: CertItem[] = [
             pointer-events: auto;
             transition:
                 opacity 0.6s ease-out 0.35s,
-                transform 0.6s cubic-bezier(0, 0.8, 0, 0.987) 0.35s,
+                transform 0.6s var(--ease-emphasized) 0.35s,
                 visibility 0s linear 0s;
         }
     }
@@ -227,19 +225,12 @@ const items: CertItem[] = [
 
     @keyframes cert-in {
         from {
-            transform: translateY(48px) scale(0.94);
+            transform: translateY(var(--reveal-distance)) scale(0.94);
             opacity: 0;
         }
         to {
             transform: translateY(0) scale(1);
             opacity: 1;
-        }
-    }
-
-    @supports (corner-shape: squircle) {
-        article {
-            border-radius: 3.5rem;
-            corner-shape: squircle;
         }
     }
 

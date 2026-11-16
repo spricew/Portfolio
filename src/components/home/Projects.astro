@@ -17,13 +17,12 @@ const fan = [projects[1], projects[3], projects[6]];
   <div class="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
     <div class="max-w-3xl">
       <h3
-        class="font-['Figtree'] font-semibold text-balance text-white"
-        style={"font-size: clamp(2rem, 3.4vw, 3.25rem); line-height: 1.05; letter-spacing: -0.02em;"}
+        class="text-editorial-md font-display font-semibold text-balance text-white"
       >
         <span data-i18n="projHeadingA">Selected</span>
         <span data-i18n="projHeadingB">work, built end to end.</span>
       </h3>
-      <p class="mt-5 max-w-xl text-lg text-pretty text-white/75">
+      <p class="mt-5 max-w-xl text-lg text-pretty text-ink-soft">
         <span data-i18n="projLede"
           >Eight builds spanning client work, mobile apps and AI and CSS experiments — designed, coded and shipped.</span
         >
@@ -39,7 +38,7 @@ const fan = [projects[1], projects[3], projects[6]];
         fan.map((p, i) => (
           <span
             data-fan={i}
-            class="proj-fan-slice relative -ml-10 block aspect-[4/3] w-24 overflow-hidden rounded-2xl ring-1 ring-white/25 first:ml-0 md:w-32 md:first:rotate-[-8deg] md:last:rotate-[8deg]"
+            class="proj-fan-slice relative -ml-10 block aspect-[4/3] w-24 overflow-hidden rounded-2xl ring-1 ring-line-strong first:ml-0 md:w-32 md:first:rotate-[-8deg] md:last:rotate-[8deg]"
           >
             <Image
               src={p.imageSrc}
@@ -89,8 +88,8 @@ const fan = [projects[1], projects[3], projects[6]];
 
   .proj-fan-slice {
     transition:
-      width 0.6s cubic-bezier(0.25, 1, 0.5, 1),
-      transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      width 0.6s var(--ease-emphasized),
+      transform 0.6s var(--ease-emphasized);
   }
 
   @media (hover: hover) {
