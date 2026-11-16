@@ -4,7 +4,8 @@ const {
     Icon,
     textSize = "text-base",
     iconSize = "size-5",
-    textColor = "text-white",
+    // Tinta oscura del sistema: legible sobre el lavado de acento claro
+    textColor = "text-tertiary-950",
     href = "#",
 } = Astro.props;
 ---
@@ -14,10 +15,10 @@ const {
     target="_blank"
     rel="noopener noreferrer"
     class={`
-        group inline-flex items-center justify-start gap-2
-        rounded-xl font-bold ${textSize} ${textColor} 
-        bg-[linear-gradient(90deg,#FFF0F5_0%,#FFF8DC_50%,#E0FFFF_100%)]
-        transition-all duration-300 ease-out cursor-pointer hover:scale-102 
+        inline-flex items-center justify-start gap-2
+        rounded-full font-display font-semibold ${textSize} ${textColor} 
+        bg-linear-to-r from-[#FFF0F5] via-[#FFF8DC] to-[#E0FFFF]
+        transition-all duration-300 ease-out cursor-pointer hover:scale-105 
         overflow-hidden px-4 py-2
         active:scale-95  
     `}

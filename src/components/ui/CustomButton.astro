@@ -5,30 +5,42 @@ const {
     textSize = "text-xl",
     iconSize = "size-5",
     textColor = "text-white",
-    bgColor = "bg-white/10",
+    bgColor = "bg-surface-raised",
     hoverTextColor,
     hoverBgColor,
     href = null,
     extraClass,
     download = false,
+    // Los enlaces internos (ej. volver al inicio) no deben abrir pestaña nueva
+    external = true,
+    padding = "px-4 py-2",
 } = Astro.props;
 
-// estilos base
-const baseStyles = `
-    inline-flex items-center gap-2 px-4 py-2 rounded-full 
-    ${textSize} ${textColor} ${bgColor} 
-    ring-1 ring-white/25 cursor-pointer
-    transition duration-300 ease-out hover:scale-102 
-    ${hoverTextColor} ${hoverBgColor} active:scale-95 
-    ${extraClass}
-`;
+// estilos base (se filtran las props opcionales no definidas para evitar
+// clases vacías o "undefined" en el atributo class)
+const baseStyles = [
+    "inline-flex items-center gap-2",
+    padding,
+    "rounded-full",
+    textSize,
+    textColor,
+    bgColor,
+    "ring-1 ring-line-strong cursor-pointer",
+    "transition duration-300 ease-out hover:scale-105",
+    hoverTextColor,
+    hoverBgColor,
+    "active:scale-95",
+    extraClass,
+]
+    .filter(Boolean)
+    .join(" ");
 ---
 
 {href ? (
     <a 
         href={href}
         class={baseStyles}
-        {...(!download ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        {...(!download && external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
         {...(download ? { download: "CV_Heyder.pdf" } : {})}
     >
         <Icon class={iconSize} />
