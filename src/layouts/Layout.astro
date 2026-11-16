@@ -113,6 +113,11 @@ const schema = {
 				const lenis = new Lenis({
 					lerp: 0.1,
 					wheelMultiplier: 1,
+					// anchors: Lenis respeta el scroll-padding-top del root
+					// (safe area + 6.5rem) al resolver anclas — un único valor
+					// en CSS gobierna el salto nativo (touch) y el suave de
+					// Lenis (desktop). No sumar offset aquí: sería doble
+					// descuento (el ancla aterrizaba a 208px en vez de 104px).
 					anchors: true,
 				});
 
