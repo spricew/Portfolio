@@ -1,35 +1,21 @@
 ---
 ---
 
-<style>
-    .lang-flag.scale-in {
-        animation: flagScaleIn 0.8s ease-out backwards;
-    }
-
-    @keyframes flagScaleIn {
-        0% {
-            transform: scale(0);
-            filter: blur(5px);
-        }
-        50% {
-            transform: scale(1.1);
-            filter: blur(0);
-        }
-        100% {
-            transform: scale(1);
-            filter: blur(0);
-        }
-    }
-</style>
-
-<nav class="flex justify-between items-center w-full px-8 md:px-12 xl:px-48 py-6 lg:py-10 text-white">
-    <div class="flex items-center gap-1.5">
+<!-- Capa funcional flotante (Liquid Glass): dos islas de vidrio sticky que
+     permanecen visibles al hacer scroll. SIN animación de entrada a propósito:
+     animar el propio elemento con backdrop-filter (aunque sea solo opacity/
+     transform con fill backwards) deja su superficie de composición en el
+     frame inicial en Chromium y la isla deja de pintarse. El vidrio aparece
+     desde el primer frame — como el chrome persistente de Apple — y los
+     reveals viven en el contenido (hero/404), no en la capa funcional.
+     Ver DESIGN.md §8.9 y §11. -->
+<nav class="sticky top-[calc(env(safe-area-inset-top,0px)_+_1rem)] z-50 flex justify-between items-center w-full px-8 md:px-12 xl:px-48 text-white">
+    <div class="nav-pill flex items-center gap-1.5 p-1.5">
         <button
             data-lang-btn="en"
             data-lang-active="true"
             data-lang-value="en"
-            class="lang-flag scale-in relative h-7 w-10 rounded-sm overflow-hidden ring-1 ring-transparent transition-opacity duration-500 delay-10 hover:scale-105 hover:ring-line-strong cursor-pointer data-[lang-active=true]:opacity-100 data-[lang-active=false]:opacity-40 data-[lang-active=false]:hover:opacity-70 data-[lang-active=false]:![transition-delay:0ms]"
-            style={"animation-delay: .3s"}
+            class="lang-flag relative h-7 w-10 rounded-sm overflow-hidden ring-1 ring-transparent transition-opacity duration-500 delay-10 hover:scale-105 hover:ring-line-strong cursor-pointer data-[lang-active=true]:opacity-100 data-[lang-active=false]:opacity-40 data-[lang-active=false]:hover:opacity-70 data-[lang-active=false]:![transition-delay:0ms]"
         >
             <img src="/images/UsaFlag.webp" alt="English" class="h-full w-full object-cover" />
         </button>
@@ -37,25 +23,24 @@
             data-lang-btn="es"
             data-lang-active="false"
             data-lang-value="es"
-            class="lang-flag scale-in relative h-7 w-10 rounded-sm overflow-hidden ring-1 ring-transparent transition-opacity duration-500 delay-10 hover:scale-105 hover:ring-line-strong cursor-pointer data-[lang-active=true]:opacity-100 data-[lang-active=false]:opacity-40 data-[lang-active=false]:hover:opacity-70 data-[lang-active=false]:![transition-delay:0ms]"
-            style={"animation-delay: .2s"}
+            class="lang-flag relative h-7 w-10 rounded-sm overflow-hidden ring-1 ring-transparent transition-opacity duration-500 delay-10 hover:scale-105 hover:ring-line-strong cursor-pointer data-[lang-active=true]:opacity-100 data-[lang-active=false]:opacity-40 data-[lang-active=false]:hover:opacity-70 data-[lang-active=false]:![transition-delay:0ms]"
         >
             <img src="/images/MexicoFlag.webp" alt="Español" class="h-full w-full object-cover" />
         </button>
     </div>
-    <ul class="hidden md:flex gap-6">
-        <li class="scale-in" style={"animation-delay: .3s"}>
-            <a href="#about" class="block transition duration-300 ease-out hover:scale-105 p-2 hover:text-tertiary-300">
+    <ul class="nav-pill hidden md:flex items-center gap-1 p-1.5">
+        <li>
+            <a href="#about" class="block rounded-full px-4 py-2 text-base transition-colors duration-300 ease-out hover:bg-surface-raised hover:text-tertiary-300">
                 <span data-i18n="navAbout">About</span>
             </a>
         </li>
-        <li class="scale-in" style={"animation-delay: .4s"}>
-            <a href="#projects" class="block transition duration-300 ease-out hover:scale-105 p-2 hover:text-tertiary-300">
+        <li>
+            <a href="#projects" class="block rounded-full px-4 py-2 text-base transition-colors duration-300 ease-out hover:bg-surface-raised hover:text-tertiary-300">
                 <span data-i18n="navProjects">Projects</span>
             </a>
         </li>
-        <li class="scale-in" style={"animation-delay: .5s"}>
-            <a href="mailto: medinaheyder@gmail.com" class="block transition duration-300 ease-out hover:scale-105 p-2 pr-0 hover:text-tertiary-300">
+        <li>
+            <a href="mailto: medinaheyder@gmail.com" class="block rounded-full px-4 py-2 text-base transition-colors duration-300 ease-out hover:bg-surface-raised hover:text-tertiary-300">
                 <span data-i18n="navContact">Contact</span>
             </a>
         </li>
