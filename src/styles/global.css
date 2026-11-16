@@ -40,11 +40,104 @@
   --color-tertiary-800: #235f67;
   --color-tertiary-900: #224f57;
   --color-tertiary-950: #11343b;
+
+  /* Lienzo: base del fondo del sitio */
+  --color-canvas: #0a0a0a;
+
+  /* Superficies de vidrio (glass), de más oscura a más clara */
+  --color-surface-sunken: rgb(0 0 0 / 0.3);
+  --color-surface-faint: rgb(255 255 255 / 0.05);
+  --color-surface: rgb(255 255 255 / 0.07);
+  --color-surface-hover: rgb(255 255 255 / 0.09);
+  --color-surface-raised: rgb(255 255 255 / 0.1);
+  --color-surface-overlay: rgb(255 255 255 / 0.15);
+  --color-surface-strong: rgb(255 255 255 / 0.2);
+
+  /* Líneas (ring / border) */
+  --color-line-soft: rgb(255 255 255 / 0.1);
+  --color-line: rgb(255 255 255 / 0.15);
+  --color-line-strong: rgb(255 255 255 / 0.25);
+
+  /* Tinta sobre lienzo oscuro (jerarquía de texto secundario) */
+  --color-ink-soft: rgb(255 255 255 / 0.8);
+  --color-ink-muted: rgb(255 255 255 / 0.6);
+  --color-ink-faint: rgb(255 255 255 / 0.4);
+
+  /* Numeral fantasma decorativo tras las tarjetas */
+  --color-ghost: rgb(255 255 255 / 0.07);
+  --color-ghost-strong: rgb(255 255 255 / 0.12);
+
+  /* Tipografía: Urbanist = cuerpo, Figtree = display (títulos/etiquetas) */
+  --font-sans: "Urbanist", system-ui, Arial, Helvetica, sans-serif;
+  --font-display: "Figtree", "Urbanist", system-ui, sans-serif;
+
+  /* Motion: curva de énfasis para transiciones grandes y distancia del reveal */
+  --ease-emphasized: cubic-bezier(0.25, 1, 0.5, 1);
+  --reveal-distance: 2.5rem;
+}
+
+@utility text-editorial-sm {
+  font-size: clamp(1.65rem, 2.4vw, 2.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+@utility text-editorial-md {
+  font-size: clamp(2rem, 3.4vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+@utility text-editorial-lg {
+  font-size: clamp(2.2rem, 4.5vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
 }
 
 /* Reset básico */
 * {
   box-sizing: border-box;
+}
+
+@layer base {
+  /* Anillo de foco único en todo el sitio, en el acento del sistema */
+  :focus-visible {
+    outline: 2px solid var(--color-tertiary-300);
+    outline-offset: 4px;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply relative overflow-hidden rounded-4xl bg-surface ring-1 ring-line
+      transition-all duration-500 ease-emphasized
+      hover:-translate-y-0.5 hover:bg-surface-hover hover:ring-tertiary-300/60;
+  }
+
+  /* Chip base: forma y tipografía de todas las etiquetas */
+  .chip {
+    @apply inline-flex w-fit items-center rounded-full px-3.5 py-1 text-xs font-medium tracking-wide;
+  }
+
+  /* Chip de tecnología (Pill): fondo hundido con texto de acento */
+  .chip-tech {
+    @apply bg-surface-sunken font-display text-tertiary-300 capitalize ring-1 ring-line-soft;
+  }
+
+  /* Chip de metadato (tags en Skills/Education): outline discreto */
+  .chip-tag {
+    @apply text-ink-muted ring-1 ring-line transition-colors duration-300 hover:text-white hover:ring-tertiary-300/50;
+  }
+
+  /* Chip de insignia (campo/categoría): tinte neutro con texto de acento */
+  .chip-badge {
+    @apply bg-surface-faint text-tertiary-300 ring-1 ring-line;
+  }
+
+  /* Numeral fantasma decorativo (Skills / Education) */
+  .ghost-num {
+    @apply pointer-events-none absolute -bottom-7 right-5 select-none font-display text-[6rem] font-bold leading-none text-ghost transition-all duration-700 ease-out group-hover:scale-105 group-hover:text-ghost-strong md:text-[8rem];
+  }
 }
 
 @font-face {
@@ -113,7 +206,7 @@ html {
      y dejan ver el canvas blanco por arriba y por abajo. Pintar el canvas desde
      <html> mantiene el fondo continuo en toda la pantalla, incluidas las safe
      areas y el overscroll. */
-  background-color: var(--color-neutral-950);
+  background-color: var(--color-canvas);
   color-scheme: dark;
 }
 
@@ -140,22 +233,25 @@ html.lenis body {
   }
 
   .fade-up-view,
-  .fade-up-view:not(.is-in) {
+  .fade-up-view:not(.is-in),
+  .scale-in-view,
+  .scale-in-view:not(.is-in) {
     animation: none;
     opacity: 1;
     transform: none;
+    filter: none;
   }
 }
 
 body {
-  font: 20px "Urbanist", system-ui, Arial, Helvetica, sans-serif;
+  font: 20px var(--font-sans);
   /* Fondo del sitio. Debe declararse explícitamente en <html> y <body>: en iOS
      26+ Safari muestrea estos colores para teñir sus barras (Liquid Glass) y,
      si el fondo raíz es transparente, cae a blanco y deja una franja cortada
      entre la barra superior y la inferior.
      El gradiente vive aquí (y no en un <div> con z-index negativo) para que se
      pinte sobre el color base sin quedar detrás del background de <body>. */
-  background-color: var(--color-neutral-950);
+  background-color: var(--color-canvas);
   background-image: radial-gradient(
     ellipse 80% 80% at 50% -20%,
     rgba(120, 119, 198, 0.3),
@@ -181,16 +277,26 @@ body {
    never re-hides the element (unlike animation-timeline: view()). */
 .fade-up-view:not(.is-in) {
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateY(var(--reveal-distance));
 }
 
 .fade-up-view.is-in {
   animation: slideIn 0.6s ease-out backwards;
 }
 
+.scale-in-view:not(.is-in) {
+  opacity: 0;
+  transform: scale(0.6);
+  filter: blur(8px);
+}
+
+.scale-in-view.is-in {
+  animation: scaleIn 0.8s linear(0, 0.009 1.4%, 0.032 2.8%, 0.131 6%, 0.265 9.1%, 0.675 17.6%, 0.88 22.8%, 0.953 25.2%, 1.014 27.7%, 1.062 30.3%, 1.094 32.9%, 1.121 37.2%, 1.121 42.2%, 1.102 46.7%, 1.019 61.2%, 0.989 71.5%, 0.985 81.1%, 1) backwards;
+}
+
 @keyframes slideIn {
   0% {
-    transform: translateY(50px);
+    transform: translateY(var(--reveal-distance));
     opacity: 0;
   }
 
@@ -217,4 +323,23 @@ body {
 .highlight {
   color: var(--color-tertiary-300);
   font-weight: 600;
+}
+
+/* Squircle: radio súper-elíptico solo en navegadores con soporte; sin
+   soporte se conserva el radio de respaldo declarado con rounded-*.
+   El radio por defecto (3.5rem) corresponde a las tarjetas grandes; los
+   mosaicos pequeños usan la variante .squircle-tile. La variable
+   --squircle-radius sigue disponible para casos intermedios. */
+@supports (corner-shape: squircle) {
+  .squircle {
+    border-radius: var(--squircle-radius, 3.5rem);
+    corner-shape: squircle;
+  }
+
+  /* Variante para mosaicos pequeños (TechCard): radio porcentual que escala
+     con la caja del tile, manteniendo la súper-elipse orgánica original. */
+  .squircle-tile {
+    border-radius: 45%;
+    corner-shape: squircle;
+  }
 }
