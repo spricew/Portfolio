@@ -41,8 +41,10 @@
   --color-tertiary-900: #224f57;
   --color-tertiary-950: #11343b;
 
+  --color-accent: #9696d8;
+
   /* Lienzo: base del fondo del sitio */
-  --color-canvas: #0a0a0a;
+  --color-canvas: #07071f;
 
   /* Superficies de vidrio (glass), de más oscura a más clara */
   --color-surface-sunken: rgb(0 0 0 / 0.3);
@@ -102,7 +104,7 @@
 @layer base {
   /* Anillo de foco único en todo el sitio, en el acento del sistema */
   :focus-visible {
-    outline: 2px solid var(--color-tertiary-300);
+    outline: 2px solid var(--color-accent);
     outline-offset: 4px;
   }
 }
@@ -111,7 +113,7 @@
   .glass-card {
     @apply relative overflow-hidden rounded-4xl bg-surface ring-1 ring-line
       transition-all duration-500 ease-emphasized
-      hover:-translate-y-0.5 hover:bg-surface-hover hover:ring-tertiary-300/60;
+      hover:-translate-y-0.5 hover:bg-surface-hover hover:ring-accent/60;
   }
 
   /* Chip base: forma y tipografía de todas las etiquetas */
@@ -121,17 +123,17 @@
 
   /* Chip de tecnología (Pill): fondo hundido con texto de acento */
   .chip-tech {
-    @apply bg-surface-sunken font-display text-tertiary-300 capitalize ring-1 ring-line-soft;
+    @apply bg-surface-sunken font-display text-accent capitalize ring-1 ring-line-soft;
   }
 
   /* Chip de metadato (tags en Skills/Education): outline discreto */
   .chip-tag {
-    @apply text-ink-muted ring-1 ring-line transition-colors duration-300 hover:text-white hover:ring-tertiary-300/50;
+    @apply text-ink-muted ring-1 ring-line transition-colors duration-300 hover:text-white hover:ring-accent/50;
   }
 
   /* Chip de insignia (campo/categoría): tinte neutro con texto de acento */
   .chip-badge {
-    @apply bg-surface-faint text-tertiary-300 ring-1 ring-line;
+    @apply bg-surface-faint text-accent ring-1 ring-line;
   }
 
   /* Numeral fantasma decorativo (Skills / Education) */
@@ -240,7 +242,7 @@ html.lenis body {
 
 body {
   font: 20px var(--font-sans);
-  background-color: rgb(7, 7, 31);
+  background-color: var(--color-canvas);
 }
 
 .slide-in {
@@ -363,7 +365,7 @@ body {
 }
 
 .highlight {
-  color: var(--color-tertiary-300);
+  color: var(--color-accent);
   font-weight: 600;
 }
 
