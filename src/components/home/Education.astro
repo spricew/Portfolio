@@ -25,7 +25,7 @@ const items: EduItem[] = [
     status: "current",
     ghost: "2026",
     tags: ["Software Architecture", "Project Management", "Leadership"],
-    accent: "from-tertiary-300 to-primary-400",
+    accent: "from-accent to-primary-400",
   },
   {
     school: "Universidad Tecnológica Metropolitana",
@@ -84,7 +84,7 @@ const marquee: string[] = [
     <p
       class="shrink-0 font-display text-lg font-medium tracking-wide text-ink-muted md:text-xl"
     >
-      2020 <span class="text-tertiary-300/60">—</span> 2026
+      2020 <span class="text-accent/60">—</span> 2026
     </p>
   </div>
 
@@ -100,7 +100,7 @@ const marquee: string[] = [
             {marquee.map((topic) => (
               <span class="flex items-center gap-10 text-sm font-medium uppercase tracking-[0.2em] text-ink-faint">
                 {topic}
-                <span class="size-1.5 rounded-full bg-tertiary-300/60" />
+                <span class="size-1.5 rounded-full bg-accent/60" />
               </span>
             ))}
           </div>
@@ -122,7 +122,7 @@ const marquee: string[] = [
       </p>
       <ul class="flex flex-col gap-3 text-sm text-ink-muted">
         <li class="flex items-center gap-3">
-          <span class="edu-pulse size-2 rounded-full bg-tertiary-300"></span>
+          <span class="edu-pulse size-2 rounded-full bg-accent"></span>
           <span data-i18n="eduStatusCurrent">In progress</span>
         </li>
         <li class="flex items-center gap-3">
@@ -154,8 +154,8 @@ const marquee: string[] = [
                   <span data-i18n={item.dateKey}>{item.dateFallback}</span>
                 </span>
                 {item.status === "current" ? (
-                  <span class="chip px-4 py-1.5 text-sm bg-tertiary-300/10 text-tertiary-300 ring-1 ring-tertiary-300/40">
-                    <span class="edu-pulse size-1.5 rounded-full bg-tertiary-300" />
+                  <span class="chip px-4 py-1.5 text-sm bg-accent/10 text-accent ring-1 ring-accent/40">
+                    <span class="edu-pulse mr-1.5 size-1.5 rounded-full bg-accent" />
                     <span data-i18n="eduStatusCurrent">In progress</span>
                   </span>
                 ) : (
@@ -167,7 +167,7 @@ const marquee: string[] = [
 
               <div class="relative mt-6 flex items-start gap-5">
                 <span class="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-surface-raised ring-1 ring-line-strong transition-transform duration-700 ease-out group-hover:scale-105">
-                  <EducationIcon class="size-7 text-tertiary-300" />
+                  <EducationIcon class="size-7 text-accent" />
                 </span>
                 <div class="min-w-0">
                   <h4 class="font-display text-xl font-semibold tracking-tight text-balance text-white md:text-2xl">
@@ -175,7 +175,7 @@ const marquee: string[] = [
                       {item.careerFallback}
                     </span>
                   </h4>
-                  <p class="mt-1 font-display text-base font-medium text-tertiary-300 md:text-lg">
+                  <p class="mt-1 font-display text-base font-medium text-accent md:text-lg">
                     {item.school}
                   </p>
                 </div>
