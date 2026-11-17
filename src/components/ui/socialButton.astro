@@ -10,7 +10,7 @@ const { href, title, Icon } = Astro.props as SocialProps;
 ---
 
 <a href={href} aria-label={title} title={title}
-    class="inline-flex items-center justify-center xl:h-full aspect-square xl:w-fit w-11 rounded-full bg-tertiary-300 text-tertiary-950
-    transition duration-300 ease-out hover:scale-105 hover:bg-white" >
+    class="inline-flex items-center justify-center xl:h-full aspect-square xl:w-fit w-11 rounded-full bg-accent text-canvas
+    transition duration-300 ease-out hover:scale-105 hover:bg-accent/50" >
     <Icon class="size-5" />
 </a>
