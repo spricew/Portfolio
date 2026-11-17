@@ -2,6 +2,8 @@
 import MailIcon from "@/icons/MailIcon.astro";
 import GithubIcon from "@/icons/GithubIcon.astro";
 import LinkedInIcon from "@/icons/linkedinIcon.astro";
+
+const baseStyle = `inline-flex p-2 transition duration-300 ease-out hover:text-accent hover:scale-105`;
 ---
 
 <footer class="flex flex-col items-center gap-4 py-12 ring-1 ring-line-soft
@@ -27,30 +29,20 @@ import LinkedInIcon from "@/icons/linkedinIcon.astro";
     
     <ul class="h-full flex gap-x-4 text-base text-white">
         <li>
-            <a href="mailto:medinaheyder@gmail.com" class="socialLink" aria-label="Email" title="Email">
+            <a href="mailto:medinaheyder@gmail.com" class={`${baseStyle}`} aria-label="Email" title="Email">
                 <MailIcon class="size-5" />
             </a>
         </li>
         <li>
-            <a href="https://github.com/spricew" class="socialLink" target="_blank" aria-label="Github" title="Github">
+            <a href="https://github.com/spricew" class={`${baseStyle}`} target="_blank" aria-label="Github" title="Github">
                 <GithubIcon class="size-5" />
             </a>
         </li>
         <li>
-            <a href="https://www.linkedin.com/in/heyderix/" class="socialLink" target="_blank" aria-label="LinkedIn" title="LinkedIn">
+            <a href="https://www.linkedin.com/in/heyderix/" class={`${baseStyle}`} target="_blank" aria-label="LinkedIn" title="LinkedIn">
                 <LinkedInIcon class="size-5" />
             </a>
         </li>
     </ul>
 </footer>
 
-<style>
-    .socialLink{
-        padding: 0.5rem;
-        transition: 0.3s ease-out;
-    }
-    .socialLink:hover {
-        color: var(--color-tertiary-300);
-        transform: scale(1.05);
-    }
-</style>
