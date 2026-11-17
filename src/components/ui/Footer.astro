@@ -3,7 +3,31 @@ import MailIcon from "@/icons/MailIcon.astro";
 import GithubIcon from "@/icons/GithubIcon.astro";
 import LinkedInIcon from "@/icons/linkedinIcon.astro";
 
+interface FooterLink {
+    href: string;
+    info: string;
+    Icon: (_props: { class?: string }) => unknown;
+}
+
 const baseStyle = `inline-flex p-2 transition duration-300 ease-out hover:text-accent hover:scale-105`;
+
+const links: FooterLink[] = [
+    {
+        href: "mailto:medinaheyder@gmail.com",
+        info: "Email",
+        Icon: MailIcon,
+    },
+    {
+        href: "https://github.com/spricew",
+        info: "Github",
+        Icon: GithubIcon,
+    },
+    {
+        href: "https://www.linkedin.com/in/heyderix/",
+        info: "LinkedIn",
+        Icon: LinkedInIcon,
+    },
+];
 ---
 
 <footer class="flex flex-col items-center gap-4 py-12 ring-1 ring-line-soft
@@ -28,21 +52,19 @@ const baseStyle = `inline-flex p-2 transition duration-300 ease-out hover:text-a
     </div>
     
     <ul class="h-full flex gap-x-4 text-base text-white">
-        <li>
-            <a href="mailto:medinaheyder@gmail.com" class={`${baseStyle}`} aria-label="Email" title="Email">
-                <MailIcon class="size-5" />
-            </a>
-        </li>
-        <li>
-            <a href="https://github.com/spricew" class={`${baseStyle}`} target="_blank" aria-label="Github" title="Github">
-                <GithubIcon class="size-5" />
-            </a>
-        </li>
-        <li>
-            <a href="https://www.linkedin.com/in/heyderix/" class={`${baseStyle}`} target="_blank" aria-label="LinkedIn" title="LinkedIn">
-                <LinkedInIcon class="size-5" />
-            </a>
-        </li>
+        {links.map(({ href, info, Icon }) => (
+            <li>
+                <a 
+                    href={href} 
+                    class={baseStyle} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={info} 
+                    title={info}
+                >
+                    <Icon class="size-5" />
+                </a>
+            </li>
+        ))}
     </ul>
 </footer>
-
